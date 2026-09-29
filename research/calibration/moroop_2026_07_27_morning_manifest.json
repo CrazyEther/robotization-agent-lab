@@ -1,0 +1,43 @@
+{
+  "dataset": "MoRoOp: A Dataset of Autonomous Mobile Robot Operations in Production Logistics",
+  "publisher": "Self-Organizing Production Logistics / KTH IPU Lab",
+  "dataset_url": "https://huggingface.co/datasets/Self-Organizing-Production-Logistics/MoRoOp",
+  "revision": "880a249d15832c897488dde8856a8acc981062c3",
+  "license": "CC BY 4.0",
+  "retrieved_at_utc": "2026-09-26T19:16:57.586834+00:00",
+  "scope": "Observed AMR operations in a production logistics lab, one morning shift; not a pallet warehouse facility passport.",
+  "files": [
+    {
+      "kind": "jobs",
+      "source_file": "2026_07_27_morning_jobs.parquet",
+      "local_file": "raw/moroop_2026_07_27_morning_jobs.parquet",
+      "source_url": "https://huggingface.co/datasets/Self-Organizing-Production-Logistics/MoRoOp/resolve/880a249d15832c897488dde8856a8acc981062c3/data/2026_07_27_morning/2026_07_27_morning_jobs.parquet",
+      "bytes": 39601,
+      "sha256": "46ef270549fe2d9e63b1e17a8c845cd3521bdea10c505895f00ba43e433de249"
+    },
+    {
+      "kind": "operations",
+      "source_file": "2026_07_27_morning_operations.parquet",
+      "local_file": "raw/moroop_2026_07_27_morning_operations.parquet",
+      "source_url": "https://huggingface.co/datasets/Self-Organizing-Production-Logistics/MoRoOp/resolve/880a249d15832c897488dde8856a8acc981062c3/data/2026_07_27_morning/2026_07_27_morning_operations.parquet",
+      "bytes": 82779,
+      "sha256": "f7e2a296b5b9391620dc4fcaa9f0c50689e31f5f268c729fce204739e66b73c2"
+    },
+    {
+      "kind": "dispatch_events",
+      "source_file": "2026_07_27_morning_dispatch_events.parquet",
+      "local_file": "raw/moroop_2026_07_27_morning_dispatch_events.parquet",
+      "source_url": "https://huggingface.co/datasets/Self-Organizing-Production-Logistics/MoRoOp/resolve/880a249d15832c897488dde8856a8acc981062c3/data/2026_07_27_morning/2026_07_27_morning_dispatch_events.parquet",
+      "bytes": 149079,
+      "sha256": "d757d7a588771b2209944b89fabe9797f21a874932b786acc98190f0f5216ac4"
+    },
+    {
+      "kind": "robot_state_cleaned",
+      "source_file": "2026_07_27_morning_robot_state_cleaned.parquet",
+      "local_file": "raw/moroop_2026_07_27_morning_robot_state_cleaned.parquet",
+      "source_url": "https://huggingface.co/datasets/Self-Organizing-Production-Logistics/MoRoOp/resolve/880a249d15832c897488dde8856a8acc981062c3/data/2026_07_27_morning/2026_07_27_morning_robot_state_cleaned.parquet",
+      "bytes": 1341536,
+      "sha256": "c7d5aa3d1f2418fbce56d67b0d93208faf1244ad2d884d1a58d1852db28beb0f"
+    }
+  ]
+}
