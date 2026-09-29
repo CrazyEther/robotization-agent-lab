@@ -6,6 +6,7 @@ import marketWarehouse from '../../data/market-scenarios/warehouse.json';
 import marketHospital from '../../data/market-scenarios/hospital.json';
 import marketAirport from '../../data/market-scenarios/airport.json';
 import {createScenario,evaluateInvestment,type FinanceInput,type Sector,type SimulationInput} from '../../packages/ris/contracts';
+import {evaluateConditionalFinancials} from '../../packages/ris/financial-scenarios';
 import {buildSimulationCoreReplay} from '../../packages/ris/simulationCoreReplay';
 import {compileAgentScenario,defaultOperations,findFreeStation,runAgentStudy,type Operation,type AgentStudy,type AgentConfiguration} from '../../packages/agent-studio/model';
 import './agent-studio.css';
@@ -42,6 +43,7 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
  const [result,setResult]=useState<Result|null>(null),[error,setError]=useState('');
  const [playing,setPlaying]=useState(false),[index,setIndex]=useState(0),[speed,setSpeed]=useState(20);
  const clock=useRef(0),[finance,setFinance]=useState<FinanceInput>(defaults);
+ const [extraShortfallCost,setExtraShortfallCost]=useState('');
  const [catalogOpen,setCatalogOpen]=useState(false),[selectedRobot,setSelectedRobot]=useState(selectedRobotId??'');
  const [layoutTool,setLayoutTool]=useState<'move'|'rack'|'obstacle'|'station'>('move');
  const [layoutNote,setLayoutNote]=useState('');
@@ -167,9 +169,18 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
    const conservative=(result.experiment.metrics.completed.low95??0)*finance.daysPerYear>=finance.annualDemand&&
     result.experiment.runs.every(r=>r.metrics.completed*finance.daysPerYear>=finance.annualDemand);
    return conservative?outcome:{...outcome,comparable:false,roiPercent:null,netAnnualBenefit:outcome.netAnnualBenefit,
-    npv:null,paybackYears:null,warnings:[...outcome.warnings,'Нижняя оценка серии прогонов не покрывает план: ROI/NPV заблокированы.']};
+    npv:null,paybackYears:null,warnings:[...outcome.warnings,'Не подтверждено выполнение плана по всем прогонам. ROI/NPV не являются подтверждённым результатом; условный расчёт показан отдельно.']};
   }catch{return null;}
  },[result,input,finance]);
+ const conditionalFinancials=useMemo(()=>{
+  if(!result)return null;
+  try{return evaluateConditionalFinancials(input,{
+    completed:result.experiment.metrics.completed.mean??0,
+    energyKwh:result.experiment.metrics.transportEnergyKwh.mean??0,
+    backlog:result.experiment.metrics.backlog.mean??0,
+   },finance,extraShortfallCost===''?null:Number(extraShortfallCost));
+  }catch{return null;}
+ },[result,input,finance,extraShortfallCost]);
  const chart=useMemo(()=>{if(!result)return '';
   const points=result.frames.filter((_,i)=>i%Math.max(1,Math.floor(result.frames.length/160))===0);
   const last=points.at(-1)?.t??1,max=Math.max(1,result.run.metrics.created);
@@ -180,7 +191,7 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
  const supports=registry.products.filter(p=>p.familyId==='transport');
  const setRobots=(name:keyof SimulationInput['robot'],value:number)=>setScenario(s=>({...s,robot:{...s.robot,[name]:value}}));
  const setWorkload=(name:keyof SimulationInput['workload'],value:number)=>setScenario(s=>({...s,workload:{...s.workload,[name]:value}}));
- const fillEconomicExample=()=>{setFinance({
+ const fillEconomicExample=()=>{setExtraShortfallCost('');setFinance({
   unitPrice:900000,installation:300000,infrastructure:200000,chargersCost:140000,
   maintenanceAnnual:260000,electricityPerKwh:10,baselineCostAnnual:4800000,
   residualHumanCostAnnual:900000,daysPerYear:250,horizonYears:5,
@@ -391,21 +402,46 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
     ['unitPrice','Цена робота, ₽'],['installation','Пусконаладка, ₽'],['infrastructure','Инфраструктура, ₽'],
     ['chargersCost','Зарядка / связь, ₽'],['maintenanceAnnual','Обслуживание, ₽/год'],
     ['electricityPerKwh','Электроэнергия, ₽/кВт·ч'],['baselineCostAnnual','Текущие затраты, ₽/год'],
-    ['residualHumanCostAnnual','Оставшийся персонал, ₽/год'],['annualDemand','План, операций/год'],
-    ['baselineAnnualCompleted','Выпуск до внедрения, шт./год'],
+    ['residualHumanCostAnnual','Оставшийся персонал, ₽/год'],['annualDemand','План готовых изделий/год'],
+    ['baselineAnnualCompleted','Готовых изделий до внедрения, шт./год'],
     ['daysPerYear','Рабочих дней в году'],['horizonYears','Период оценки, лет'],
     ['discountRatePercent','Ставка дисконтирования, %']
    ] as [keyof FinanceInput,string][]).map(([key,label])=><label key={key}>{label}<input type="number" min="0" value={finance[key]}
-    onChange={e=>setFinance(old=>({...old,[key]:Number(e.target.value)}))}/></label>)}</div>
-    <div className="ras-finance-summary"><span>ПО ОДНОМУ АГЕНТНОМУ ИССЛЕДОВАНИЮ</span>
+    onChange={e=>setFinance(old=>({...old,[key]:Number(e.target.value)}))}/></label>)}
+    <label className="ras-gap-cost">Дополнительные затраты на завершение недостающего объёма, ₽/год
+      <input type="number" min="0" step="1" placeholder="Не указаны" value={extraShortfallCost}
+       onChange={e=>setExtraShortfallCost(e.target.value)} aria-label="Дополнительные затраты на недостающий объём"/>
+      <small>Сверх уже введённых расходов на оставшийся персонал. Укажите 0 только если имеющиеся ресурсы действительно обеспечат остаток без доплаты.</small>
+    </label></div>
+    <div className="ras-finance-summary"><span>ПО РЕЗУЛЬТАТАМ СЕРИИ АГЕНТНЫХ ПРОГОНОВ</span>
      <div><small>CAPEX</small><b>{economic?cash(economic.capex):'—'}</b></div>
      <div><small>OPEX / год</small><b>{economic?cash(economic.annualOpex):'—'}</b></div>
-     <div><small>TCO / {finance.horizonYears} лет</small><b>{economic?cash(economic.tco):'—'}</b></div>
-     <div><small>ROI / {finance.horizonYears} лет</small><b>{economic?.roiPercent!=null?fmt(economic.roiPercent,1)+'%':'Недостаточно данных'}</b></div>
-     <div><small>NPV / ставка {fmt(finance.discountRatePercent,1)}%</small><b data-testid="npv-value">{economic?.npv!=null?cash(economic.npv):'Недостаточно данных'}</b></div>
-     <div><small>Чистый денежный эффект / год</small><b>{economic?.netAnnualBenefit!=null?cash(economic.netAnnualBenefit):'—'}</b></div>
+     <div><small>TCO / {finance.horizonYears} лет (без неучтённых затрат)</small><b>{economic?cash(economic.tco):'—'}</b></div>
+     <div><small>Подтверждённый ROI / {finance.horizonYears} лет</small><b>{economic?.roiPercent!=null?fmt(economic.roiPercent,1)+'%':conditionalFinancials?.annualShortfall&&conditionalFinancials.annualShortfall>0?'План не выполнен':'Недостаточно данных'}</b></div>
+     <div><small>Подтверждённый NPV / ставка {fmt(finance.discountRatePercent,1)}%</small><b data-testid="npv-value">{economic?.npv!=null?cash(economic.npv):conditionalFinancials?.annualShortfall&&conditionalFinancials.annualShortfall>0?'План не выполнен':'Недостаточно данных'}</b></div>
+     <div><small>Расчётный денежный эффект / год, без дополнительных затрат на дефицит</small><b>{economic?.netAnnualBenefit!=null?cash(economic.netAnnualBenefit):'—'}</b></div>
      <div><small>Оценка мощности / год</small><b>{economic?fmt(economic.annualCompleted,0)+' изделий':'—'}</b></div>
      <div><small>Окупаемость</small><b>{economic?.paybackYears!=null?fmt(economic.paybackYears,2)+' года':'Не рассчитана'}</b></div>
+     {conditionalFinancials&&conditionalFinancials.annualShortfall>0&&<div className="ras-financial-conditional" data-testid="financial-shortfall">
+      <h3>Экономика при неполном выполнении плана</h3>
+      <p>Смоделированная мощность: <b>{fmt(conditionalFinancials.annualCompleted,0)}</b> из <b>{fmt(conditionalFinancials.annualDemand,0)}</b> готовых изделий/год
+       ({fmt(conditionalFinancials.coveragePercent??0,1)}% плана).
+       Осталось обеспечить: <b>{fmt(conditionalFinancials.annualShortfall,0)} изделий/год</b>.</p>
+      <p>Сначала проверьте, что сохранённые расходы на персонал действительно позволяют выполнить недостающий объём. Количество перевозок и готовых изделий — разные метрики.</p>
+      {conditionalFinancials.financiallySpecified&&<>
+       <div><small>Верхняя оценка ROI, без дополнительных расходов на остаток</small>
+         <strong data-testid="conditional-roi-ceiling">{conditionalFinancials.upperBoundRoiPercent===null?'—':fmt(conditionalFinancials.upperBoundRoiPercent,1)+'%'}</strong></div>
+       <div><small>Верхняя оценка NPV, без дополнительных расходов на остаток</small>
+         <strong data-testid="conditional-npv-ceiling">{conditionalFinancials.upperBoundNpv===null?'—':cash(conditionalFinancials.upperBoundNpv)}</strong></div>
+       {conditionalFinancials.extraCoverageCostAnnual===null
+         ?<p className="ras-warning">Дополнительные расходы на закрытие дефицита не заданы. Значения выше — только финансовая граница при допущении нулевых добавочных расходов; это не подтверждённые ROI/NPV.</p>
+         :<><div><small>Условный ROI с указанными дополнительными затратами</small><strong data-testid="conditional-roi">{conditionalFinancials.assumedRoiPercent===null?'—':fmt(conditionalFinancials.assumedRoiPercent,1)+'%'}</strong></div>
+           <div><small>Условный NPV с указанными дополнительными затратами</small><strong data-testid="conditional-npv">{conditionalFinancials.assumedNpv===null?'—':cash(conditionalFinancials.assumedNpv)}</strong></div>
+           <div><small>Условная окупаемость</small><strong>{conditionalFinancials.assumedPaybackYears===null?'Не достигнута':fmt(conditionalFinancials.assumedPaybackYears,2)+' года'}</strong></div>
+           <div><small>Условный TCO с дополнительными затратами</small><strong>{conditionalFinancials.assumedTco===null?'—':cash(conditionalFinancials.assumedTco)}</strong></div>
+           <p className="ras-warning">Расчёт действителен только при дополнительном допущении, что заявленная сумма покрывает выполнение всех {fmt(conditionalFinancials.annualShortfall,0)} недостающих изделий/год. Симуляция не доказала выполнимость этого объёма.</p></>}
+      </>}
+     </div>}
      {economic?.warnings.map((w,i)=><p className="ras-warning" key={i}>{w}</p>)}
     </div></div>
   </section>

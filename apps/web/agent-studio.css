@@ -24,3 +24,13 @@
 .ras-selected-object label{font-size:10px;font-weight:700;display:flex;flex-direction:column;gap:2px;min-width:80px}
 .ras-selected-object input{background:white;color:#122f44;border:1px solid #97b6cf;border-radius:4px;padding:5px 7px;width:85px}
 .ras-selected-object button{background:#fae4e0;color:#9a3622;border:1px solid #e9b8ad;border-radius:5px;padding:8px 10px;font-size:11px;font-weight:800;cursor:pointer}
+
+/* Financial transparency when simulated capacity does not meet the target. */
+.ras-finance-grid .ras-fields .ras-gap-cost{grid-column:1/-1;border:1px solid #cbd9e8;background:#f0f5fc;padding:12px;border-radius:8px}
+.ras-gap-cost small{font-size:10px;font-weight:400;color:#4c657d;line-height:1.6}
+.ras-financial-conditional{margin-top:16px;padding:14px;background:#f1f6fd;border:1px solid #aec8e5;border-radius:11px;color:#1a3c59}
+.ras-financial-conditional h3{font-size:14px;margin:0 0 10px}
+.ras-financial-conditional p{font-size:11px;line-height:1.65}
+.ras-financial-conditional>div{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid #d3dfec;padding:11px 0}
+.ras-financial-conditional>div small{color:#47677e;font-size:10px;max-width:68%;line-height:1.5}
+.ras-financial-conditional>div strong{font-size:17px;font-variant-numeric:tabular-nums;text-align:right}
