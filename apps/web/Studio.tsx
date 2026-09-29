@@ -1,14 +1,16 @@
 import {useMemo,useRef,useState} from 'react';
-import {ArrowRight,ArrowUpRight,BarChart3,Box,Check,ChevronRight,Download,Factory,FileText,HeartPulse,Info,MapPinned,Plane,Play,RotateCcw,Search,Settings2,ShieldAlert,ShoppingBag,Warehouse} from 'lucide-react';
+import {ArrowRight,ArrowUpRight,Box,Check,ChevronRight,Download,Factory,HeartPulse,Info,MapPinned,Plane,Play,RotateCcw,Search,Settings2,ShieldAlert,ShoppingBag,Warehouse} from 'lucide-react';
 import registry from '../../data/catalog.json';
+import catalogV4 from '../../data/catalog-v4.json';
 import {createScenario,evaluateExperimentInvestment,experimentResultSchema,gridRoute,sectorTemplates,simulationSchema,type ExperimentResult,type FinanceInput,type MetricSummary,type Sector,type SimulationInput,type SimulationResult} from '../../packages/ris/contracts';
 import './studio.css';
 import AgentStudio from './AgentStudio';
+import CsvCatalog from './CsvCatalog';
 
 type Screen='welcome'|'object'|'market'|'layout'|'simulation'|'agents'|'finance'|'report';
 type Product=(typeof registry.products)[number];
 const sectors:[Sector,typeof Warehouse][]=[['warehouse',Warehouse],['factory',Factory],['hospital',HeartPulse],['airport',Plane]];
-const flow:[Screen,string,typeof Box][]=[['object','Объект',Box],['market','Маркетплейс',ShoppingBag],['layout','Планировка',MapPinned],['simulation','Симуляция',Play],['agents','Агентная модель',Settings2],['finance','Экономика',BarChart3],['report','Результат',FileText]];
+const flow:[Screen,string,typeof Box][]=[['object','Объект',Box],['market','Маркетплейс',ShoppingBag],['layout','Планировка',MapPinned],['agents','Моделирование и экономика',Settings2]];
 const currency=(value:number)=>new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(value)+' ₽';
 const numeric=(value:number,digits=1)=>new Intl.NumberFormat('ru-RU',{maximumFractionDigits:digits}).format(value);
 const interval=(metric:MetricSummary,digits=1,suffix='',scale=1)=>metric.mean==null?'—':metric.samples>1?`${numeric(metric.mean*scale,digits)}${suffix} · 95% [${numeric((metric.low95??metric.mean)*scale,digits)}–${numeric((metric.high95??metric.mean)*scale,digits)}]`:`${numeric(metric.mean*scale,digits)}${suffix}`;
@@ -20,10 +22,11 @@ export default function Studio(){
  const [screen,setScreen]=useState<Screen>('welcome'),[scenario,setScenario]=useState<SimulationInput>(()=>createScenario('warehouse')),[selected,setSelected]=useState<string|null>(null);
  const [finance,setFinance]=useState<FinanceInput>(initialFinance),[result,setResult]=useState<SimulationResult|null>(null),[experiment,setExperiment]=useState<ExperimentResult|null>(null),[replications,setReplications]=useState(1),[running,setRunning]=useState(false),[error,setError]=useState('');
  const [query,setQuery]=useState(''),[filter,setFilter]=useState('all'),[grabbed,setGrabbed]=useState<'pickup'|'dropoff'|null>(null);
+ const [catalogTab,setCatalogTab]=useState<'reference'|'csv'>('reference');
  const canvasRef=useRef<SVGSVGElement>(null),generationRef=useRef(0),chosen=registry.products.find(p=>p.id===selected)??null;
  const route=useMemo(()=>gridRoute(scenario.layout),[scenario.layout]),valid=simulationSchema.safeParse(scenario).success;
  const estimate=useMemo(()=>{if(!experiment)return null;try{return evaluateExperimentInvestment(scenario,experiment,finance);}catch{return null;}},[scenario,experiment,finance]);
- const setTab=(s:Screen)=>{setScreen(s);setError('');window.scrollTo({top:0,behavior:'instant'});};
+ const setTab=(s:Screen)=>{setScreen(s==='simulation'||s==='finance'||s==='report'?'agents':s);setError('');window.scrollTo({top:0,behavior:'instant'});};
  const change=(update:(prev:SimulationInput)=>SimulationInput)=>{generationRef.current++;setScenario(old=>update(old));setResult(null);setExperiment(null);setRunning(false);setError('');};
  const field=(key:keyof SimulationInput['workload'],value:number)=>change(old=>({...old,workload:{...old.workload,[key]:value}}));
  const robotField=(key:keyof SimulationInput['robot'],value:number)=>change(old=>({...old,robot:{...old.robot,[key]:value}}));
@@ -36,7 +39,7 @@ export default function Studio(){
 
  return <div className="ris-site">
   <header className="ris-global"><button className="ris-wordmark" onClick={()=>setTab('welcome')} aria-label="Robot Investment Studio"><b>RIS<span>↗</span></b><small>ROBOT<br/>INVESTMENT<br/>STUDIO</small></button>
-   <nav aria-label="Навигация платформы"><button onClick={()=>setTab('welcome')}>Продукт</button><button onClick={()=>setTab('object')}>Оценить проект</button><button onClick={()=>setTab('market')}>Маркетплейс</button><button onClick={()=>setTab('simulation')}>Моделирование</button><button onClick={()=>setTab('agents')}>Агентная модель</button></nav>
+   <nav aria-label="Навигация платформы"><button onClick={()=>setTab('welcome')}>Продукт</button><button onClick={()=>setTab('object')}>Оценить проект</button><button onClick={()=>setTab('market')}>Маркетплейс</button><button onClick={()=>setTab('agents')}>Моделирование</button></nav>
    <button className="ris-top-action" onClick={()=>setTab('object')}>Создать проект <ArrowUpRight size={18}/></button></header>
   {screen==='welcome'?<main className="ris-home">
    <section className="ris-home-hero"><div className="ris-hero-info"><div className="ris-eyebrow"><span/> ЦИФРОВОЙ ИНСТРУМЕНТ ОЦЕНКИ РОБОТИЗАЦИИ</div>
@@ -60,12 +63,15 @@ export default function Studio(){
        <label>Масса одного груза, кг <input aria-label="Масса груза" type="number" min=".1" value={scenario.workload.loadKg} onChange={e=>field('loadKg',Number(e.target.value))}/></label>
        <label>Часов в смену <input aria-label="Часов в смену" type="number" min=".25" max="24" value={scenario.workload.shiftHours} onChange={e=>field('shiftHours',Number(e.target.value))}/></label></div></div>
       <div className="ris-next"><span>Следующий этап: технический подбор оборудования</span><button className="ris-primary" onClick={()=>setTab('market')}>Перейти к роботам <ArrowRight size={19}/></button></div></>}
-     {screen==='market'&&<><div className="ris-page-heading"><span className="ris-mini-label">ЭТАП 02 / КАТАЛОГ</span><h1>Роботы.<br/><em>Не обещания.</em></h1><p>Независимый справочник с первичными источниками. Полнота характеристик, коммерческие цены и готовность к моделированию проверяются отдельно.</p></div>
+     {screen==='market'&&<><div className="ris-page-heading"><span className="ris-mini-label">ЭТАП 02 / КАТАЛОГ</span><h1>Роботы.<br/><em>Не обещания.</em></h1><p>Паспортный справочник и отдельный CSV-каталог. Цены, характеристики и кейсы имеют разный статус проверки; неподтверждённые данные не используются автоматически в расчётах.</p></div>
+      <div className="ris-catalog-switch" role="group" aria-label="Источник каталога"><button className={catalogTab==='reference'?'active':''} onClick={()=>setCatalogTab('reference')}>Паспортный справочник · {registry.products.length}</button><button className={catalogTab==='csv'?'active':''} onClick={()=>setCatalogTab('csv')}>Каталог CSV · {catalogV4.uniqueModels} моделей</button></div>
+      {catalogTab==='csv'?<CsvCatalog/>:<>
       <div className="ris-market-controls"><label><Search size={18}/><input aria-label="Поиск роботов" placeholder="Модель, производитель, задача..." value={query} onChange={e=>setQuery(e.target.value)}/></label><select aria-label="Категория оборудования" value={filter} onChange={e=>setFilter(e.target.value)}><option value="all">Все категории</option>{[...new Set(registry.products.map(p=>p.familyId))].map(k=><option key={k} value={k}>{k}</option>)}</select><span>{registry.products.filter(p=>(filter==='all'||filter===p.familyId)&&[p.name,p.vendor,p.summary].join(' ').toLowerCase().includes(query.toLowerCase())).length} решений</span></div>
       <div className="ris-market-grid">{registry.products.filter(p=>(filter==='all'||filter===p.familyId)&&[p.name,p.vendor,p.summary].join(' ').toLowerCase().includes(query.toLowerCase())).map(p=><article key={p.id} className={'ris-robot '+(selected===p.id?'selected':'')}><div className="ris-robot-top"><span>{p.familyId.toUpperCase()}</span><span>{p.vendor}</span></div><div className="ris-robot-image"><Box size={53} strokeWidth={1.1}/></div><h3>{p.name}</h3><p>{p.summary}</p><div className="ris-specs">{p.characteristics.slice(0,3).map(c=><div key={c.key}><span>{c.label}</span><strong>{String(c.value)} {c.unit}</strong></div>)}{!p.characteristics.length&&<small>Численные характеристики требуют подтверждения.</small>}</div>
        <div className="ris-source-row">{sourceFor(p).slice(0,2).map(src=><a key={src.id} href={src.url} target="_blank" rel="noreferrer">Источник ↗</a>)}</div>
        <button disabled={p.familyId!=='transport'} className="ris-robot-button" onClick={()=>chooseProduct(p)}>{p.familyId==='transport'?(selected===p.id?'Выбрано для проекта':'Добавить в транспортный сценарий'):'Модуль симуляции недоступен'} <ArrowUpRight size={17}/></button></article>)}</div>
-      <div className="ris-next"><span>{chosen?'Выбрано: '+chosen.name:'Выберите мобильного робота для транспортной операции'}</span><button className="ris-primary" onClick={()=>setTab('layout')} disabled={!chosen}>Перейти к планировке <ArrowRight size={19}/></button></div></>}
+      <div className="ris-next"><span>{chosen?'Выбрано: '+chosen.name:'Выберите мобильного робота для транспортной операции'}</span><button className="ris-primary" onClick={()=>setTab('layout')} disabled={!chosen}>Перейти к планировке <ArrowRight size={19}/></button></div></>}</>}
+
      {screen==='layout'&&<><div className="ris-page-heading"><span className="ris-mini-label">ЭТАП 03 / ПРОСТРАНСТВО</span><h1>Здесь робот<br/><em>будет работать.</em></h1><p>Перемещайте точки загрузки и разгрузки, проверьте доступность маршрута. CAD, этажность и физическая навигация в этой модели пока недоступны.</p></div>
       <div className="ris-layout-wrap"><div className="ris-layout-pane"><div className="ris-pane-head"><b>{sectorTemplates[scenario.sector].title.toUpperCase()} / ПЛАН 2D</b><span>{scenario.layout.width} × {scenario.layout.height} м</span></div>
       <svg ref={canvasRef} aria-label="Редактор планировки" viewBox={'0 0 '+scenario.layout.width+' '+scenario.layout.height} className="ris-floor" onPointerMove={onMove} onPointerUp={()=>setGrabbed(null)} onPointerCancel={()=>setGrabbed(null)}>
@@ -75,7 +81,7 @@ export default function Studio(){
        {(['pickup','dropoff'] as const).map((k,i)=><g key={k} onPointerDown={e=>{e.preventDefault();e.currentTarget.setPointerCapture(e.pointerId);setGrabbed(k);}} style={{cursor:'grab',touchAction:'none'}}><circle cx={scenario.layout[k].x+.5} cy={scenario.layout[k].y+.5} r="2.2" fill={i?'#ff6b32':'#1260fa'} stroke="#fff" strokeWidth=".5"/><text x={scenario.layout[k].x+.5} y={scenario.layout[k].y+1.15} textAnchor="middle" fontSize="1.6" fill="white" fontWeight="800">{i?'B':'A'}</text></g>)}</svg>
       <div className="ris-map-legend"><span><i className="ris-blue"/> A · загрузка</span><span><i className="ris-orange"/> B · разгрузка</span><span>Серый · препятствие</span></div></div>
       <aside className="ris-layout-data"><span className="ris-mini-label">ПАРАМЕТРЫ МАРШРУТА</span><h3>{route?numeric(route.distance,0)+' м':'Маршрут недоступен'}</h3><p>Расстояние рассчитано поиском кратчайшего пути на сетке 1 м. Динамические препятствия, двери, повороты робота и уклоны не учитываются.</p><div className="ris-detail-line"><span>Точка А</span><b>{scenario.layout.pickup.x}; {scenario.layout.pickup.y}</b></div><div className="ris-detail-line"><span>Точка B</span><b>{scenario.layout.dropoff.x}; {scenario.layout.dropoff.y}</b></div><div className="ris-detail-line"><span>Препятствий</span><b>{scenario.layout.obstacles.length}</b></div>
-      <button className="ris-secondary" onClick={()=>change(old=>({...old,layout:structuredClone(sectorTemplates[old.sector].layout)}))}><RotateCcw size={15}/> Восстановить шаблон</button></aside></div><div className="ris-next"><span>{route?'Маршрут построен, можно задать параметры робота.':'Измените расположение точек: маршрут перекрыт.'}</span><button disabled={!route||!chosen} className="ris-primary" onClick={()=>setTab('simulation')}>Настроить симуляцию <ArrowRight size={19}/></button></div></>}
+      <button className="ris-secondary" onClick={()=>change(old=>({...old,layout:structuredClone(sectorTemplates[old.sector].layout)}))}><RotateCcw size={15}/> Восстановить шаблон</button></aside></div><div className="ris-next"><span>{route?'Маршрут построен, можно задать параметры робота.':'Измените расположение точек: маршрут перекрыт.'}</span><button disabled={!route||!chosen} className="ris-primary" onClick={()=>setTab('agents')}>Настроить симуляцию <ArrowRight size={19}/></button></div></>}
 
      {screen==='agents'&&<AgentStudio initialScenario={scenario} selectedRobotId={selected}/>}
      {screen==='simulation'&&<><div className="ris-page-heading"><span className="ris-mini-label">ЭТАП 04 / SIMULATION STUDIO</span><h1>Сначала<br/><em>модель. Потом ROI.</em></h1><p>Задания, ожидание ресурсов, загрузка парка и зарядка рассчитываются движком SimPy. Анимация планировки не заменяет результат вычислений.</p></div>

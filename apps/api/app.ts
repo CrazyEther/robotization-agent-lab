@@ -4,6 +4,7 @@ import { secureHeaders } from 'hono/secure-headers';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { z } from 'zod';
 import registry from '../../data/catalog.json';
+import catalogV4 from '../../data/catalog-v4.json';
 import { catalogSchema, compareProducts, diagnose, families, goals, objectTypes } from '../../packages/catalog/index';
 import { validateImport } from '../../packages/importer/index';
 import * as domain from '../../packages/domain/index';
@@ -27,6 +28,7 @@ const unavailable={error:'Кабинеты ещё не подключены: н�
 app.get('/api/v1/health',c=>c.json({status:'ok',version:'1',dataMode:'source-backed-reference-catalog'}));
 app.get('/api/v1/config',c=>c.json({auth:{configured:Boolean(c.env?.SUPABASE_URL&&c.env?.SUPABASE_ANON_KEY),googleConfigured:c.env?.GOOGLE_OAUTH_ENABLED==='true',supabaseUrl:c.env?.SUPABASE_URL??null,anonKey:c.env?.SUPABASE_ANON_KEY??null}}));
 app.get('/api/v1/catalog',c=>c.json(catalogSchema.parse(registry)));
+app.get('/api/v1/catalog/v4',c=>c.json(catalogV4));
 const agentStudyInputSchema=z.object({
  input:simulationSchema,
  operations:z.array(z.object({

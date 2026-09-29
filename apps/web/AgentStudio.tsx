@@ -1,5 +1,5 @@
 import {useEffect,useMemo,useRef,useState} from 'react';
-import {ArrowRight,BarChart3,Box,Download,Pause,Play,RotateCcw,ShoppingBag} from 'lucide-react';
+import {Box,Download,Pause,Play,RotateCcw,ShoppingBag} from 'lucide-react';
 import registry from '../../data/catalog.json';
 import supplement from '../../data/market-supplement.json';
 import marketWarehouse from '../../data/market-scenarios/warehouse.json';
@@ -210,7 +210,7 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
      <label>Зазор, м<input type="number" min="0" max="2" step=".05" value={clearance} onChange={e=>{setClearance(Number(e.target.value));invalidate();}}/></label>
      <label>Доработка, %<input aria-label="Вероятность доработки" type="number" min="0" max="60" step="5" value={rework} onChange={e=>{setRework(Number(e.target.value));invalidate();}}/></label>
      <label>Независимых прогонов<input type="number" min="5" max="30" value={replications} onChange={e=>{setReplications(Math.max(5,Math.min(30,Number(e.target.value))));invalidate();}}/></label>
-     <label>Поток<select value={input.mode} onChange={e=>setScenario(s=>({...s,mode:e.target.value as 'fixed'|'poisson'}))}><option value="fixed">Равномерный</option><option value="poisson">Пуассон</option></select></label>
+     <label>Поток<select value={input.mode} onChange={e=>{setScenario(s=>({...s,mode:e.target.value as 'fixed'|'poisson'}));invalidate();}}><option value="fixed">Равномерный</option><option value="poisson">Пуассон</option></select></label>
     </div></article>
     <article className="ras-card"><h3>02 / Технологическая цепочка</h3>
      {operations.map((op,i)=><div className="ras-operation" key={op.id} data-testid="agent-operation">
