@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "source_kind": "manufacturer_supplement",
+  "sources": [
+    {
+      "source_ref": "aethon_hospital_food_service",
+      "url": "https://aethon.com/mobile-robots-for-hospital-food-service/",
+      "sha256": "8020b4daca494bb8d2fdddc5d366302d8d7af1e7004ec36e6c080fbc6a78e0ea",
+      "fetched_at_utc": "2026-09-26T12:59:40Z",
+      "content_type": "text/html"
+    },
+    {
+      "source_ref": "aethon_t3_specification",
+      "url": "https://cdn.aethon.com/wp-content/uploads/2025/06/Aethon_SpecSheet_T3-1.pdf",
+      "sha256": "84da9031554c8146016ee1f43c2e1512b33d1a94ed8d4cd4b2aa829c36e6c3ad",
+      "fetched_at_utc": "2026-09-26T12:59:48Z",
+      "content_type": "application/pdf"
+    },
+    {
+      "source_ref": "tld_eztow_product",
+      "url": "https://www.tld-group.com/technologies/eztow/",
+      "sha256": "02b730d4c4364f072b7480b6fb7d95a50d9db834fce4e4bf802c6802714bf0f0",
+      "fetched_at_utc": "2026-09-26T13:07:29Z",
+      "content_type": "text/html"
+    }
+  ],
+  "products": [
+    {
+      "product_ref": "aethon_t3",
+      "manufacturer": "Aethon",
+      "model": "T3",
+      "variant": "T3",
+      "product_url": "https://aethon.com/mobile-robots-for-hospital-food-service/",
+      "product_source_ref": "aethon_hospital_food_service",
+      "applications": [
+        {
+          "object_slug": "hospital",
+          "process_code": "hospital_meal_delivery",
+          "source_ref": "aethon_hospital_food_service",
+          "source_page": null
+        }
+      ],
+      "specifications": [
+        {
+          "attribute": "payload_kg",
+          "source_value": "340",
+          "source_unit": "kg",
+          "source_ref": "aethon_t3_specification",
+          "source_page": 2,
+          "status": "manufacturer_spec"
+        },
+        {
+          "attribute": "max_cart_length_mm",
+          "source_value": "111.76",
+          "source_unit": "cm",
+          "source_ref": "aethon_t3_specification",
+          "source_page": 2,
+          "status": "manufacturer_spec"
+        },
+        {
+          "attribute": "max_cart_width_mm",
+          "source_value": "81.3",
+          "source_unit": "cm",
+          "source_ref": "aethon_t3_specification",
+          "source_page": 2,
+          "status": "manufacturer_spec"
+        },
+        {
+          "attribute": "manufacturer_max_speed_m_s",
+          "source_value": "76",
+          "source_unit": "cm/s",
+          "source_ref": "aethon_t3_specification",
+          "source_page": 2,
+          "status": "manufacturer_spec"
+        }
+      ],
+      "offers": []
+    },
+    {
+      "product_ref": "tld_eztow",
+      "manufacturer": "TLD",
+      "model": "EZTow",
+      "variant": "EZTow",
+      "product_url": "https://www.tld-group.com/technologies/eztow/",
+      "product_source_ref": "tld_eztow_product",
+      "applications": [
+        {
+          "object_slug": "airport",
+          "process_code": "airport_baggage_transport",
+          "source_ref": "tld_eztow_product",
+          "source_page": null
+        }
+      ],
+      "specifications": [
+        {
+          "attribute": "drawbar_pull_n",
+          "source_value": "2000",
+          "source_unit": "daN",
+          "source_ref": "tld_eztow_product",
+          "source_page": null,
+          "status": "manufacturer_spec"
+        }
+      ],
+      "offers": []
+    }
+  ]
+}
