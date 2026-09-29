@@ -2,7 +2,7 @@
 
 ## Архитектура исполнения
 
-Текущий внешний сервис — Cloudflare Worker `ris-agent-studio-2026` с Hono backend и Vite static assets. Используются отдельная рабочая папка, отдельная конфигурация и отдельное имя Worker. Никакой автоматической синхронизации с `robotization-platform` нет.
+Текущий внешний сервис — Cloudflare Worker `ris-agent-studio-2026` с Hono backend и Vite static assets. Используются собственная конфигурация и отдельное имя Worker.
 
 ## Локально
 
@@ -17,7 +17,7 @@ npm run build
 npx wrangler deploy
 ```
 
-Файл `wrangler.jsonc` содержит имя **нового Worker**; не заменяйте его на `robotization-platform`. При нескольких Cloudflare аккаунтах задайте `CLOUDFLARE_ACCOUNT_ID` локально в окружении, не пишите секретные токены в README. Для проверки: `GET /api/v1/agent/health`, затем POST исследования, затем открыть интерфейс.
+Файл `wrangler.jsonc` содержит имя Worker. При нескольких Cloudflare аккаунтах задайте `CLOUDFLARE_ACCOUNT_ID` локально в окружении, не пишите секретные токены в README. Для проверки: `GET /api/v1/agent/health`, затем POST исследования, затем открыть интерфейс.
 
 ## GitHub (самостоятельное независимое дерево)
 
@@ -30,7 +30,7 @@ npm ci
 npm run build
 ```
 
-Новый репозиторий не зависит от исходной истории публикаций, а старая площадка `robotization-platform` остаётся без изменений.
+Сервис публикуется из текущего репозитория, используя собственные настройки и данные.
 
 ## Управление качеством
 

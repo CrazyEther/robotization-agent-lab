@@ -22,3 +22,11 @@
 .ris-catalog-switch{display:flex;gap:8px;margin:20px 0}.ris-catalog-switch button{border:1px solid #c8d7e2;background:#fff;padding:12px 18px;border-radius:5px;cursor:pointer;color:#344b60;font-size:12px;font-weight:750}
 .ris-catalog-switch button.active{background:#1d62f3;border-color:#1d62f3;color:white}
 @media(max-width:680px){.ris-csv-source dl>div{grid-template-columns:115px 1fr}.ris-csv-filters select{max-width:none;flex:1}.ris-csv-detail{padding:20px}}
+
+.ris-evidence-root{margin:22px 0}.ris-evidence-intro{font-size:12px;line-height:1.7;color:#586f80;background:#f0f5fa;padding:13px}
+.ris-evidence-group{border-top:1px solid #d5e1ec;padding-top:14px}.ris-evidence-group h3{font-size:18px;margin:6px 0 12px}
+.ris-evidence-claim{border:1px solid #d6e0e8;border-radius:5px;padding:12px 15px;margin:10px 0;background:#fcfdff}
+.ris-evidence-claim.is-blocked{background:#fff4ee;border-color:#eec3aa}.ris-evidence-claim>div{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.ris-evidence-claim strong{font-size:13px;overflow-wrap:anywhere}.ris-evidence-claim span{font-size:10px;color:#617485}
+.ris-evidence-claim>b{font-size:16px;display:block;margin:8px 0}.ris-evidence-claim p{font-size:12px;line-height:1.55;margin:6px 0;white-space:pre-wrap}
+.ris-evidence-claim a{display:block;margin:8px 0;color:#2460cb;font-size:12px;overflow-wrap:anywhere}.ris-evidence-claim small{font-size:10px;color:#657786}

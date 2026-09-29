@@ -1,4 +1,4 @@
-project_id = "robotization-platform"
+project_id = "ris-agent-studio"
 [api]
 enabled = true
 port = 25421

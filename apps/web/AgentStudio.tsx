@@ -241,7 +241,7 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
        {registry.sources.filter(s=>chosen.sourceIds.includes(s.id)).slice(0,2).map(s=><a key={s.id} href={s.url} target="_blank" rel="noreferrer">Первоисточник ↗</a>)}</div>}
      </div>}
      <div className="ras-facility-summary"><Box size={23}/><p>Сектор: <b>{input.sector}</b><br/>Статус: <b>демонстрационная модель</b><br/>
-      План из исходного репозитория, отраслевые требования из <code>robot-market</code>. Точные параметры и нормативные ограничения не подтверждены.</p></div>
+      Шаблон геометрии и отраслевые допущения имеют демонстрационный статус. Точные параметры и нормативные ограничения не подтверждены.</p></div>
     </article>
    </div>
   </section>
