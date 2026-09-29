@@ -45,6 +45,9 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
  const [catalogOpen,setCatalogOpen]=useState(false),[selectedRobot,setSelectedRobot]=useState(selectedRobotId??'');
  const [layoutTool,setLayoutTool]=useState<'move'|'rack'|'obstacle'|'station'>('move');
  const [layoutNote,setLayoutNote]=useState('');
+ const [obstacleKinds,setObstacleKinds]=useState<Array<'rack'|'obstacle'>>(
+  ()=>initialScenario.layout.obstacles.map(()=>'obstacle'));
+ const [selectedObstacle,setSelectedObstacle]=useState<number|null>(null);
  const svgRef=useRef<SVGSVGElement>(null);
  const drag=useRef<{kind:'pickup'|'dropoff'|'obstacle'|'station';index?:number;id?:string}|null>(null);
  const pointerToGrid=(e:ReactPointerEvent<SVGSVGElement>)=>{
@@ -78,7 +81,7 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
   if(drag.current){drag.current=null;if(svgRef.current?.hasPointerCapture(e.pointerId))svgRef.current.releasePointerCapture(e.pointerId);}
  };
  const addToPlan=(e:ReactPointerEvent<SVGSVGElement>)=>{
-  if(layoutTool==='move'||e.target!==e.currentTarget && (e.target as Element).tagName.toLowerCase()!=='rect')return;
+  if(layoutTool==='move'||(e.target as Element).getAttribute('data-layout-background')!=='true')return;
   const position=pointerToGrid(e);if(!position)return;
   const x=Math.max(1,Math.min(input.layout.width-4,position.x));
   const y=Math.max(1,Math.min(input.layout.height-4,position.y));
@@ -88,8 +91,12 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
    setOperations(old=>[...old,{id,label:'Дополнительный технологический пост',x,y,durationSeconds:60,capacity:1,transformsLoad:false,stochastic:false}]);
   }else{
    const w=layoutTool==='rack'?3:2,h=layoutTool==='rack'?6:3;
+   const index=input.layout.obstacles.length;
    setInput(old=>({...old,layout:{...old.layout,obstacles:[...old.layout.obstacles,{x,y,w,h}]}}));
+   setObstacleKinds(old=>[...old,layoutTool]);
+   setSelectedObstacle(index);
   }
+  setLayoutNote('');
   setLayoutTool('move');invalidate();
  };
  const loadShop=()=>{
@@ -107,6 +114,8 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
    {id:'machine-2',label:'Контроль и упаковка',x:35,y:17,durationSeconds:45,capacity:1,transformsLoad:false,stochastic:false}
   ]);
   setLayoutTool('move');
+  setObstacleKinds(['rack','rack','obstacle','obstacle','rack','rack']);
+  setSelectedObstacle(null);
   setLayoutNote('Демонстрационный участок металлообработки 55 × 34 м. Размеры, станки и режимы условные, требуют обследования.');
   invalidate();
  };
@@ -178,7 +187,21 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
   discountRatePercent:15,annualDemand:3500,baselineAnnualCompleted:3500
  });};
  const reset=()=>{const next=createScenario(input.sector);next.workload.shiftHours=1;setInput(next);
+  setObstacleKinds(next.layout.obstacles.map(()=>'obstacle'));setSelectedObstacle(null);setLayoutNote('');
   setOperations(defaultOperations(next).map((op,i)=>({...op,label:processNames[next.sector][i]})));invalidate();};
+ const editObstacle=(key:'x'|'y'|'w'|'h',value:number)=>{
+  if(selectedObstacle===null||!Number.isFinite(value))return;
+  setInput(old=>({...old,layout:{...old.layout,obstacles:old.layout.obstacles.map((o,i)=>
+   i===selectedObstacle?{...o,[key]:Math.max(key==='w'||key==='h'?1:0,Math.min(
+    key==='w'?old.layout.width-o.x-1:key==='h'?old.layout.height-o.y-1:key==='x'?old.layout.width-o.w-1:old.layout.height-o.h-1,value))}:o)}}));
+  invalidate();
+ };
+ const removeObstacle=()=>{
+  if(selectedObstacle===null)return;
+  setInput(old=>({...old,layout:{...old.layout,obstacles:old.layout.obstacles.filter((_,i)=>i!==selectedObstacle)}}));
+  setObstacleKinds(old=>old.filter((_,i)=>i!==selectedObstacle));
+  setSelectedObstacle(null);invalidate();
+ };
  return <div className="ras-root" data-testid="agent-studio">
   <section className="ras-heading"><span>RIS / AGENT-BASED DIGITAL TWIN</span><h1>Агентная модель<br/><em>операций и логистики.</em></h1>
    <p>Одна дискретно-событийная временная шкала: заявки → движение AMR → погрузка → обработка → следующий участок → выгрузка. Трафик, зарядка, очереди и показатели рассчитываются Simulation Core, а не рисуются отдельно.</p>
@@ -203,15 +226,27 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
      <button type="button" onClick={()=>download('facility-layout-preview.json',{schemaVersion:'ris-layout-preview/1',layout:input.layout,operations,robot:input.robot,workload:input.workload})}>Экспорт плана</button>
     </div>
     {layoutNote&&<p className="ras-layout-note" role="status">{layoutNote}</p>}
+    {selectedObstacle!==null&&input.layout.obstacles[selectedObstacle]&&<div className="ras-selected-object" data-testid="selected-layout-object">
+     <b>{obstacleKinds[selectedObstacle]==='rack'?'Стеллаж':'Препятствие'} №{selectedObstacle+1}</b>
+     {(['x','y','w','h'] as const).map((key)=><label key={key}>{({x:'X, м',y:'Y, м',w:'Ширина, м',h:'Глубина, м'})[key]}
+      <input type="number" min={key==='w'||key==='h'?1:0} aria-label={'Параметр '+key}
+       value={input.layout.obstacles[selectedObstacle][key]} onChange={e=>editObstacle(key,Number(e.target.value))}/></label>)}
+     <button type="button" onClick={removeObstacle}>Удалить объект</button>
+    </div>}
     <svg ref={svgRef} aria-label="Двухмерная симуляция движения роботов" data-testid="agent-floor"
      viewBox={'0 0 '+input.layout.width+' '+input.layout.height} className="ras-floor"
      onPointerMove={moveOnPlan} onPointerUp={endDrag} onPointerCancel={endDrag} onPointerDown={addToPlan}
      style={{cursor:layoutTool==='move'?'default':'crosshair',touchAction:'none'}}>
      <defs><pattern id="ras-grid" width="2" height="2" patternUnits="userSpaceOnUse"><path d="M2 0 H0 V2" fill="none" stroke="#b8c7d4" strokeWidth=".09"/></pattern></defs>
-     <rect width="100%" height="100%" fill="#edf2f5"/><rect width="100%" height="100%" fill="url(#ras-grid)"/>
-     {input.layout.obstacles.map((o,i)=><g key={'o'+i} onPointerDown={e=>startDrag(e,{kind:'obstacle',index:i})} style={{cursor:layoutTool==='move'?'grab':'crosshair'}}>
-      <rect {...o} fill={i%2?'#667f95':'#738d9b'} stroke="#435563" strokeWidth=".18" rx=".2"/>
-      <text x={o.x+o.w/2} y={o.y+Math.min(1.1,o.h*.5)} textAnchor="middle" fontSize=".75" fill="white" pointerEvents="none">{i%2?'БУФЕР':'СТЕЛЛАЖ'}</text>
+     <rect width="100%" height="100%" fill="#edf2f5" data-layout-background="true"/>
+     <rect width="100%" height="100%" fill="url(#ras-grid)" data-layout-background="true"/>
+     {input.layout.obstacles.map((o,i)=><g key={'o'+i} data-testid="layout-obstacle"
+      onPointerDown={e=>startDrag(e,{kind:'obstacle',index:i})}
+      onClick={e=>{e.stopPropagation();setSelectedObstacle(i);}} style={{cursor:layoutTool==='move'?'grab':'pointer'}}>
+      <rect x={o.x} y={o.y} width={o.w} height={o.h} fill={obstacleKinds[i]==='rack'?'#465f73':'#a65c4c'}
+       stroke={selectedObstacle===i?'#f4cb61':'#163d57'} strokeWidth={selectedObstacle===i?'.42':'.24'} rx=".2" opacity="1"/>
+      <text x={o.x+o.w/2} y={o.y+Math.min(1.1,o.h*.5)} textAnchor="middle" fontSize=".65" fontWeight="800" fill="white"
+       pointerEvents="none">{obstacleKinds[i]==='rack'?'СТЕЛЛАЖ':'ПРЕПЯТСТВИЕ'}</text>
      </g>)}
      <g aria-label="Зарядка роботов" data-testid="agent-charger">
       <rect x={Math.max(0,input.layout.pickup.x-2)} y={Math.max(0,input.layout.pickup.y-3)} width="2" height="2" rx=".3"
@@ -226,7 +261,8 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
      {operations.map((op,i)=><g key={op.id} data-testid="agent-machine"
       onPointerDown={e=>startDrag(e,{kind:'station',id:op.id})} style={{cursor:layoutTool==='move'?'grab':'crosshair'}}>
       <rect x={op.x-.6} y={op.y-.6} width="2" height="2" rx=".25"
-       stroke={(activeStations.get(op.id)??0)>0?'#ef8a30':'#1b9e82'} strokeWidth=".34" fill="#fff"/>
+       stroke={(activeStations.get(op.id)??0)>0?'#ce6b0c':'#147a61'} strokeWidth=".3"
+       fill={(activeStations.get(op.id)??0)>0?'#ffd491':'#9fe2ca'}/>
       <text x={op.x+.4} y={op.y+.58} textAnchor="middle" fontSize=".84" fontWeight="800" fill="#20415c">{i+1}</text>
       <title>{op.label} · {activeStations.get(op.id)??0}/{op.capacity} постов · {op.durationSeconds} с</title>
      </g>)}
@@ -295,7 +331,8 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
     <article className="ras-card"><h3>01 / Потоки и парк</h3><div className="ras-fields"><label>Отрасль<select aria-label="Отраслевой сценарий" value={input.sector} onChange={e=>{
       const sector=e.target.value as Sector,next=createScenario(sector);next.workload.shiftHours=1;
       setInput(next);setOperations(defaultOperations(next).map((op,i)=>({...op,label:processNames[sector][i]})));
-      setSelectedRobot('');invalidate();
+      setSelectedRobot('');setObstacleKinds(next.layout.obstacles.map(()=>'obstacle'));setSelectedObstacle(null);
+      setLayoutNote('');invalidate();
      }}><option value="warehouse">Склад</option><option value="factory">Производство</option><option value="hospital">Медицина</option><option value="airport">Аэропорт</option></select></label>
      <label>Роботов, шт.<input aria-label="Агенты роботы" type="number" min="1" max="100" value={input.robot.count} onChange={e=>setRobots('count',Number(e.target.value))}/></label>
      <label>Скорость, м/с<input type="number" min=".05" step=".05" value={input.robot.speedMps} onChange={e=>setRobots('speedMps',Number(e.target.value))}/></label>
