@@ -1,0 +1,200 @@
+[
+  {
+    "id": "ronavi_h1500_product",
+    "object": "warehouse",
+    "kind": "vendor_specification",
+    "url": "https://ronavi-robotics.ru/catalogue/h1500"
+  },
+  {
+    "id": "ronavi_vostok_g2p",
+    "object": "warehouse",
+    "kind": "vendor_case",
+    "url": "https://ronavi-robotics.ru/cases/vostok-servis-g2p"
+  },
+  {
+    "id": "waybot_cleanbotics_600",
+    "object": "hospital",
+    "kind": "vendor_specification",
+    "url": "https://waybotrobotics.com/models/600"
+  },
+  {
+    "id": "waybot_hospital_pilot",
+    "object": "hospital",
+    "kind": "vendor_case",
+    "url": "https://waybotrobotics.com/blog/waybot-robotics-na-cleaning-focus-club"
+  },
+  {
+    "id": "r2b_mark2_product",
+    "object": "airport",
+    "kind": "vendor_specification",
+    "url": "https://r2b.company/mark2"
+  },
+  {
+    "id": "r2b_krasnoyarsk_airport",
+    "object": "airport",
+    "kind": "vendor_case",
+    "url": "https://r2b.company/cases/airport"
+  },
+  {
+    "id": "yandex_kubik_raas",
+    "object": "warehouse",
+    "kind": "vendor_commercial_terms",
+    "url": "https://robotics.yandex.ru/raas-kubik"
+  },
+  {
+    "id": "aci_changi_autonomous_tractors",
+    "object": "airport",
+    "kind": "airport_industry_case",
+    "url": "https://www.aci-asiapac.aero/media-centre/news/changi-airport-rolls-out-autonomous-tractors-in-a-major-step-towards-airside-automation"
+  },
+  {
+    "id": "r2b_mark2se_product",
+    "object": "airport",
+    "kind": "vendor_specification",
+    "url": "https://r2b.company/mark2se"
+  },
+  {
+    "id": "r2b_mark2se_rent",
+    "object": "airport",
+    "kind": "vendor_commercial_terms",
+    "url": "https://r2b.company/rent"
+  },
+  {
+    "id": "cognitive_pulkovo_2026_report",
+    "object": "airport",
+    "kind": "vendor_case_report",
+    "url": "https://cognitivepilot.com/cognitive-news/news/roboty-gotovyatsya-vyyti-na-rabochuyu-smenu/"
+  },
+  {
+    "id": "pulkovo_airside_2026_status",
+    "object": "airport",
+    "kind": "operator_deployment_status",
+    "url": "https://pulkovoairport.ru/about/press_center/news/65544/"
+  },
+  {
+    "id": "waybot_purchase_rental",
+    "object": "hospital",
+    "kind": "vendor_commercial_terms",
+    "url": "https://waybotrobotics.com/buy-rent"
+  },
+  {
+    "id": "agromash_official_home",
+    "object": "catalog",
+    "kind": "manufacturer_website",
+    "url": "https://agromh.com/"
+  },
+  {
+    "id": "ronavi_h2000_product",
+    "object": "warehouse",
+    "kind": "vendor_specification_and_price",
+    "url": "https://ronavi-robotics.ru/catalogue/h2000"
+  },
+  {
+    "id": "waybot_cleanbotics_400pro",
+    "object": "hospital",
+    "kind": "vendor_specification",
+    "url": "https://waybotrobotics.com/models/400pro"
+  },
+  {
+    "id": "ronavi_sostra_fmcg",
+    "object": "warehouse",
+    "kind": "vendor_case_report",
+    "url": "https://ronavi-robotics.ru/cases/sostra-fmcg"
+  },
+  {
+    "id": "robocv_tug_product",
+    "object": "airport",
+    "kind": "vendor_specification",
+    "url": "https://robocv.ru/robot-tyagach"
+  },
+  {
+    "id": "kiit_dmr_carrier_p_offer",
+    "object": "warehouse",
+    "kind": "reseller_commercial_offer",
+    "url": "https://www.kiit.ru/product/avtonomnyy-robot-shtabeler-dikom-dmr-carrier-p-fmr-robot-dlya-pallet-1-5-t/"
+  },
+  {
+    "id": "dikom_automation_home",
+    "object": "warehouse",
+    "kind": "manufacturer_specification",
+    "url": "https://dikom-a.ru/"
+  },
+  {
+    "id": "dikom_dmr_carrier_p_product",
+    "object": "warehouse",
+    "kind": "manufacturer_specification",
+    "url": "https://dikom-a.ru/product/d-carrier-p"
+  },
+  {
+    "id": "yacu_unit_ru_product",
+    "object": "airport",
+    "kind": "vendor_specification",
+    "url": "https://yacuai.com/ru/unit/"
+  },
+  {
+    "id": "yacu_unit_en_product",
+    "object": "airport",
+    "kind": "vendor_specification",
+    "url": "https://yacuai.com/unit/"
+  },
+  {
+    "id": "yacu_unit_ru_buy_rent",
+    "object": "airport",
+    "kind": "vendor_offer",
+    "url": "https://yacuai.com/ru/byuunit/"
+  },
+  {
+    "id": "ronavi_e_h1500_comparison",
+    "object": "warehouse",
+    "kind": "manufacturer_specification",
+    "url": "https://ronavi-robotics.ru/catalogue/e"
+  },
+  {
+    "id": "r2b_yuzhno_sakhalinsk_airport",
+    "object": "airport",
+    "kind": "vendor_case",
+    "url": "https://r2b.company/robot-uborshik-aeroport-yuzhno-sahalinsk"
+  },
+  {
+    "id": "cognitive_cp_pulkovo_2026",
+    "object": "airport",
+    "kind": "vendor_case_report",
+    "url": "https://cognitivepilot.com/cognitive-news/blog/si-pi-pervyy-v-mire-bespilotnyy-minitraktor/"
+  },
+  {
+    "id": "cognitive_cp_agricultural_platform",
+    "object": "airport",
+    "kind": "configuration_boundary",
+    "url": "https://cognitivepilot.com/products/minitraktor/"
+  },
+  {
+    "id": "panasonic_hospi_hospital_case",
+    "object": "hospital",
+    "kind": "vendor_case",
+    "url": "https://ap.connect.panasonic.com/sg/en/case-studies/panasonic-autonomous-delivery-robots-hospi-aid-hospital-operations-changi-general"
+  },
+  {
+    "id": "aethon_hospital_food_service",
+    "object": "hospital",
+    "kind": "vendor_application",
+    "url": "https://aethon.com/mobile-robots-for-hospital-food-service/"
+  },
+  {
+    "id": "aethon_t3_specification",
+    "object": "hospital",
+    "kind": "vendor_specification",
+    "url": "https://cdn.aethon.com/wp-content/uploads/2025/06/Aethon_SpecSheet_T3-1.pdf"
+  },
+  {
+    "id": "aethon_t3xl_specification",
+    "object": "hospital",
+    "kind": "vendor_specification",
+    "url": "https://cdn.aethon.com/wp-content/uploads/2025/06/Aethon_SpecSheet_T3XL-1.pdf"
+  },
+  {
+    "id": "tld_eztow_product",
+    "object": "airport",
+    "kind": "vendor_specification",
+    "url": "https://www.tld-group.com/technologies/eztow/"
+  }
+]
