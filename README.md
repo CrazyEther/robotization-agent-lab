@@ -44,7 +44,7 @@ npm run typecheck
 
 - [Архитектура, контракты, методика](docs/ARCHITECTURE.md).
 - [API](docs/API.md).
-- [Развёртывание и ограничения](docs/DEPLOYMENT.md).
+- [Развёртывание и ограничения](docs/deployment.md).
 - [Происхождение данных каталога](docs/CATALOG_PROVENANCE.md).
 - [Матрица конкурсных требований](docs/ACCEPTANCE.md).
 - [Слайды PDF](public/RIS_Agent_Studio_Presentation.pdf).
