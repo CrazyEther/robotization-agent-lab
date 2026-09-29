@@ -1,0 +1,1320 @@
+[
+  {
+    "id": "ronavi_h1500_payload",
+    "source_id": "ronavi_h1500_product",
+    "catalog_rows": [
+      1,
+      66
+    ],
+    "object": "warehouse",
+    "attribute": "payload_kg",
+    "value": 1500,
+    "unit": "kg",
+    "scope": "manufacturer maximum for H1500",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Грузоподъемность; до 1500 кг"
+  },
+  {
+    "id": "ronavi_h1500_passage",
+    "source_id": "ronavi_h1500_product",
+    "catalog_rows": [
+      1,
+      66
+    ],
+    "object": "warehouse",
+    "attribute": "minimum_passage_mm",
+    "value": 750,
+    "unit": "mm",
+    "scope": "manufacturer minimum passage for H1500",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Минимальная ширина проезда;750 мм"
+  },
+  {
+    "id": "ronavi_vostok_fleet",
+    "source_id": "ronavi_vostok_g2p",
+    "catalog_rows": [
+      1,
+      66
+    ],
+    "object": "warehouse",
+    "attribute": "case_fleet_count",
+    "value": 48,
+    "unit": "robots",
+    "scope": "Vostok-Service G2P installation, not a fleet sizing rule",
+    "status": "vendor_case_reported",
+    "use": "case_context",
+    "evidence": "48 мобильных роботов Ronavi H1500"
+  },
+  {
+    "id": "waybot_cleanbotics_passage",
+    "source_id": "waybot_cleanbotics_600",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "minimum_passage_mm",
+    "value": 750,
+    "unit": "mm",
+    "scope": "manufacturer minimum passage for Cleanbotics 600; sanitary suitability separate",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Минимальная ширина прохода 750 мм"
+  },
+  {
+    "id": "waybot_cleanbotics_runtime_conflict",
+    "source_id": "waybot_cleanbotics_600",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "wet_cleaning_runtime_h",
+    "value": null,
+    "unit": "h",
+    "scope": "manufacturer page gives 5, 4 and 3 hours in different sections",
+    "status": "source_conflict",
+    "use": "blocked",
+    "evidence": "5 часов работы / 4 часа / 3 часа"
+  },
+  {
+    "id": "waybot_cleanbotics_speed_conflict",
+    "source_id": "waybot_cleanbotics_600",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "cleaning_rate_m2_h",
+    "value": null,
+    "unit": "m2/h",
+    "scope": "manufacturer page gives 1000-2300 and 800-1800 m2/h for same model",
+    "status": "source_conflict",
+    "use": "blocked",
+    "evidence": "1000–2300 / 800–1800 м²/час"
+  },
+  {
+    "id": "waybot_sklif_fleet",
+    "source_id": "waybot_hospital_pilot",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "case_active_fleet_count",
+    "value": 2,
+    "unit": "robots",
+    "scope": "Sklifosovsky pilot 2023-2024; vendor report",
+    "status": "vendor_case_reported",
+    "use": "case_context",
+    "evidence": "оба робота-уборщика активно трудятся"
+  },
+  {
+    "id": "r2b_airport_test_area",
+    "source_id": "r2b_krasnoyarsk_airport",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "case_cleaned_area_m2_2h",
+    "value": 1386,
+    "unit": "m2 per 2h",
+    "scope": "five-day airport test, not guaranteed throughput",
+    "status": "vendor_case_reported",
+    "use": "case_context",
+    "evidence": "1386 м² за 2 часа"
+  },
+  {
+    "id": "r2b_mark2_variant",
+    "source_id": "r2b_mark2_product",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "mark2_standard_passage_variant_mm",
+    "value": null,
+    "unit": "mm",
+    "scope": "Страница обычной Mark 2 не доказывает предел MARK 2 SE; характеристика другого варианта остаётся заблокированной. Для SE используется отдельная страница производителя.",
+    "status": "model_variant_uncertain",
+    "use": "blocked",
+    "evidence": "Mark 2 / 1,3 м"
+  },
+  {
+    "id": "yandex_kubik_s2p_subscription",
+    "source_id": "yandex_kubik_raas",
+    "catalog_rows": [],
+    "object": "warehouse",
+    "attribute": "s2p_monthly_fee",
+    "value": 690000,
+    "unit": "RUB/month before VAT",
+    "scope": "one S2P module, not price per robot",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "0,69 млн ₽/мес"
+  },
+  {
+    "id": "yandex_kubik_p2p_subscription",
+    "source_id": "yandex_kubik_raas",
+    "catalog_rows": [],
+    "object": "warehouse",
+    "attribute": "p2p_monthly_fee",
+    "value": 1150000,
+    "unit": "RUB/month before VAT",
+    "scope": "one P2P module, not price per robot",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "1,15 млн ₽/мес"
+  },
+  {
+    "id": "changi_baggage_tractors",
+    "source_id": "aci_changi_autonomous_tractors",
+    "catalog_rows": [],
+    "object": "airport",
+    "attribute": "case_fleet_count",
+    "value": 2,
+    "unit": "tractors",
+    "scope": "Changi T1-T4 airside operation; not catalog v4 model",
+    "status": "industry_case_reported",
+    "use": "topology_context",
+    "evidence": "Two autonomous tractors"
+  },
+  {
+    "id": "r2b_mark2se_dimensions",
+    "source_id": "r2b_mark2se_product",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "dimensions_lwh_mm",
+    "value": [
+      860,
+      610,
+      980
+    ],
+    "unit": "mm",
+    "scope": "manufacturer dimensions for exact Mark 2 SE model",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "860 x 610 x 980 мм"
+  },
+  {
+    "id": "r2b_mark2se_runtime_product_conflict",
+    "source_id": "r2b_mark2se_product",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "runtime_h",
+    "value": null,
+    "unit": "h",
+    "scope": "product page says 3 h, rental page says 4 h; unresolved",
+    "status": "source_conflict",
+    "use": "blocked",
+    "evidence": "3 часа"
+  },
+  {
+    "id": "r2b_mark2se_runtime_rent_conflict",
+    "source_id": "r2b_mark2se_rent",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "runtime_h",
+    "value": null,
+    "unit": "h",
+    "scope": "rental page says 4 h, product page says 3 h; unresolved",
+    "status": "source_conflict",
+    "use": "blocked",
+    "evidence": "4 ч"
+  },
+  {
+    "id": "r2b_mark2se_rent",
+    "source_id": "r2b_mark2se_rent",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "rental_price_floor",
+    "value": 100000,
+    "unit": "RUB/month",
+    "scope": "В предложение входят интегратор, обучение и удалённая поддержка. Итоговые условия согласуются отдельно.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "от 100 000 ₽/мес"
+  },
+  {
+    "id": "cognitive_pulkovo_reported_capacity",
+    "source_id": "cognitive_pulkovo_2026_report",
+    "catalog_rows": [
+      188
+    ],
+    "object": "airport",
+    "attribute": "case_reported_payload_kg",
+    "value": 3000,
+    "unit": "kg",
+    "scope": "March 2026 Pulkovo equipment in manufacturer-hosted news article; exact catalog configuration and rated towing mass not independently matched",
+    "status": "vendor_case_reported",
+    "use": "case_context",
+    "evidence": "грузоподъёмность – до трех тонн"
+  },
+  {
+    "id": "cognitive_pulkovo_planned_fleet",
+    "source_id": "cognitive_pulkovo_2026_report",
+    "catalog_rows": [
+      188
+    ],
+    "object": "airport",
+    "attribute": "case_planned_fleet_count",
+    "value": 45,
+    "unit": "tractors",
+    "scope": "future fleet statement in March 2026 article; not installed or active fleet count",
+    "status": "vendor_case_reported",
+    "use": "case_context",
+    "evidence": "Уже в ближайший год пассажиров Пулково будут обслуживать 45"
+  },
+  {
+    "id": "pulkovo_catalog_active_fleet_conflict",
+    "source_id": "pulkovo_airside_2026_status",
+    "catalog_rows": [
+      188
+    ],
+    "object": "airport",
+    "attribute": "case_active_fleet_count",
+    "value": null,
+    "unit": "tractors",
+    "scope": "v4 source row reports more than 20 already in operation, while airport July 2026 source announced airside regime application and trials planned for September 2026; cannot treat either as verified active fleet",
+    "status": "source_conflict",
+    "use": "blocked",
+    "evidence": "Тестирования беспилотных багажных тягачей на перроне"
+  },
+  {
+    "id": "ronavi_h1500_purchase_floor_100",
+    "source_id": "ronavi_h1500_product",
+    "catalog_rows": [
+      1,
+      66
+    ],
+    "object": "warehouse",
+    "attribute": "purchase_price_floor",
+    "value": 2160000,
+    "unit": "RUB/unit",
+    "scope": "Цена за штуку действует при покупке от 100 роботов. Комплектация и итоговая стоимость согласуются с производителем.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "Цена за единицу при покупке от 100 шт. Ronavi H1500: от 2 160 000 ₽"
+  },
+  {
+    "id": "waybot_600_purchase_price",
+    "source_id": "waybot_purchase_rental",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "purchase_price",
+    "value": 2300000,
+    "unit": "RUB/unit",
+    "scope": "Новый робот; пусконаладка оплачивается отдельно.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "Клинботикс 600 2 300 000 ₽"
+  },
+  {
+    "id": "waybot_600_commissioning_floor",
+    "source_id": "waybot_purchase_rental",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "commissioning_price_floor",
+    "value": 150000,
+    "unit": "RUB",
+    "scope": "Пусконаладка оплачивается отдельно от покупки робота.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "от 150 000 ₽ для Cleanbotics 600"
+  },
+  {
+    "id": "waybot_600_rental_first_month",
+    "source_id": "waybot_purchase_rental",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "rental_first_month",
+    "value": 400000,
+    "unit": "RUB/month",
+    "scope": "Первый месяц аренды; стоимость в регионах может отличаться.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "400 000 ₽* в первый месяц"
+  },
+  {
+    "id": "waybot_600_rental_following_month",
+    "source_id": "waybot_purchase_rental",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "rental_following_month",
+    "value": 120000,
+    "unit": "RUB/month",
+    "scope": "Каждый последующий месяц аренды; стоимость в регионах может отличаться.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "120 000 ₽ в последующие"
+  },
+  {
+    "id": "agromash_manufacturer_home",
+    "source_id": "agromash_official_home",
+    "catalog_rows": [
+      88
+    ],
+    "object": "catalog",
+    "attribute": "manufacturer_homepage",
+    "value": "https://agromh.com/",
+    "unit": "url",
+    "scope": "Официальный сайт производителя; отдельная страница автономной версии 85ТК не указана.",
+    "status": "manufacturer_website",
+    "use": "manufacturer_link",
+    "evidence": "Общество с ограниченной ответственностью «Завод «АГРОМАШ»"
+  },
+  {
+    "id": "ronavi_h2000_payload",
+    "source_id": "ronavi_h2000_product",
+    "catalog_rows": [
+      3,
+      67
+    ],
+    "object": "warehouse",
+    "attribute": "payload_kg",
+    "value": 2000,
+    "unit": "kg",
+    "scope": "Грузоподъёмность модели H2000 по характеристикам производителя.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Грузоподъемность 2000 кг"
+  },
+  {
+    "id": "ronavi_h2000_passage",
+    "source_id": "ronavi_h2000_product",
+    "catalog_rows": [
+      3,
+      67
+    ],
+    "object": "warehouse",
+    "attribute": "minimum_passage_mm",
+    "value": 1190,
+    "unit": "mm",
+    "scope": "Минимальная ширина проезда H2000.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Минимальная ширина проезда 1190 мм"
+  },
+  {
+    "id": "ronavi_h2000_dimensions",
+    "source_id": "ronavi_h2000_product",
+    "catalog_rows": [
+      3,
+      67
+    ],
+    "object": "warehouse",
+    "attribute": "dimensions_lwh_mm",
+    "value": [
+      1540,
+      990,
+      250
+    ],
+    "unit": "mm",
+    "scope": "Габариты платформы H2000 без грузового модуля.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Габариты 1540х990х250 мм"
+  },
+  {
+    "id": "ronavi_h2000_purchase_floor_100",
+    "source_id": "ronavi_h2000_product",
+    "catalog_rows": [
+      3,
+      67
+    ],
+    "object": "warehouse",
+    "attribute": "purchase_price_floor",
+    "value": 2805000,
+    "unit": "RUB/unit",
+    "scope": "Цена за штуку при партии от 100 роботов; состав комплектации и итоговая стоимость согласуются с производителем.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "Цена за единицу при покупке от 100 шт. Ronavi H2000: от 2 805 000 ₽"
+  },
+  {
+    "id": "waybot_400pro_dimensions",
+    "source_id": "waybot_cleanbotics_400pro",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "dimensions_lwh_mm",
+    "value": [
+      676,
+      560,
+      744
+    ],
+    "unit": "mm",
+    "scope": "Габариты Cleanbotics 400 PRO по странице модели.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "676x560x744 мм"
+  },
+  {
+    "id": "waybot_400pro_runtime",
+    "source_id": "waybot_cleanbotics_400pro",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "runtime_h",
+    "value": 3,
+    "unit": "h",
+    "scope": "Время работы Cleanbotics 400 PRO без подзарядки по странице модели.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "3 часа Время работы без подзарядки"
+  },
+  {
+    "id": "waybot_400pro_cleaning_rate",
+    "source_id": "waybot_cleanbotics_400pro",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "cleaning_rate_range_m2_h",
+    "value": [
+      700,
+      1200
+    ],
+    "unit": "m2/h",
+    "scope": "Расчётный диапазон производителя; фактическая производительность зависит от объекта и режима.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "700–1200 м²/час"
+  },
+  {
+    "id": "waybot_400pro_passage_conflict",
+    "source_id": "waybot_cleanbotics_400pro",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "minimum_passage_mm",
+    "value": null,
+    "unit": "mm",
+    "scope": "На странице одной модели указаны 75 см для пылесоса, 40 см для влажной уборки и 700 мм в таблице сравнения; единое ограничение прохода не подтверждено.",
+    "status": "source_conflict",
+    "use": "blocked",
+    "evidence": "Ширина проходов 75 см в режиме пылесоса и 40 см в режиме влажной уборки; Минимальная ширина прохода 700 мм"
+  },
+  {
+    "id": "waybot_400pro_purchase_price",
+    "source_id": "waybot_purchase_rental",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "purchase_price",
+    "value": 1500000,
+    "unit": "RUB/unit",
+    "scope": "Новый робот; пусконаладка оплачивается отдельно.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "Клинботикс 400 ПРО 1 500 000 ₽"
+  },
+  {
+    "id": "waybot_400pro_commissioning_floor",
+    "source_id": "waybot_purchase_rental",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "commissioning_price_floor",
+    "value": 100000,
+    "unit": "RUB",
+    "scope": "Пусконаладка оплачивается отдельно от покупки робота.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "от 100 000 ₽ для Cleanbotics 400 PRO"
+  },
+  {
+    "id": "waybot_400pro_rental_first_month",
+    "source_id": "waybot_purchase_rental",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "rental_first_month",
+    "value": 260000,
+    "unit": "RUB/month",
+    "scope": "Первый месяц аренды; стоимость в регионах может отличаться.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "Клинботикс 400 ПРО 260 000 ₽* в первый месяц"
+  },
+  {
+    "id": "waybot_400pro_rental_following_month",
+    "source_id": "waybot_purchase_rental",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "rental_following_month",
+    "value": 100000,
+    "unit": "RUB/month",
+    "scope": "Каждый последующий месяц аренды; стоимость в регионах может отличаться.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "Клинботикс 400 ПРО 260 000 ₽* в первый месяц, 100 000 ₽ в последующие"
+  },
+  {
+    "id": "ronavi_h1500_summary",
+    "source_id": "ronavi_h1500_product",
+    "catalog_rows": [
+      1,
+      66
+    ],
+    "object": "warehouse",
+    "attribute": "product_summary",
+    "value": "Автономный мобильный робот для перевозки паллет, стеллажей, тележек и конвейерных модулей.",
+    "unit": "text",
+    "scope": "Краткое описание для карточки конкретной модели по первичной странице производителя.",
+    "status": "manufacturer_description",
+    "use": "product_copy",
+    "evidence": "Перевозит паллеты, стеллажи, тележки и конвейерные модули."
+  },
+  {
+    "id": "ronavi_h2000_summary",
+    "source_id": "ronavi_h2000_product",
+    "catalog_rows": [
+      3,
+      67
+    ],
+    "object": "warehouse",
+    "attribute": "product_summary",
+    "value": "Автономный мобильный робот для перемещения тяжёлых грузов и производственных столов.",
+    "unit": "text",
+    "scope": "Краткое описание для карточки конкретной модели по первичной странице производителя.",
+    "status": "manufacturer_description",
+    "use": "product_copy",
+    "evidence": "Ronavi H2000 — это российский автономный мобильный робот (AMR) для перемещения тяжелых грузов до 2000 кг."
+  },
+  {
+    "id": "r2b_mark2se_summary",
+    "source_id": "r2b_mark2se_product",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "product_summary",
+    "value": "Автономный робот для влажной уборки твёрдых полов с базой зарядки и автоматической смены воды.",
+    "unit": "text",
+    "scope": "Краткое описание для карточки конкретной модели по первичной странице производителя.",
+    "status": "manufacturer_description",
+    "use": "product_copy",
+    "evidence": "Mark 2 SE работает полностью автономно: сам строит маршрут, объезжает людей и препятствия, возвращается на базу для зарядки и смены воды."
+  },
+  {
+    "id": "waybot_400pro_summary",
+    "source_id": "waybot_cleanbotics_400pro",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "product_summary",
+    "value": "Робот для влажной и сухой уборки коммерческих и общественных помещений.",
+    "unit": "text",
+    "scope": "Краткое описание для карточки конкретной модели по первичной странице производителя.",
+    "status": "manufacturer_description",
+    "use": "product_copy",
+    "evidence": "Клинботикс 400 ПРО создан для профессиональной уборки коммерческих и общественных пространств площадью до 2000 м²."
+  },
+  {
+    "id": "waybot_600_summary",
+    "source_id": "waybot_cleanbotics_600",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "product_summary",
+    "value": "Робот для уборки больших помещений с режимами подметания и влажной уборки.",
+    "unit": "text",
+    "scope": "Краткое описание для карточки конкретной модели по первичной странице производителя.",
+    "status": "manufacturer_description",
+    "use": "product_copy",
+    "evidence": "Клинботикс 600 разработан для эффективной уборки больших помещений.; Подметание и влажная уборка щетками"
+  },
+  {
+    "id": "ronavi_h1500_pallet_application",
+    "source_id": "ronavi_h1500_product",
+    "catalog_rows": [
+      1
+    ],
+    "object": "warehouse",
+    "attribute": "process_application",
+    "value": "warehouse_pallet_transfer",
+    "unit": "process_code",
+    "scope": "Перевозка паллет указана на странице точной модели; интерфейс загрузки проверяется отдельно.",
+    "status": "manufacturer_application",
+    "use": "candidate_application",
+    "evidence": "Перевозит паллеты, стеллажи, тележки и конвейерные модули."
+  },
+  {
+    "id": "ronavi_h2000_pallet_application",
+    "source_id": "ronavi_h2000_product",
+    "catalog_rows": [
+      3
+    ],
+    "object": "warehouse",
+    "attribute": "process_application",
+    "value": "warehouse_pallet_transfer",
+    "unit": "process_code",
+    "scope": "Совместимость со стандартными паллетами заявлена производителем; способ захвата/загрузки проверяется отдельно.",
+    "status": "manufacturer_application",
+    "use": "candidate_application",
+    "evidence": "стандартными паллетами."
+  },
+  {
+    "id": "cognitive_pulkovo_baggage_application",
+    "source_id": "cognitive_pulkovo_2026_report",
+    "catalog_rows": [
+      188
+    ],
+    "object": "airport",
+    "attribute": "process_application",
+    "value": "airport_baggage_transport",
+    "unit": "process_code",
+    "scope": "Сообщение производителя об аэропортовом применении; не подтверждает технический допуск, тяговое усилие или эксплуатационный статус.",
+    "status": "vendor_case_reported",
+    "use": "candidate_application",
+    "evidence": "Машина с искусственным интеллектом будет возить багаж пассажиров."
+  },
+  {
+    "id": "r2b_mark2se_airport_cleaning_application",
+    "source_id": "r2b_krasnoyarsk_airport",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "process_application",
+    "value": "airport_terminal_cleaning",
+    "unit": "process_code",
+    "scope": "Опубликованное применение модели в пассажирском терминале; ограничения конкретного маршрута проверяются отдельно.",
+    "status": "vendor_case_reported",
+    "use": "candidate_application",
+    "evidence": "клиент принял решение о покупке робота Mark 2 SE. Теперь эта модель ежедневно работает в пассажирском зале"
+  },
+  {
+    "id": "r2b_mark2se_hospital_cleaning_application",
+    "source_id": "r2b_mark2se_product",
+    "catalog_rows": [
+      21
+    ],
+    "object": "hospital",
+    "attribute": "process_application",
+    "value": "hospital_floor_cleaning",
+    "unit": "process_code",
+    "scope": "Производитель называет больницу среди типов объектов; санитарный режим конкретной больницы проверяется отдельно.",
+    "status": "manufacturer_application",
+    "use": "candidate_application",
+    "evidence": "склад, ТЦ, цех, логцентр, больница, школа, вокзал"
+  },
+  {
+    "id": "waybot_600_hospital_cleaning_application",
+    "source_id": "waybot_hospital_pilot",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "process_application",
+    "value": "hospital_floor_cleaning",
+    "unit": "process_code",
+    "scope": "Опубликованный больничный пилот модели; требования к обеззараживанию и конкретным зонам проверяются отдельно.",
+    "status": "vendor_case_reported",
+    "use": "candidate_application",
+    "evidence": "четырех роботов Cleanbotics 600 от Waybot во флагманских центрах ГКБ им. В. В. Вересаева и НИИ скорой помощи им. Н. В. Склифосовского."
+  },
+  {
+    "source_id": "ronavi_sostra_fmcg",
+    "catalog_rows": [
+      1
+    ],
+    "object": "warehouse",
+    "status": "vendor_case_reported",
+    "id": "ronavi_sostra_route_length",
+    "attribute": "case_route_length_m",
+    "value": 150,
+    "unit": "m",
+    "use": "topology_context",
+    "scope": "Длина маршрута от зоны разгрузки к цеху в опубликованном кейсе Sostra; не является расстоянием объекта пользователя.",
+    "evidence": "от зоны разгрузки к производственному цеху, 150 м"
+  },
+  {
+    "source_id": "ronavi_sostra_fmcg",
+    "catalog_rows": [
+      1
+    ],
+    "object": "warehouse",
+    "status": "vendor_case_reported",
+    "id": "ronavi_sostra_pallet_mass",
+    "attribute": "case_pallet_mass_max_kg",
+    "value": 800,
+    "unit": "kg",
+    "use": "case_context",
+    "scope": "Верхняя масса паллеты в опубликованном кейсе Sostra; не является пределом грузоподъёмности модели или массой груза другого объекта.",
+    "evidence": "паллеты до 800 кг с пищевой жидкостью"
+  },
+  {
+    "source_id": "ronavi_sostra_fmcg",
+    "catalog_rows": [
+      1
+    ],
+    "object": "warehouse",
+    "status": "vendor_case_reported",
+    "id": "ronavi_sostra_route_origin",
+    "attribute": "case_route_origin",
+    "value": "зона разгрузки",
+    "unit": "text",
+    "use": "topology_context",
+    "scope": "Начальная зона маршрута конкретного объекта Sostra; координаты и план не опубликованы.",
+    "evidence": "от зоны разгрузки к производственному цеху"
+  },
+  {
+    "source_id": "ronavi_sostra_fmcg",
+    "catalog_rows": [
+      1
+    ],
+    "object": "warehouse",
+    "status": "vendor_case_reported",
+    "id": "ronavi_sostra_route_destination",
+    "attribute": "case_route_destination",
+    "value": "производственный цех",
+    "unit": "text",
+    "use": "topology_context",
+    "scope": "Конечная зона маршрута конкретного объекта Sostra; координаты и план не опубликованы.",
+    "evidence": "к производственному цеху, 150 м"
+  },
+  {
+    "source_id": "ronavi_sostra_fmcg",
+    "catalog_rows": [
+      1
+    ],
+    "object": "warehouse",
+    "status": "vendor_case_reported",
+    "id": "ronavi_sostra_transport_table",
+    "attribute": "case_transport_interface",
+    "value": "транспортировочный столик",
+    "unit": "text",
+    "use": "case_context",
+    "scope": "Комплект оборудования кейса Sostra; не доказывает универсальный интерфейс загрузки H1500.",
+    "evidence": "Транспортировочный столик"
+  },
+  {
+    "id": "r2b_airport_public_hall_zone",
+    "source_id": "r2b_krasnoyarsk_airport",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "case_service_zone",
+    "value": "пассажирский зал и прикассовые зоны",
+    "unit": "zone",
+    "scope": "Фактическая зона ежедневной работы Mark 2 SE в кейсе аэропорта Красноярска; не план другого аэропорта.",
+    "status": "vendor_case_reported",
+    "use": "topology_context",
+    "evidence": "в пассажирском зале и прикассовых зонах аэропорта Красноярска"
+  },
+  {
+    "id": "r2b_airport_registration_exclusion",
+    "source_id": "r2b_krasnoyarsk_airport",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "case_excluded_zone",
+    "value": "район зоны регистрации",
+    "unit": "zone",
+    "scope": "Район регистрации исключён из уборки при настройке конкретного кейса; геометрия не опубликована.",
+    "status": "vendor_case_reported",
+    "use": "topology_context",
+    "evidence": "Мы ограничили зону уборки робота в районе зоны регистрации."
+  },
+  {
+    "id": "r2b_airport_tactile_exclusion",
+    "source_id": "r2b_krasnoyarsk_airport",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "case_excluded_zone",
+    "value": "зона с тактильными индикаторами",
+    "unit": "zone",
+    "scope": "Зона для маломобильных пассажиров исключена из маршрута в кейсе из-за шума на тактильных индикаторах.",
+    "status": "vendor_case_reported",
+    "use": "topology_context",
+    "evidence": "робот не заезжал в зону для мало мобильных граждан.; тактильными индикаторами"
+  },
+  {
+    "id": "r2b_airport_charger_location",
+    "source_id": "r2b_krasnoyarsk_airport",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "case_charger_location",
+    "value": "рядом с мокрой точкой",
+    "unit": "zone",
+    "scope": "Расположение зарядной станции в конкретном аэропортовом кейсе; расстояние не опубликовано.",
+    "status": "vendor_case_reported",
+    "use": "topology_context",
+    "evidence": "зарядную станцию мы расположили рядом с мокрой точкой"
+  },
+  {
+    "id": "waybot_hospital_cleaning_zones",
+    "source_id": "waybot_hospital_pilot",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "case_service_zones",
+    "value": [
+      "входная зона",
+      "коридоры",
+      "лифтовые площадки"
+    ],
+    "unit": "zone",
+    "scope": "Указанные зоны уборки в опубликованном больничном пилоте; расстояния, этажи и санитарные протоколы не опубликованы.",
+    "status": "vendor_case_reported",
+    "use": "topology_context",
+    "evidence": "во входной зоне, коридорах и на лифтовых площадках"
+  },
+  {
+    "id": "ronavi_h1500_max_speed",
+    "source_id": "ronavi_h1500_product",
+    "catalog_rows": [
+      1,
+      66
+    ],
+    "object": "warehouse",
+    "attribute": "manufacturer_max_speed_m_s",
+    "value": 1.5,
+    "unit": "m/s",
+    "scope": "Паспортный максимум H1500; не является средней скоростью на конкретном складе.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Максимальная скорость передвижения;1.5 м/с"
+  },
+  {
+    "id": "ronavi_h1500_runtime_80_to_20",
+    "source_id": "ronavi_h1500_product",
+    "catalog_rows": [
+      1,
+      66
+    ],
+    "object": "warehouse",
+    "attribute": "runtime_80_to_20_h",
+    "value": 10,
+    "unit": "h",
+    "scope": "До 10 часов в опубликованном производителем интервале заряда 80–20%; не подтверждает рабочий цикл площадки.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Время автономной работы (c 80% до 20%);до 10 часов"
+  },
+  {
+    "id": "ronavi_h2000_max_speed",
+    "source_id": "ronavi_h2000_product",
+    "catalog_rows": [
+      3,
+      67
+    ],
+    "object": "warehouse",
+    "attribute": "manufacturer_max_speed_m_s",
+    "value": 1,
+    "unit": "m/s",
+    "scope": "Паспортный максимум H2000; не является средней скоростью на конкретном производстве.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Максимальная скорость передвижения 1 м/с"
+  },
+  {
+    "id": "ronavi_h2000_runtime_80_to_20",
+    "source_id": "ronavi_h2000_product",
+    "catalog_rows": [
+      3,
+      67
+    ],
+    "object": "warehouse",
+    "attribute": "runtime_80_to_20_h",
+    "value": 10,
+    "unit": "h",
+    "scope": "До 10 часов в опубликованном производителем интервале заряда 80–20%; не подтверждает рабочий цикл площадки.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Время автономной работы (c 80% до 20%) до 10 часов"
+  },
+  {
+    "id": "r2b_mark2se_full_charge",
+    "source_id": "r2b_mark2se_product",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "full_charge_h",
+    "value": 2,
+    "unit": "h",
+    "scope": "Время полной зарядки MARK 2 SE по странице производителя; очереди зарядной станции отдельно не подтверждены.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "2 часа Время полной зарядки"
+  },
+  {
+    "id": "waybot_400pro_full_charge",
+    "source_id": "waybot_cleanbotics_400pro",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "full_charge_h",
+    "value": 1,
+    "unit": "h",
+    "scope": "Время полной зарядки точной модели Cleanbotics 400 PRO, не 600.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "1 час Время полной зарядки"
+  },
+  {
+    "id": "dikom_dmr_carrier_p_pallet_application",
+    "source_id": "dikom_dmr_carrier_p_product",
+    "catalog_rows": [
+      13
+    ],
+    "object": "warehouse",
+    "attribute": "process_application",
+    "value": "warehouse_pallet_transfer",
+    "unit": "process_code",
+    "scope": "Производитель описывает перевозку паллет точной моделью; маршрут и интерфейс загрузки конкретного объекта проверяются отдельно.",
+    "status": "manufacturer_application",
+    "use": "candidate_application",
+    "evidence": "Автономная перевозка паллет"
+  },
+  {
+    "id": "dikom_dmr_carrier_p_payload",
+    "source_id": "dikom_dmr_carrier_p_product",
+    "catalog_rows": [
+      13
+    ],
+    "object": "warehouse",
+    "attribute": "payload_kg",
+    "value": 1500,
+    "unit": "kg",
+    "scope": "Опубликованная грузоподъёмность DMR Carrier P; комплектацию и грузовую единицу проверяет заказчик.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Грузоподъёмность; 1500 кг"
+  },
+  {
+    "id": "dikom_dmr_carrier_p_speed",
+    "source_id": "dikom_dmr_carrier_p_product",
+    "catalog_rows": [
+      13
+    ],
+    "object": "warehouse",
+    "attribute": "manufacturer_max_speed_m_s",
+    "value": 1.5,
+    "unit": "m/s",
+    "scope": "Опубликованная скорость операций; время цикла на объекте из этого максимума не выводится.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Скорость операций; 1,5 м/с"
+  },
+  {
+    "id": "dikom_dmr_carrier_p_runtime",
+    "source_id": "dikom_dmr_carrier_p_product",
+    "catalog_rows": [
+      13
+    ],
+    "object": "warehouse",
+    "attribute": "runtime_h",
+    "value": 10,
+    "unit": "h",
+    "scope": "Заявленная производителем автономность; фактический режим зависит от нагрузки и маршрута.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Автономность; 10 часов"
+  },
+  {
+    "id": "kiit_dmr_carrier_p_price_from_vat",
+    "source_id": "kiit_dmr_carrier_p_offer",
+    "catalog_rows": [
+      13
+    ],
+    "object": "warehouse",
+    "attribute": "purchase_price_floor",
+    "value": 4300000,
+    "unit": "RUB/unit",
+    "scope": "Цена КИИТ от, с НДС. Справочная цена конкретного продавца; комплектация, количество и доставка влияют на итоговую сумму.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "Цена от; Цена указана с учетом НДС; 4 300 000 ₽; Окончательная стоимость зависит от комплектации"
+  },
+  {
+    "id": "dikom_dmr_carrier_p_lift_height_conflict",
+    "source_id": "kiit_dmr_carrier_p_offer",
+    "catalog_rows": [
+      13
+    ],
+    "object": "warehouse",
+    "attribute": "lift_height_mm",
+    "value": null,
+    "unit": "mm",
+    "scope": "Производитель https://dikom-a.ru/product/d-carrier-p указывает 1500 мм, продавец КИИТ — 1600 мм. Точную комплектацию и высоту подъёма необходимо подтвердить.",
+    "status": "source_conflict",
+    "use": "blocked",
+    "evidence": "Высота подъема 1600 мм"
+  },
+  {
+    "id": "yacu_unit_airport_cleaning",
+    "source_id": "yacu_unit_ru_product",
+    "catalog_rows": [
+      25
+    ],
+    "object": "airport",
+    "attribute": "process_application",
+    "value": "airport_terminal_cleaning",
+    "unit": "process_code",
+    "scope": "Manufacturer describes airport floor cleaning; no airport access or safety approval implied",
+    "status": "manufacturer_application",
+    "use": "candidate_application",
+    "evidence": "аэропортов"
+  },
+  {
+    "id": "yacu_unit_dimensions",
+    "source_id": "yacu_unit_ru_product",
+    "catalog_rows": [
+      25
+    ],
+    "object": "airport",
+    "attribute": "dimensions_lwh_mm",
+    "value": [
+      900,
+      560,
+      800
+    ],
+    "unit": "mm",
+    "scope": "Equipment envelope in length/width/height; not a minimum operating passage",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "900 х 560 х 800 мм"
+  },
+  {
+    "id": "yacu_unit_purchase_floor",
+    "source_id": "yacu_unit_ru_buy_rent",
+    "catalog_rows": [
+      25
+    ],
+    "object": "airport",
+    "attribute": "purchase_price_floor",
+    "value": 2300000,
+    "unit": "RUB/unit",
+    "scope": "Цена робота от производителя; состав поставки и монтаж определяются договором.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "от 2 300 000 ₽"
+  },
+  {
+    "id": "yacu_unit_rental_floor",
+    "source_id": "yacu_unit_ru_buy_rent",
+    "catalog_rows": [
+      25
+    ],
+    "object": "airport",
+    "attribute": "rental_price_floor",
+    "value": 100000,
+    "unit": "RUB/month",
+    "scope": "Аренда от производителя; состав услуги и срок определяются договором.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "от 100 000 ₽/мес"
+  },
+  {
+    "id": "yacu_unit_runtime_ru_conflict",
+    "source_id": "yacu_unit_ru_product",
+    "catalog_rows": [
+      25
+    ],
+    "object": "airport",
+    "attribute": "runtime_h",
+    "value": null,
+    "unit": "h",
+    "scope": "Russian page says 5h; English manufacturer page says 6h for Unit. Variant identity unresolved.",
+    "status": "source_conflict",
+    "use": "blocked",
+    "evidence": "5 часов непрерывной работы"
+  },
+  {
+    "id": "yacu_unit_runtime_en_conflict",
+    "source_id": "yacu_unit_en_product",
+    "catalog_rows": [
+      25
+    ],
+    "object": "airport",
+    "attribute": "runtime_h",
+    "value": null,
+    "unit": "h",
+    "scope": "English page says 6h; Russian manufacturer page says 5h for Unit. Variant identity unresolved.",
+    "status": "source_conflict",
+    "use": "blocked",
+    "evidence": "6 h Time of battery continuous working"
+  },
+  {
+    "id": "yacu_unit_area_ru_conflict",
+    "source_id": "yacu_unit_ru_product",
+    "catalog_rows": [
+      25
+    ],
+    "object": "airport",
+    "attribute": "cleaning_area_per_charge_m2",
+    "value": null,
+    "unit": "m2/charge",
+    "scope": "Russian page says 7200 m2/charge; English manufacturer page says 4200. Do not convert to throughput.",
+    "status": "source_conflict",
+    "use": "blocked",
+    "evidence": "7 200 м² на одном заряде"
+  },
+  {
+    "id": "yacu_unit_area_en_conflict",
+    "source_id": "yacu_unit_en_product",
+    "catalog_rows": [
+      25
+    ],
+    "object": "airport",
+    "attribute": "cleaning_area_per_charge_m2",
+    "value": null,
+    "unit": "m2/charge",
+    "scope": "English page says 4200 m2/charge; Russian manufacturer page says 7200. Do not convert to throughput.",
+    "status": "source_conflict",
+    "use": "blocked",
+    "evidence": "4200 m2 Cleaning area"
+  },
+  {
+    "id": "ronavi_h1500_no_pallet_lift",
+    "source_id": "ronavi_e_h1500_comparison",
+    "catalog_rows": [1, 66],
+    "object": "warehouse",
+    "attribute": "lift_height_mm",
+    "value": 0,
+    "unit": "mm",
+    "scope": "Сравнительная таблица производителя: у H1500 платформа под стеллаж или паллету без подъёма. Для захвата паллеты с пола нужна другая модель либо подтверждённая схема загрузки.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Высота подъема; 0 мм (без подъема); Платформа под стеллаж/паллету"
+  },
+  {
+    "id": "ronavi_h1500_platform_transport",
+    "source_id": "ronavi_e_h1500_comparison",
+    "catalog_rows": [1, 66],
+    "object": "warehouse",
+    "attribute": "pallet_platform_transport",
+    "value": true,
+    "unit": "boolean",
+    "scope": "Сравнительная таблица производителя относит H1500 к перевозке паллеты на платформе; сопряжение с точками передачи на конкретном складе проверяется отдельно.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Платформа под стеллаж/паллету; Когда выбирать Ronavi H1500"
+  },
+  {
+    "id": "ronavi_h1500_no_floor_pickup",
+    "source_id": "ronavi_e_h1500_comparison",
+    "catalog_rows": [1, 66],
+    "object": "warehouse",
+    "attribute": "pallet_floor_pickup",
+    "value": false,
+    "unit": "boolean",
+    "scope": "В сравнении производителя вилочный заезд под паллету указан для Ronavi E, а H1500 указан как платформенный робот с нулевой высотой подъёма. Отрицание относится только к автономному подхвату паллеты с пола.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Заезд вилами под паллету; 0 мм (без подъема); Платформа под стеллаж/паллету"
+  },
+  {
+    "id": "r2b_mark2se_minimum_passage",
+    "source_id": "r2b_mark2se_rent",
+    "catalog_rows": [21],
+    "object": "airport",
+    "attribute": "minimum_passage_mm",
+    "value": 1300,
+    "unit": "mm",
+    "scope": "Минимальная ширина проезда для точной модели MARK 2 SE по странице производителя об аренде; фактический узкий участок измеряет владелец аэропорта.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Минимальная ширина для проезда; 1,3 метра"
+  },
+  {
+    "id": "r2b_sakhalinsk_terminal_application",
+    "source_id": "r2b_yuzhno_sakhalinsk_airport",
+    "catalog_rows": [21],
+    "object": "airport",
+    "attribute": "process_application",
+    "value": "airport_terminal_cleaning",
+    "unit": "process_code",
+    "scope": "Подтверждённая работа MARK 2 SE в пассажирских зонах конкретного аэропорта; правила доступа нового объекта проверяются отдельно.",
+    "status": "vendor_case_reported",
+    "use": "candidate_application",
+    "evidence": "Сейчас Mark 2 SE работает еще и на втором, а также в VIP-зоне"
+  },
+  {
+    "id": "r2b_sakhalinsk_tile_floor",
+    "source_id": "r2b_yuzhno_sakhalinsk_airport",
+    "catalog_rows": [21],
+    "object": "airport",
+    "attribute": "case_floor_material",
+    "value": "плитка",
+    "unit": "text",
+    "scope": "Плиточное покрытие первого этажа аэропорта Южно-Сахалинска; не подтверждает совместимость с любым покрытием другого терминала.",
+    "status": "vendor_case_reported",
+    "use": "topology_context",
+    "evidence": "зоны с постоянным пассажирским потоком и плиточным покрытием"
+  },
+  {
+    "id": "r2b_sakhalinsk_stationless_zones",
+    "source_id": "r2b_yuzhno_sakhalinsk_airport",
+    "catalog_rows": [21],
+    "object": "airport",
+    "attribute": "case_stationless_mode",
+    "value": "стартовый тег на втором этаже и в VIP-зоне",
+    "unit": "text",
+    "scope": "Доработка MARK 2 SE для объекта Южно-Сахалинска: в двух зонах нет базовой станции, робот начинает и завершает уборку от тега; не универсальное свойство комплектации.",
+    "status": "vendor_case_reported",
+    "use": "topology_context",
+    "evidence": "на втором этаже и в VIP-зоне нет базовой станции; начинает и завершает уборку от стартового тега"
+  },
+  {
+    "id": "waybot_sklif_remaining_manual_tasks",
+    "source_id": "waybot_hospital_pilot",
+    "catalog_rows": [24],
+    "object": "hospital",
+    "attribute": "case_remaining_manual_tasks",
+    "value": ["санузлы и пищеблоки", "дезинфекция контактных поверхностей", "лестницы и смотровые"],
+    "unit": "text",
+    "scope": "В опубликованном больничном кейсе робот выполняет регулярную влажную уборку пола; перечисленные операции остаются за персоналом и не могут считаться высвобождённым трудом робота.",
+    "status": "vendor_case_reported",
+    "use": "case_context",
+    "evidence": "обработке санузлов и пищеблоков; дезинфекции контактных поверхностей; уборке на лестницах и в смотровых"
+  },
+  {
+    "id": "cognitive_cp_pulkovo_2026_application",
+    "source_id": "cognitive_cp_pulkovo_2026",
+    "catalog_rows": [188],
+    "object": "airport",
+    "attribute": "process_application",
+    "value": "airport_baggage_transport",
+    "unit": "process_code",
+    "scope": "Производитель связывает платформу СИ-ПИ с испытаниями доставки багажа в Пулково. Публикация не подтверждает точную аэродромную комплектацию, паспортную тягу, коммерческую цену или допуск к эксплуатации.",
+    "status": "vendor_case_reported",
+    "use": "candidate_application",
+    "evidence": "В аэропорту Пулково - та же платформа уже тестируется на доставке багажа."
+  }
+]
