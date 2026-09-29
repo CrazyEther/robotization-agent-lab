@@ -1,0 +1,27 @@
+import {test,expect} from '@playwright/test';
+test('financial shortfall is visible and ROI/NPV projections require explicit coverage cost',async({page})=>{
+ const errors:string[]=[];
+ page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('/?preview=layout');
+ await page.getByTestId('load-shop').click();
+ await page.getByTestId('fill-finance-example').click();
+ await page.getByLabel('План готовых изделий/год').fill('5000');
+ await page.getByLabel('Готовых изделий до внедрения, шт./год').fill('5000');
+ await page.getByTestId('agent-run').click();
+ await expect(page.getByTestId('agent-results')).toBeVisible({timeout:30000});
+ const summary=page.getByTestId('financial-shortfall');
+ await expect(summary).toBeVisible();
+ await expect(summary).toContainText('Осталось обеспечить');
+ await expect(page.getByTestId('npv-value')).toHaveText('План не выполнен');
+ await expect(page.getByTestId('conditional-roi-ceiling')).toContainText('%');
+ await expect(page.getByTestId('conditional-npv-ceiling')).toContainText('₽');
+ await expect(page.getByTestId('conditional-roi')).toHaveCount(0);
+ await page.getByLabel('Дополнительные затраты на недостающий объём').fill('1200000');
+ await expect(page.getByTestId('conditional-roi')).toContainText('%');
+ await expect(page.getByTestId('conditional-npv')).toContainText('₽');
+ const ceiling=Number((await page.getByTestId('conditional-roi-ceiling').innerText()).replace(/[^\d,.-]/g,'').replace(',','.'));
+ const assumed=Number((await page.getByTestId('conditional-roi').innerText()).replace(/[^\d,.-]/g,'').replace(',','.'));
+ expect(assumed).toBeLessThan(ceiling);
+ await expect(summary).toContainText('Симуляция не доказала');
+ expect(errors).toEqual([]);
+});

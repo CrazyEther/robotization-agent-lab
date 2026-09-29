@@ -6,8 +6,7 @@ async function chooseRobot(page:import('@playwright/test').Page){
  await page.getByRole('button',{name:'Перейти к роботам'}).click();
  await page.getByRole('textbox',{name:'Поиск роботов'}).fill('MiR250');
  await page.getByRole('button',{name:/Добавить в транспортный сценарий/}).click();
- await expect(page.getByRole('heading',{name:/Здесь робот/})).toBeVisible();
- await page.getByRole('button',{name:'Настроить симуляцию'}).click();
+ await expect(page.getByRole('toolbar',{name:'Редактор производственной планировки'})).toBeVisible();
  await expect(page.getByTestId('agent-studio')).toBeVisible();
 }
 
@@ -25,18 +24,21 @@ test('object → robot → layout → live simulation without external SimPy',as
  expect(errors).toEqual([]);
 });
 
-test('CSV catalog shows source links and scoped evidence for 187 models',async({page})=>{
+test('robot catalog shows referenced prices and use cases without import jargon',async({page})=>{
  await page.goto('/');
  await page.getByRole('button',{name:'Маркетплейс'}).first().click();
- await page.getByRole('button',{name:/Каталог CSV/}).click();
- await expect(page.getByText(/187 моделей \/ 223 исходных записей/)).toBeVisible();
- await page.getByRole('textbox',{name:'Поиск по CSV'}).fill('Ronavi H1500');
+ await page.getByRole('button',{name:/Все решения/}).click();
+ await expect(page.getByText('187 моделей')).toBeVisible();
+ await page.getByRole('textbox',{name:'Поиск по каталогу'}).fill('Ronavi H1500');
  await expect(page.locator('.ris-csv-card')).toHaveCount(1);
- await page.getByRole('button',{name:'Все характеристики и кейсы'}).click();
+ await page.getByRole('button',{name:'Характеристики и применение'}).click();
  await expect(page.getByRole('dialog')).toContainText('Восток-Сервис');
- await expect(page.getByRole('dialog')).toContainText('валюта не указана');
- await expect(page.getByRole('dialog')).toContainText('Атрибутировано');
- await expect(page.getByRole('dialog').getByRole('link',{name:'Открыть первоисточник ↗'}).first()).toHaveAttribute('href',/https:\/\//);
+ await expect(page.getByRole('dialog')).toContainText('2 160 000');
+ await expect(page.getByRole('dialog')).toContainText('100 роботов');
+ await expect(page.getByRole('dialog')).not.toContainText('CSV');
+ await expect(page.getByRole('dialog')).not.toContainText('валюта не указана');
+ await expect(page.getByRole('dialog')).not.toContainText('Атрибутировано');
+ await expect(page.getByRole('dialog').getByRole('link',{name:/Первоисточник|Условия у поставщика/}).first()).toHaveAttribute('href',/https:\/\//);
  await page.getByRole('button',{name:'Закрыть карточку'}).click();
  await expect(page.getByRole('dialog')).toHaveCount(0);
 });test('simulation API remains explicit about unavailable legacy Python service',async({request})=>{
@@ -52,8 +54,8 @@ test('mobile: catalog and agent studio remain reachable',async({page,isMobile})=
  await page.goto('/');
  await page.getByRole('button',{name:'Создать проект'}).first().click();
  await page.getByRole('navigation',{name:'Этапы проекта'}).getByRole('button',{name:/Маркетплейс/}).click();
- await page.getByRole('button',{name:/Каталог CSV/}).click();
- await expect(page.getByRole('textbox',{name:'Поиск по CSV'})).toBeVisible();
- await page.getByRole('navigation',{name:'Этапы проекта'}).getByRole('button',{name:/Моделирование/}).click();
+ await page.getByRole('button',{name:/Все решения/}).click();
+ await expect(page.getByRole('textbox',{name:'Поиск по каталогу'})).toBeVisible();
+ await page.getByRole('navigation',{name:'Этапы проекта'}).getByRole('button',{name:/моделирование/i}).click();
  await expect(page.getByTestId('agent-studio')).toBeVisible();
 });
