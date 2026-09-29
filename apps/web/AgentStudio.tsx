@@ -1,4 +1,4 @@
-import {useEffect,useMemo,useRef,useState} from 'react';
+import {useEffect,useMemo,useRef,useState,type PointerEvent as ReactPointerEvent} from 'react';
 import {Box,Download,Pause,Play,RotateCcw,ShoppingBag} from 'lucide-react';
 import registry from '../../data/catalog.json';
 import supplement from '../../data/market-supplement.json';
@@ -43,6 +43,74 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
  const [playing,setPlaying]=useState(false),[index,setIndex]=useState(0),[speed,setSpeed]=useState(20);
  const clock=useRef(0),[finance,setFinance]=useState<FinanceInput>(defaults);
  const [catalogOpen,setCatalogOpen]=useState(false),[selectedRobot,setSelectedRobot]=useState(selectedRobotId??'');
+ const [layoutTool,setLayoutTool]=useState<'move'|'rack'|'obstacle'|'station'>('move');
+ const [layoutNote,setLayoutNote]=useState('');
+ const svgRef=useRef<SVGSVGElement>(null);
+ const drag=useRef<{kind:'pickup'|'dropoff'|'obstacle'|'station';index?:number;id?:string}|null>(null);
+ const pointerToGrid=(e:ReactPointerEvent<SVGSVGElement>)=>{
+  const svg=svgRef.current,matrix=svg?.getScreenCTM();
+  if(!svg||!matrix)return null;
+  const point=svg.createSVGPoint();point.x=e.clientX;point.y=e.clientY;
+  const p=point.matrixTransform(matrix.inverse());
+  return {x:Math.floor(p.x),y:Math.floor(p.y)};
+ };
+ const moveOnPlan=(e:ReactPointerEvent<SVGSVGElement>)=>{
+  if(!drag.current)return;
+  const point=pointerToGrid(e);if(!point)return;
+  const {kind,index:obstacleIndex,id}=drag.current;
+  const x=Math.max(1,Math.min(input.layout.width-2,point.x));
+  const y=Math.max(1,Math.min(input.layout.height-2,point.y));
+  if(kind==='station'){
+   setOperations(old=>old.map(op=>op.id===id?{...op,x,y}:op));
+  }else if(kind==='obstacle'&&obstacleIndex!==undefined){
+   setInput(old=>({...old,layout:{...old.layout,obstacles:old.layout.obstacles.map((o,i)=>i===obstacleIndex
+    ?{...o,x:Math.max(1,Math.min(old.layout.width-o.w-1,x)),y:Math.max(1,Math.min(old.layout.height-o.h-1,y))}:o)}}));
+  }else{
+   setInput(old=>({...old,layout:{...old.layout,[kind]:{x,y}}}));
+  }
+ };
+ const startDrag=(e:ReactPointerEvent<SVGElement>,state:NonNullable<typeof drag.current>)=>{
+  e.stopPropagation();if(layoutTool!=='move')return;
+  invalidate();drag.current=state;
+  svgRef.current?.setPointerCapture(e.pointerId);
+ };
+ const endDrag=(e:ReactPointerEvent<SVGSVGElement>)=>{
+  if(drag.current){drag.current=null;if(svgRef.current?.hasPointerCapture(e.pointerId))svgRef.current.releasePointerCapture(e.pointerId);}
+ };
+ const addToPlan=(e:ReactPointerEvent<SVGSVGElement>)=>{
+  if(layoutTool==='move'||e.target!==e.currentTarget && (e.target as Element).tagName.toLowerCase()!=='rect')return;
+  const position=pointerToGrid(e);if(!position)return;
+  const x=Math.max(1,Math.min(input.layout.width-4,position.x));
+  const y=Math.max(1,Math.min(input.layout.height-4,position.y));
+  if(layoutTool==='station'){
+   if(operations.length>=5){setLayoutNote('В этом прототипе поддерживается не более пяти технологических постов.');return;}
+   const id='machine-'+(Math.max(0,...operations.map(o=>Number(o.id.split('-').at(-1))||0))+1);
+   setOperations(old=>[...old,{id,label:'Дополнительный технологический пост',x,y,durationSeconds:60,capacity:1,transformsLoad:false,stochastic:false}]);
+  }else{
+   const w=layoutTool==='rack'?3:2,h=layoutTool==='rack'?6:3;
+   setInput(old=>({...old,layout:{...old.layout,obstacles:[...old.layout.obstacles,{x,y,w,h}]}}));
+  }
+  setLayoutTool('move');invalidate();
+ };
+ const loadShop=()=>{
+  const shop=createScenario('factory');
+  shop.layout={width:55,height:34,pickup:{x:4,y:17},dropoff:{x:50,y:17},obstacles:[
+   {x:9,y:3,w:4,h:10},{x:9,y:23,w:4,h:8},
+   {x:22,y:3,w:6,h:8},{x:22,y:24,w:6,h:7},
+   {x:40,y:3,w:5,h:9},{x:40,y:24,w:5,h:7}
+  ]};
+  shop.robot={...shop.robot,count:4,chargerCount:2};
+  shop.workload={demandPerHour:18,loadKg:90,shiftHours:1};
+  setInput(shop);
+  setOperations([
+   {id:'machine-1',label:'Механообработка заготовки',x:18,y:17,durationSeconds:110,capacity:1,transformsLoad:true,stochastic:false},
+   {id:'machine-2',label:'Контроль и упаковка',x:35,y:17,durationSeconds:45,capacity:1,transformsLoad:false,stochastic:false}
+  ]);
+  setLayoutTool('move');
+  setLayoutNote('Демонстрационный участок металлообработки 55 × 34 м. Размеры, станки и режимы условные, требуют обследования.');
+  invalidate();
+ };
+
  const setScenario=(fn:(before:SimulationInput)=>SimulationInput)=>{setInput(before=>fn(before));invalidate();};
  const editStage=(id:string,changes:Partial<Operation>)=>{setOperations(before=>before.map(op=>op.id===id?{...op,...changes}:op));invalidate();};
  function invalidate(){setResult(null);setError('');setPlaying(false);setIndex(0);clock.current=0;}
@@ -103,6 +171,12 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
  const supports=registry.products.filter(p=>p.familyId==='transport');
  const setRobots=(name:keyof SimulationInput['robot'],value:number)=>setScenario(s=>({...s,robot:{...s.robot,[name]:value}}));
  const setWorkload=(name:keyof SimulationInput['workload'],value:number)=>setScenario(s=>({...s,workload:{...s.workload,[name]:value}}));
+ const fillEconomicExample=()=>{setFinance({
+  unitPrice:900000,installation:300000,infrastructure:200000,chargersCost:140000,
+  maintenanceAnnual:260000,electricityPerKwh:10,baselineCostAnnual:4800000,
+  residualHumanCostAnnual:900000,daysPerYear:250,horizonYears:5,
+  discountRatePercent:15,annualDemand:3500,baselineAnnualCompleted:3500
+ });};
  const reset=()=>{const next=createScenario(input.sector);next.workload.shiftHours=1;setInput(next);
   setOperations(defaultOperations(next).map((op,i)=>({...op,label:processNames[next.sector][i]})));invalidate();};
  return <div className="ras-root" data-testid="agent-studio">
@@ -110,6 +184,7 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
    <p>Одна дискретно-событийная временная шкала: заявки → движение AMR → погрузка → обработка → следующий участок → выгрузка. Трафик, зарядка, очереди и показатели рассчитываются Simulation Core, а не рисуются отдельно.</p>
    <div className="ras-head-actions"><button className="ris-primary" onClick={execute} disabled={!compiled.scenario} data-testid="agent-run">
     <Play size={17}/> {result?'Пересчитать модель':'Запустить модель'}</button>
+    <button className="ris-secondary" onClick={loadShop} data-testid="load-shop"><Box size={17}/> Пример производственного участка</button>
     <button className="ris-secondary" onClick={reset}><RotateCcw size={16}/> Сброс шаблона</button>
     {result&&<button className="ris-secondary" onClick={()=>download('ris-agent-study.json',{configuration,scenario:result.scenario,run:result.run,experiment:result.experiment,finance,economic})}><Download size={17}/> Экспорт данных</button>}</div>
    {(error||compiled.error)&&<p className="ras-error" role="alert">{error||compiled.error}</p>}
@@ -117,22 +192,46 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
 
   <section className="ras-workbench">
    <div className="ras-main">
-    <div className="ras-floorbar"><b>ДИСПЕТЧЕРСКАЯ КАРТА / ЭТАЖ 1</b><span>{input.layout.width} × {input.layout.height} м</span></div>
-    <svg aria-label="Двухмерная симуляция движения роботов" data-testid="agent-floor"
-     viewBox={'0 0 '+input.layout.width+' '+input.layout.height} className="ras-floor">
+    <div className="ras-floorbar"><b>РЕДАКТОР И ЖИВАЯ МОДЕЛЬ / ЭТАЖ 1</b><span>{input.layout.width} × {input.layout.height} м</span></div>
+    <div className="ras-editbar" role="toolbar" aria-label="Редактор производственной планировки">
+     {([['move','Перемещение'],['rack','Стеллаж'],['obstacle','Препятствие'],['station','Техпост']] as const).map(([tool,label])=>
+      <button type="button" key={tool} className={layoutTool===tool?'active':''} aria-pressed={layoutTool===tool} onClick={()=>setLayoutTool(tool)}>{label}</button>)}
+     <label>Ширина, м<input aria-label="Ширина помещения" type="number" min="12" max="300" value={input.layout.width}
+       onChange={e=>{const width=Math.max(12,Math.min(300,Number(e.target.value)||12));if(input.layout.obstacles.some(o=>o.x+o.w>=width)||input.layout.dropoff.x>=width||operations.some(o=>o.x>=width)){setLayoutNote('Сначала перенесите объекты внутрь новой границы.');return;}setScenario(s=>({...s,layout:{...s.layout,width}}));}}/></label>
+     <label>Высота, м<input aria-label="Высота помещения" type="number" min="12" max="300" value={input.layout.height}
+       onChange={e=>{const height=Math.max(12,Math.min(300,Number(e.target.value)||12));if(input.layout.obstacles.some(o=>o.y+o.h>=height)||input.layout.dropoff.y>=height||operations.some(o=>o.y>=height)){setLayoutNote('Сначала перенесите объекты внутрь новой границы.');return;}setScenario(s=>({...s,layout:{...s.layout,height}}));}}/></label>
+     <button type="button" onClick={()=>download('facility-layout-preview.json',{schemaVersion:'ris-layout-preview/1',layout:input.layout,operations,robot:input.robot,workload:input.workload})}>Экспорт плана</button>
+    </div>
+    {layoutNote&&<p className="ras-layout-note" role="status">{layoutNote}</p>}
+    <svg ref={svgRef} aria-label="Двухмерная симуляция движения роботов" data-testid="agent-floor"
+     viewBox={'0 0 '+input.layout.width+' '+input.layout.height} className="ras-floor"
+     onPointerMove={moveOnPlan} onPointerUp={endDrag} onPointerCancel={endDrag} onPointerDown={addToPlan}
+     style={{cursor:layoutTool==='move'?'default':'crosshair',touchAction:'none'}}>
      <defs><pattern id="ras-grid" width="2" height="2" patternUnits="userSpaceOnUse"><path d="M2 0 H0 V2" fill="none" stroke="#b8c7d4" strokeWidth=".09"/></pattern></defs>
      <rect width="100%" height="100%" fill="#edf2f5"/><rect width="100%" height="100%" fill="url(#ras-grid)"/>
-     {input.layout.obstacles.map((o,i)=><rect key={'o'+i} {...o} fill="#718390" stroke="#435563" strokeWidth=".16" rx=".2"/>)}
+     {input.layout.obstacles.map((o,i)=><g key={'o'+i} onPointerDown={e=>startDrag(e,{kind:'obstacle',index:i})} style={{cursor:layoutTool==='move'?'grab':'crosshair'}}>
+      <rect {...o} fill={i%2?'#667f95':'#738d9b'} stroke="#435563" strokeWidth=".18" rx=".2"/>
+      <text x={o.x+o.w/2} y={o.y+Math.min(1.1,o.h*.5)} textAnchor="middle" fontSize=".75" fill="white" pointerEvents="none">{i%2?'БУФЕР':'СТЕЛЛАЖ'}</text>
+     </g>)}
+     <g aria-label="Зарядка роботов" data-testid="agent-charger">
+      <rect x={Math.max(0,input.layout.pickup.x-2)} y={Math.max(0,input.layout.pickup.y-3)} width="2" height="2" rx=".3"
+       fill="#9768d7" stroke="#ffffff" strokeWidth=".22"/>
+      <text x={Math.max(0,input.layout.pickup.x-2)+1} y={Math.max(0,input.layout.pickup.y-3)+1.25} textAnchor="middle"
+       fill="white" fontSize="1.1" fontWeight="800">⚡</text>
+      <title>Зарядка: {input.robot.chargerCount} каналов · расположен рядом с зоной поступления; в текущем движке её позиция привязана к точке A.</title>
+     </g>
      {result?.routes.legs.map((leg,i)=><polyline key={leg.edgeId} data-testid="agent-route"
       points={leg.route.points.map(p=>p.x+','+p.y).join(' ')}
       stroke={i%2?'#119d80':'#1d62f3'} fill="none" strokeWidth=".26" strokeDasharray=".8 .45"/>)}
-     {operations.map((op,i)=><g key={op.id} data-testid="agent-machine">
+     {operations.map((op,i)=><g key={op.id} data-testid="agent-machine"
+      onPointerDown={e=>startDrag(e,{kind:'station',id:op.id})} style={{cursor:layoutTool==='move'?'grab':'crosshair'}}>
       <rect x={op.x-.6} y={op.y-.6} width="2" height="2" rx=".25"
        stroke={(activeStations.get(op.id)??0)>0?'#ef8a30':'#1b9e82'} strokeWidth=".34" fill="#fff"/>
       <text x={op.x+.4} y={op.y+.58} textAnchor="middle" fontSize=".84" fontWeight="800" fill="#20415c">{i+1}</text>
       <title>{op.label} · {activeStations.get(op.id)??0}/{op.capacity} постов · {op.durationSeconds} с</title>
      </g>)}
-     {(['pickup','dropoff'] as const).map((key,i)=><g key={key}>
+     {(['pickup','dropoff'] as const).map((key,i)=><g key={key}
+      onPointerDown={e=>startDrag(e,{kind:key})} style={{cursor:layoutTool==='move'?'grab':'crosshair'}}>
       <circle cx={cell(input.layout[key].x)} cy={cell(input.layout[key].y)} r="1" fill={i?'#fb7440':'#275fe5'} stroke="white" strokeWidth=".23"/>
       <text x={cell(input.layout[key].x)} y={cell(input.layout[key].y)+.25} textAnchor="middle" fontWeight="800" fontSize=".85" fill="white">{i?'B':'A'}</text></g>)}
      {frame?.cargos.map(c=><rect key={c.id} data-testid="agent-cargo" x={c.x-.38} y={c.y-.38} width=".76" height=".76" rx=".08"
@@ -143,7 +242,9 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
       <text x={r.x} y={r.y+.23} fontWeight="800" fill="white" textAnchor="middle" fontSize=".65">{r.id.split('#')[1]}</text></g>)}
     </svg>
     <div className="ras-legend"><span><i className="ras-indigo"/> Роботы</span><span><i className="ras-yellow"/> Груз</span>
-     <span><i className="ras-green"/> Пост обработки</span><span><i className="ras-gray"/> Препятствия</span></div>
+     <span><i className="ras-green"/> Пост обработки</span><span><i className="ras-gray"/> Препятствия</span>
+     <span><i className="ras-charge-legend"/> Зарядка ({input.robot.chargerCount} места)</span></div>
+    <p className="ras-layout-note">Перетащите A, B, посты и препятствия в режиме «Перемещение»; инструменты добавляют объекты по клику. Включённая симуляция сбрасывается при редактировании. Зарядное место показано отдельно; пока геометрически связано с точкой A.</p>
     {result&&<div className="ras-replay"><button onClick={()=>{if(!playing&&index>=result.frames.length-1){clock.current=0;setIndex(0);}setPlaying(v=>!v);}}>
       {playing?<Pause size={16}/>:<Play size={16}/>} {playing?'Пауза':'Воспроизвести'}</button>
       <input aria-label="Время агентной симуляции" type="range" min="0" max={result.frames.length-1} value={index}
@@ -157,7 +258,7 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
     {frame?<><div className="ras-minikpis"><div><span>Создано</span><b>{frame.created}</b></div>
      <div><span>Доставлено</span><b>{frame.completed}</b></div>
      <div><span>В работе</span><b>{frame.backlog}</b></div></div>
-     <h4>Роботы</h4>{frame.robots.map(r=><div className="ras-agent-line" key={r.id}>
+     <h4>Роботы</h4><p className="ras-charge-note">SOC: {fmt(result?.run.metrics.minRobotSoc!==undefined?result.run.metrics.minRobotSoc*100:100,1)}% минимум · зарядок: {result?.run.metrics.chargeCount??0} · очередь к зарядке: {fmt(result?.run.metrics.chargerWaitSeconds??0,1)} с. Схема зарядки сейчас условная и расположена возле A.</p>{frame.robots.map(r=><div className="ras-agent-line" key={r.id}>
       <strong>{r.id}</strong><span>{r.state}{r.taskId?' / '+r.taskId:''}</span><em>{r.batteryPercent===undefined?'—':fmt(r.batteryPercent,0)+'%'}</em></div>)}
      <h4>Оборудование</h4>{operations.map(op=><div className="ras-agent-line" key={op.id}>
       <strong>{op.label}</strong><span>Занято {activeStations.get(op.id)??0}/{op.capacity}</span></div>)}
@@ -247,19 +348,26 @@ export default function AgentStudio({initialScenario,selectedRobotId}:{initialSc
   </section>
 
   <section className="ras-finance"><div className="ras-section-heading"><span>ОЦЕНКА ЭКОНОМИКИ</span><h2>Результат симуляции → CAPEX / OPEX / ROI</h2><p>Экономические выводы возможны только при заданных реальных затратах и сопоставимом годовом объёме.</p></div>
+   <div className="ras-finance-actions"><button type="button" className="ris-secondary" onClick={fillEconomicExample} data-testid="fill-finance-example">Заполнить учебный пример затрат</button>
+    <p>Учебные финансовые цифры — не цены конкретного поставщика. План 3 500 готовых изделий/год относится к 1-часовой демонстрационной смене, а не к исследованию 400 перевозок за 8 часов. Измените исходные данные под предприятие.</p></div>
    <div className="ras-finance-grid"><div className="ras-fields">{([
     ['unitPrice','Цена робота, ₽'],['installation','Пусконаладка, ₽'],['infrastructure','Инфраструктура, ₽'],
     ['chargersCost','Зарядка / связь, ₽'],['maintenanceAnnual','Обслуживание, ₽/год'],
     ['electricityPerKwh','Электроэнергия, ₽/кВт·ч'],['baselineCostAnnual','Текущие затраты, ₽/год'],
     ['residualHumanCostAnnual','Оставшийся персонал, ₽/год'],['annualDemand','План, операций/год'],
-    ['baselineAnnualCompleted','Выпуск до внедрения, шт./год']
+    ['baselineAnnualCompleted','Выпуск до внедрения, шт./год'],
+    ['daysPerYear','Рабочих дней в году'],['horizonYears','Период оценки, лет'],
+    ['discountRatePercent','Ставка дисконтирования, %']
    ] as [keyof FinanceInput,string][]).map(([key,label])=><label key={key}>{label}<input type="number" min="0" value={finance[key]}
     onChange={e=>setFinance(old=>({...old,[key]:Number(e.target.value)}))}/></label>)}</div>
     <div className="ras-finance-summary"><span>ПО ОДНОМУ АГЕНТНОМУ ИССЛЕДОВАНИЮ</span>
      <div><small>CAPEX</small><b>{economic?cash(economic.capex):'—'}</b></div>
      <div><small>OPEX / год</small><b>{economic?cash(economic.annualOpex):'—'}</b></div>
      <div><small>TCO / {finance.horizonYears} лет</small><b>{economic?cash(economic.tco):'—'}</b></div>
-     <div><small>ROI</small><b>{economic?.roiPercent!=null?fmt(economic.roiPercent,1)+'%':'Недостаточно данных'}</b></div>
+     <div><small>ROI / {finance.horizonYears} лет</small><b>{economic?.roiPercent!=null?fmt(economic.roiPercent,1)+'%':'Недостаточно данных'}</b></div>
+     <div><small>NPV / ставка {fmt(finance.discountRatePercent,1)}%</small><b data-testid="npv-value">{economic?.npv!=null?cash(economic.npv):'Недостаточно данных'}</b></div>
+     <div><small>Чистый денежный эффект / год</small><b>{economic?.netAnnualBenefit!=null?cash(economic.netAnnualBenefit):'—'}</b></div>
+     <div><small>Оценка мощности / год</small><b>{economic?fmt(economic.annualCompleted,0)+' изделий':'—'}</b></div>
      <div><small>Окупаемость</small><b>{economic?.paybackYears!=null?fmt(economic.paybackYears,2)+' года':'Не рассчитана'}</b></div>
      {economic?.warnings.map((w,i)=><p className="ras-warning" key={i}>{w}</p>)}
     </div></div>

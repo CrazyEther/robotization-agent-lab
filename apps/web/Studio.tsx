@@ -19,7 +19,7 @@ const getCharacteristic=(p:Product,key:string)=>p.characteristics.find(c=>c.key=
 const sourceFor=(p:Product)=>registry.sources.filter(s=>p.sourceIds.includes(s.id));
 function download(name:string,data:unknown){const href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=href;a.download=name;a.click();URL.revokeObjectURL(href);}
 export default function Studio(){
- const [screen,setScreen]=useState<Screen>('welcome'),[scenario,setScenario]=useState<SimulationInput>(()=>createScenario('warehouse')),[selected,setSelected]=useState<string|null>(null);
+ const [screen,setScreen]=useState<Screen>(()=>new URLSearchParams(window.location.search).get('preview')==='layout'?'agents':'welcome'),[scenario,setScenario]=useState<SimulationInput>(()=>createScenario('warehouse')),[selected,setSelected]=useState<string|null>(null);
  const [finance,setFinance]=useState<FinanceInput>(initialFinance),[result,setResult]=useState<SimulationResult|null>(null),[experiment,setExperiment]=useState<ExperimentResult|null>(null),[replications,setReplications]=useState(1),[running,setRunning]=useState(false),[error,setError]=useState('');
  const [query,setQuery]=useState(''),[filter,setFilter]=useState('all'),[grabbed,setGrabbed]=useState<'pickup'|'dropoff'|null>(null);
  const [catalogTab,setCatalogTab]=useState<'reference'|'csv'>('reference');
