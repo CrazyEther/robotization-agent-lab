@@ -49,7 +49,7 @@ npm run typecheck
 - [Матрица конкурсных требований](docs/ACCEPTANCE.md).
 - [Слайды PDF](public/RIS_Agent_Studio_Presentation.pdf).
 
-**Происхождение исходных компонентов:** визуальная система и исходные сведения [robotization-platform](https://github.com/CrazyEther/robotization-platform), отраслевые паспорта [robot-market](https://github.com/CrazyEther/robot-market). Код математического ядра взят из локальной проверенной ветки исходного проекта и включён в новое независимое дерево. Новая публикация GitHub требует отдельного создания репозитория; локальная работа и действующий прототип от этого не зависят.
+**Происхождение исходных компонентов:** визуальная система и исходные сведения [robotization-platform](https://github.com/CrazyEther/robotization-platform), отраслевые паспорта [robot-market](https://github.com/CrazyEther/robot-market). Код математического ядра взят из локальной проверенной ветки исходного проекта и включён в новое независимое дерево. Независимый публичный репозиторий: [CrazyEther/robotization-agent-lab](https://github.com/CrazyEther/robotization-agent-lab). Исходные репозитории не изменены.
 
 ## Структура
 

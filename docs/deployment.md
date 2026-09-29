@@ -21,14 +21,16 @@ npx wrangler deploy
 
 ## GitHub (самостоятельное независимое дерево)
 
-Сформированный код должен публиковаться в **новом** публичном репозитории. Git remote исходного проекта не должен быть `origin` новой площадки. Пример после самостоятельного создания нового пустого репозитория:
+Код публикуется в **новом** публичном репозитории [CrazyEther/robotization-agent-lab](https://github.com/CrazyEther/robotization-agent-lab). Git remote исходного проекта не является `origin` новой площадки. Для локального клонирования:
 
 ```bash
-git remote add origin https://github.com/CrazyEther/robotization-agent-studio.git
-git push -u origin main
+git clone https://github.com/CrazyEther/robotization-agent-lab.git
+cd robotization-agent-lab
+npm ci
+npm run build
 ```
 
-Ссылка приводится как плановое имя, **не свидетельство существования репозитория**. Проверьте GitHub URL после публикации; исходный `robotization-platform` не изменять.
+Новый репозиторий не зависит от исходной истории публикаций, а старая площадка `robotization-platform` остаётся без изменений.
 
 ## Управление качеством
 
