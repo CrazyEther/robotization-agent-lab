@@ -58,3 +58,16 @@ npx wrangler deploy
 ## Границы модели
 
 Проект даёт предварительную оценку. Это не сертифицированный цифровой двойник: отсутствуют SLAM, полноценная многоэтажная физика, промышленная интеграция с WMS/MES и калибровка по данным конкретного объекта. Инженерные выводы требуют проверки исходных данных и параметров объекта.
+
+## Демо-ветка с редактируемой планировкой и обновлённым каталогом
+
+Редактор планировки, изменения каталога и условные финансовые сценарии проходят проверку в отдельной ветке `preview/editable-facility`. Для точного воспроизведения **[тестового сайта](https://ris-layout-lab-2026.battle-walleye.workers.dev/?preview=layout)** локально:
+
+```bash
+git clone --branch preview/editable-facility --single-branch https://github.com/CrazyEther/robotization-agent-lab.git
+cd robotization-agent-lab
+npm ci
+npm run dev
+```
+
+Сайт на отдельном Cloudflare Worker публикуется этой же веткой командой `npm run build && npx wrangler deploy --config wrangler.preview.jsonc`. Для самостоятельного развёртывания задайте уникальное имя Worker в конфигурации. Все актуальные данные каталога находятся в репозитории и в сборке; внешние снимки чужих сайтов не нужны для запуска. Сведения о методике источников см. [research/README.md](research/README.md).

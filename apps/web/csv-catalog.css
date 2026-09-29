@@ -30,3 +30,19 @@
 .ris-evidence-claim strong{font-size:13px;overflow-wrap:anywhere}.ris-evidence-claim span{font-size:10px;color:#617485}
 .ris-evidence-claim>b{font-size:16px;display:block;margin:8px 0}.ris-evidence-claim p{font-size:12px;line-height:1.55;margin:6px 0;white-space:pre-wrap}
 .ris-evidence-claim a{display:block;margin:8px 0;color:#2460cb;font-size:12px;overflow-wrap:anywhere}.ris-evidence-claim small{font-size:10px;color:#657786}
+
+/* Customer-facing catalog: compact offer display and useful source links. */
+.ris-catalog-heading{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px}
+.ris-catalog-heading h2{font-size:clamp(21px,2.4vw,29px);margin:0 0 6px;color:#1a3549}
+.ris-catalog-heading p{font-size:12px;color:#607688;margin:0}
+.ris-catalog-heading>span{font-size:12px;white-space:nowrap;color:#3e6281;font-weight:700}
+.ris-offer-scope{color:#66798b!important;line-height:1.45!important;margin-top:6px;max-height:54px;overflow:hidden}
+.ris-catalog-external{display:flex;gap:6px;align-items:center;width:fit-content;font-size:11px;color:#1263c8;margin:0 0 9px;text-decoration:none}
+.ris-catalog-external:hover{text-decoration:underline}
+.ris-reference-price{border:1px solid #d4e1ec;border-radius:9px;padding:16px;background:#f3f8fc}
+.ris-reference-price strong{display:block;font-size:23px;color:#244b69}
+.ris-reference-price p{font-size:11px!important;color:#6b8091!important;line-height:1.55}
+.ris-csv-dl-row{display:grid;grid-template-columns:130px minmax(0,1fr);gap:16px;padding:8px 0;border-bottom:1px solid #dce6ed;font-size:12px}
+.ris-csv-dl-row dt{color:#64798c}.ris-csv-dl-row dd{margin:0;color:#273f54}
+.ris-evidence-excerpt{color:#778995!important;font-size:11px!important}
+@media(max-width:700px){.ris-catalog-heading{align-items:flex-start;flex-direction:column}.ris-catalog-heading>span{align-self:flex-start}}
