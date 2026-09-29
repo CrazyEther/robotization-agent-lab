@@ -1,0 +1,53 @@
+{
+  "source": "user-provided manufacturer supplement, supplied 2026-09-29; claims not independently re-fetched",
+  "records": [
+    {
+      "id": "aethon-t3",
+      "vendor": "Aethon",
+      "name": "Aethon T3",
+      "familyId": "transport",
+      "sector": "hospital",
+      "application": "hospital_meal_delivery",
+      "sourceUrl": "https://aethon.com/mobile-robots-for-hospital-food-service/",
+      "specUrl": "https://cdn.aethon.com/wp-content/uploads/2025/06/Aethon_SpecSheet_T3-1.pdf",
+      "claims": [
+        {
+          "key": "payloadKg",
+          "value": 340,
+          "unit": "kg",
+          "sourcePage": 2,
+          "status": "manufacturer_spec"
+        },
+        {
+          "key": "speedMps",
+          "value": 0.76,
+          "unit": "m/s",
+          "sourcePage": 2,
+          "status": "manufacturer_spec"
+        }
+      ],
+      "price": null,
+      "warning": "Точное сопряжение тележки и требования медорганизации проверяются отдельно."
+    },
+    {
+      "id": "tld-eztow",
+      "vendor": "TLD",
+      "name": "EZTow",
+      "familyId": "transport",
+      "sector": "airport",
+      "application": "airport_baggage_transport",
+      "sourceUrl": "https://www.tld-group.com/technologies/eztow/",
+      "specUrl": "https://www.tld-group.com/technologies/eztow/",
+      "claims": [
+        {
+          "key": "drawbarPull",
+          "value": 2000,
+          "unit": "daN",
+          "status": "manufacturer_spec"
+        }
+      ],
+      "price": null,
+      "warning": "Тяговое усилие не равно допустимой массе багажа; паспортную буксируемую массу нельзя выводить из 2000 daN без условий."
+    }
+  ]
+}
