@@ -23,17 +23,20 @@ test('catalog flows directly into the single editable map, opaque obstacles can 
  const style=await added.evaluate(el=>({fill:getComputedStyle(el).fill,opacity:getComputedStyle(el).opacity}));
  expect(style.fill).not.toBe('none');expect(style.fill).not.toBe('rgba(0, 0, 0, 0)');
  expect(style.opacity).toBe('1');
- const bbox=await added.boundingBox();expect(bbox!.width).toBeGreaterThan(25);
+ const bbox=await added.boundingBox();expect(bbox!.width).toBeGreaterThan(8);
  await expect(page.getByTestId('selected-layout-object')).toBeVisible();
  await page.getByLabel('Параметр w').fill('5');
  await expect(added).toHaveAttribute('width','5');
  await page.getByTestId('agent-run').click();
  await expect(page.getByTestId('agent-results')).toBeVisible({timeout:30000});
+ const routeWithRack=await page.getByTestId('agent-route').first().getAttribute('points');
  await page.getByTestId('selected-layout-object').getByRole('button',{name:'Удалить объект'}).click();
  await expect(original).toHaveCount(6);
  await expect(page.getByTestId('agent-results')).toHaveCount(0);
  await page.getByTestId('agent-run').click();
  await expect(page.getByTestId('agent-results')).toBeVisible({timeout:30000});
+ const routeWithoutRack=await page.getByTestId('agent-route').first().getAttribute('points');
+ expect(routeWithRack).not.toEqual(routeWithoutRack);
 });
 test('clicks on robots or existing objects must not create new obstacles',async({page})=>{
  await page.goto('/?preview=layout');

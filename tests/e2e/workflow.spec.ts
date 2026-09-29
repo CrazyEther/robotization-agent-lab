@@ -6,8 +6,7 @@ async function chooseRobot(page:import('@playwright/test').Page){
  await page.getByRole('button',{name:'Перейти к роботам'}).click();
  await page.getByRole('textbox',{name:'Поиск роботов'}).fill('MiR250');
  await page.getByRole('button',{name:/Добавить в транспортный сценарий/}).click();
- await expect(page.getByRole('heading',{name:/Здесь робот/})).toBeVisible();
- await page.getByRole('button',{name:'Настроить симуляцию'}).click();
+ await expect(page.getByRole('toolbar',{name:'Редактор производственной планировки'})).toBeVisible();
  await expect(page.getByTestId('agent-studio')).toBeVisible();
 }
 
@@ -54,6 +53,6 @@ test('mobile: catalog and agent studio remain reachable',async({page,isMobile})=
  await page.getByRole('navigation',{name:'Этапы проекта'}).getByRole('button',{name:/Маркетплейс/}).click();
  await page.getByRole('button',{name:/Каталог CSV/}).click();
  await expect(page.getByRole('textbox',{name:'Поиск по CSV'})).toBeVisible();
- await page.getByRole('navigation',{name:'Этапы проекта'}).getByRole('button',{name:/Моделирование/}).click();
+ await page.getByRole('navigation',{name:'Этапы проекта'}).getByRole('button',{name:/моделирование/i}).click();
  await expect(page.getByTestId('agent-studio')).toBeVisible();
 });
