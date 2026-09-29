@@ -1,0 +1,1912 @@
+[
+  {
+    "id": "ronavi_h1500_payload",
+    "source_id": "ronavi_h1500_product",
+    "catalog_rows": [
+      1,
+      66
+    ],
+    "object": "warehouse",
+    "attribute": "payload_kg",
+    "value": 1500,
+    "unit": "kg",
+    "scope": "manufacturer maximum for H1500",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Грузоподъемность; до 1500 кг",
+    "source_url": "https://ronavi-robotics.ru/catalogue/h1500",
+    "source_sha256": "9f3e65204ca92d769974a2c5cec1f9f3a8b3d461e0938ac1252f4989eb20503d",
+    "source_fetched_at_utc": "2026-09-25T02:59:14.679759+00:00",
+    "source_file_private": "raw\\ronavi_h1500_product-9f3e65204ca92d769974a2c5cec1f9f3a8b3d461e0938ac1252f4989eb20503d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 1,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      },
+      {
+        "record_index": 66,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "ronavi_h1500_passage",
+    "source_id": "ronavi_h1500_product",
+    "catalog_rows": [
+      1,
+      66
+    ],
+    "object": "warehouse",
+    "attribute": "minimum_passage_mm",
+    "value": 750,
+    "unit": "mm",
+    "scope": "manufacturer minimum passage for H1500",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Минимальная ширина проезда;750 мм",
+    "source_url": "https://ronavi-robotics.ru/catalogue/h1500",
+    "source_sha256": "9f3e65204ca92d769974a2c5cec1f9f3a8b3d461e0938ac1252f4989eb20503d",
+    "source_fetched_at_utc": "2026-09-25T02:59:14.679759+00:00",
+    "source_file_private": "raw\\ronavi_h1500_product-9f3e65204ca92d769974a2c5cec1f9f3a8b3d461e0938ac1252f4989eb20503d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 1,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      },
+      {
+        "record_index": 66,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "ronavi_vostok_fleet",
+    "source_id": "ronavi_vostok_g2p",
+    "catalog_rows": [
+      1,
+      66
+    ],
+    "object": "warehouse",
+    "attribute": "case_fleet_count",
+    "value": 48,
+    "unit": "robots",
+    "scope": "Vostok-Service G2P installation, not a fleet sizing rule",
+    "status": "vendor_case_reported",
+    "use": "case_context",
+    "evidence": "48 мобильных роботов Ronavi H1500",
+    "source_url": "https://ronavi-robotics.ru/cases/vostok-servis-g2p",
+    "source_sha256": "d5bee47f6b91b83d41363347879c57bd8ea94b3cb495cdedc00021f46e014bd5",
+    "source_fetched_at_utc": "2026-09-24T17:49:12.936079+00:00",
+    "source_file_private": "raw\\ronavi_vostok_g2p-d5bee47f6b91b83d41363347879c57bd8ea94b3cb495cdedc00021f46e014bd5.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 1,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      },
+      {
+        "record_index": 66,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_cleanbotics_passage",
+    "source_id": "waybot_cleanbotics_600",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "minimum_passage_mm",
+    "value": 750,
+    "unit": "mm",
+    "scope": "manufacturer minimum passage for Cleanbotics 600; sanitary suitability separate",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Минимальная ширина прохода 750 мм",
+    "source_url": "https://waybotrobotics.com/models/600",
+    "source_sha256": "4ed657e5ff17ba30b86d713bae2437abc406c5236d1e9c3d2c0648cddb1a900f",
+    "source_fetched_at_utc": "2026-09-24T17:49:13.784134+00:00",
+    "source_file_private": "raw\\waybot_cleanbotics_600-4ed657e5ff17ba30b86d713bae2437abc406c5236d1e9c3d2c0648cddb1a900f.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 24,
+        "external_id": "5a5b3599-bd64-4330-9bbb-4f8ce7d780b9",
+        "name": "Клинботикс 600",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_cleanbotics_runtime_conflict",
+    "source_id": "waybot_cleanbotics_600",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "wet_cleaning_runtime_h",
+    "value": null,
+    "unit": "h",
+    "scope": "manufacturer page gives 5, 4 and 3 hours in different sections",
+    "status": "source_conflict",
+    "use": "blocked",
+    "evidence": "5 часов работы / 4 часа / 3 часа",
+    "source_url": "https://waybotrobotics.com/models/600",
+    "source_sha256": "4ed657e5ff17ba30b86d713bae2437abc406c5236d1e9c3d2c0648cddb1a900f",
+    "source_fetched_at_utc": "2026-09-24T17:49:13.784134+00:00",
+    "source_file_private": "raw\\waybot_cleanbotics_600-4ed657e5ff17ba30b86d713bae2437abc406c5236d1e9c3d2c0648cddb1a900f.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 24,
+        "external_id": "5a5b3599-bd64-4330-9bbb-4f8ce7d780b9",
+        "name": "Клинботикс 600",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_cleanbotics_speed_conflict",
+    "source_id": "waybot_cleanbotics_600",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "cleaning_rate_m2_h",
+    "value": null,
+    "unit": "m2/h",
+    "scope": "manufacturer page gives 1000-2300 and 800-1800 m2/h for same model",
+    "status": "source_conflict",
+    "use": "blocked",
+    "evidence": "1000–2300 / 800–1800 м²/час",
+    "source_url": "https://waybotrobotics.com/models/600",
+    "source_sha256": "4ed657e5ff17ba30b86d713bae2437abc406c5236d1e9c3d2c0648cddb1a900f",
+    "source_fetched_at_utc": "2026-09-24T17:49:13.784134+00:00",
+    "source_file_private": "raw\\waybot_cleanbotics_600-4ed657e5ff17ba30b86d713bae2437abc406c5236d1e9c3d2c0648cddb1a900f.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 24,
+        "external_id": "5a5b3599-bd64-4330-9bbb-4f8ce7d780b9",
+        "name": "Клинботикс 600",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_sklif_fleet",
+    "source_id": "waybot_hospital_pilot",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "case_active_fleet_count",
+    "value": 2,
+    "unit": "robots",
+    "scope": "Sklifosovsky pilot 2023-2024; vendor report",
+    "status": "vendor_case_reported",
+    "use": "case_context",
+    "evidence": "оба робота-уборщика активно трудятся",
+    "source_url": "https://waybotrobotics.com/blog/waybot-robotics-na-cleaning-focus-club",
+    "source_sha256": "c85132bbc6e46da95636a6e302a2dc9015c1cfd185f9319242a7dddcb6d96e66",
+    "source_fetched_at_utc": "2026-09-24T17:49:15.752394+00:00",
+    "source_file_private": "raw\\waybot_hospital_pilot-c85132bbc6e46da95636a6e302a2dc9015c1cfd185f9319242a7dddcb6d96e66.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 24,
+        "external_id": "5a5b3599-bd64-4330-9bbb-4f8ce7d780b9",
+        "name": "Клинботикс 600",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "r2b_airport_test_area",
+    "source_id": "r2b_krasnoyarsk_airport",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "case_cleaned_area_m2_2h",
+    "value": 1386,
+    "unit": "m2 per 2h",
+    "scope": "five-day airport test, not guaranteed throughput",
+    "status": "vendor_case_reported",
+    "use": "case_context",
+    "evidence": "1386 м² за 2 часа",
+    "source_url": "https://r2b.company/cases/airport",
+    "source_sha256": "ab95e219bca41f6ab3f4212ba35b9ac327be65b09da7bb68ab79797bfa38b5c9",
+    "source_fetched_at_utc": "2026-09-24T17:49:19.211042+00:00",
+    "source_file_private": "raw\\r2b_krasnoyarsk_airport-ab95e219bca41f6ab3f4212ba35b9ac327be65b09da7bb68ab79797bfa38b5c9.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 21,
+        "external_id": "446c5207-a099-45e0-b615-afd60de08589",
+        "name": "MARK 2 SE",
+        "company": "ООО \"Р2Б\""
+      }
+    ]
+  },
+  {
+    "id": "r2b_mark2_variant",
+    "source_id": "r2b_mark2_product",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "minimum_passage_mm",
+    "value": null,
+    "unit": "mm",
+    "scope": "product page is Mark 2; catalog is Mark 2 SE; equivalence unverified",
+    "status": "model_variant_uncertain",
+    "use": "blocked",
+    "evidence": "Mark 2 / 1,3 м",
+    "source_url": "https://r2b.company/mark2",
+    "source_sha256": "524e83c9d745812825c047c2fbbb188b24f803de2dbb86589a6d198f55df2940",
+    "source_fetched_at_utc": "2026-09-24T17:49:17.648508+00:00",
+    "source_file_private": "raw\\r2b_mark2_product-524e83c9d745812825c047c2fbbb188b24f803de2dbb86589a6d198f55df2940.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 21,
+        "external_id": "446c5207-a099-45e0-b615-afd60de08589",
+        "name": "MARK 2 SE",
+        "company": "ООО \"Р2Б\""
+      }
+    ]
+  },
+  {
+    "id": "yandex_kubik_s2p_subscription",
+    "source_id": "yandex_kubik_raas",
+    "catalog_rows": [],
+    "object": "warehouse",
+    "attribute": "s2p_monthly_fee",
+    "value": 690000,
+    "unit": "RUB/month before VAT",
+    "scope": "one S2P module, not price per robot",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "0,69 млн ₽/мес",
+    "source_url": "https://robotics.yandex.ru/raas-kubik",
+    "source_sha256": "0ac996fa8fac31ddab68a7663d7ba773a975dde5ad71055f064c67893157ec1c",
+    "source_fetched_at_utc": "2026-09-24T17:49:20.578817+00:00",
+    "source_file_private": "raw\\yandex_kubik_raas-0ac996fa8fac31ddab68a7663d7ba773a975dde5ad71055f064c67893157ec1c.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": []
+  },
+  {
+    "id": "yandex_kubik_p2p_subscription",
+    "source_id": "yandex_kubik_raas",
+    "catalog_rows": [],
+    "object": "warehouse",
+    "attribute": "p2p_monthly_fee",
+    "value": 1150000,
+    "unit": "RUB/month before VAT",
+    "scope": "one P2P module, not price per robot",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "1,15 млн ₽/мес",
+    "source_url": "https://robotics.yandex.ru/raas-kubik",
+    "source_sha256": "0ac996fa8fac31ddab68a7663d7ba773a975dde5ad71055f064c67893157ec1c",
+    "source_fetched_at_utc": "2026-09-24T17:49:20.578817+00:00",
+    "source_file_private": "raw\\yandex_kubik_raas-0ac996fa8fac31ddab68a7663d7ba773a975dde5ad71055f064c67893157ec1c.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": []
+  },
+  {
+    "id": "changi_baggage_tractors",
+    "source_id": "aci_changi_autonomous_tractors",
+    "catalog_rows": [],
+    "object": "airport",
+    "attribute": "case_fleet_count",
+    "value": 2,
+    "unit": "tractors",
+    "scope": "Changi T1-T4 airside operation; not catalog v4 model",
+    "status": "industry_case_reported",
+    "use": "topology_context",
+    "evidence": "Two autonomous tractors",
+    "source_url": "https://www.aci-asiapac.aero/media-centre/news/changi-airport-rolls-out-autonomous-tractors-in-a-major-step-towards-airside-automation",
+    "source_sha256": "1c0e4346a228e2557ebd7b7320bbfc945f4271d96c3c617f7eb93432d7077c97",
+    "source_fetched_at_utc": "2026-09-24T17:49:32.996305+00:00",
+    "source_file_private": "raw\\aci_changi_autonomous_tractors-1c0e4346a228e2557ebd7b7320bbfc945f4271d96c3c617f7eb93432d7077c97.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": []
+  },
+  {
+    "id": "r2b_mark2se_dimensions",
+    "source_id": "r2b_mark2se_product",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "dimensions_lwh_mm",
+    "value": [
+      860,
+      610,
+      980
+    ],
+    "unit": "mm",
+    "scope": "manufacturer dimensions for exact Mark 2 SE model",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "860 x 610 x 980 мм",
+    "source_url": "https://r2b.company/mark2se",
+    "source_sha256": "2e011a2ff3bfa09e01dec421d5f1e1db5896144b6c657a30997d0d14c18bcc41",
+    "source_fetched_at_utc": "2026-09-25T02:59:16.763767+00:00",
+    "source_file_private": "raw\\r2b_mark2se_product-2e011a2ff3bfa09e01dec421d5f1e1db5896144b6c657a30997d0d14c18bcc41.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 21,
+        "external_id": "446c5207-a099-45e0-b615-afd60de08589",
+        "name": "MARK 2 SE",
+        "company": "ООО \"Р2Б\""
+      }
+    ]
+  },
+  {
+    "id": "r2b_mark2se_runtime_product_conflict",
+    "source_id": "r2b_mark2se_product",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "runtime_h",
+    "value": null,
+    "unit": "h",
+    "scope": "product page says 3 h, rental page says 4 h; unresolved",
+    "status": "source_conflict",
+    "use": "blocked",
+    "evidence": "3 часа",
+    "source_url": "https://r2b.company/mark2se",
+    "source_sha256": "2e011a2ff3bfa09e01dec421d5f1e1db5896144b6c657a30997d0d14c18bcc41",
+    "source_fetched_at_utc": "2026-09-25T02:59:16.763767+00:00",
+    "source_file_private": "raw\\r2b_mark2se_product-2e011a2ff3bfa09e01dec421d5f1e1db5896144b6c657a30997d0d14c18bcc41.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 21,
+        "external_id": "446c5207-a099-45e0-b615-afd60de08589",
+        "name": "MARK 2 SE",
+        "company": "ООО \"Р2Б\""
+      }
+    ]
+  },
+  {
+    "id": "r2b_mark2se_runtime_rent_conflict",
+    "source_id": "r2b_mark2se_rent",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "runtime_h",
+    "value": null,
+    "unit": "h",
+    "scope": "rental page says 4 h, product page says 3 h; unresolved",
+    "status": "source_conflict",
+    "use": "blocked",
+    "evidence": "4 ч",
+    "source_url": "https://r2b.company/rent",
+    "source_sha256": "22833723026d72194b45aba75f00e3b808bcc497686aeaa1164963a17150a837",
+    "source_fetched_at_utc": "2026-09-24T18:21:16.542752+00:00",
+    "source_file_private": "raw\\r2b_mark2se_rent-22833723026d72194b45aba75f00e3b808bcc497686aeaa1164963a17150a837.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 21,
+        "external_id": "446c5207-a099-45e0-b615-afd60de08589",
+        "name": "MARK 2 SE",
+        "company": "ООО \"Р2Б\""
+      }
+    ]
+  },
+  {
+    "id": "r2b_mark2se_rent",
+    "source_id": "r2b_mark2se_rent",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "rental_price_floor",
+    "value": 100000,
+    "unit": "RUB/month",
+    "scope": "В предложение входят интегратор, обучение и удалённая поддержка. Итоговые условия согласуются отдельно.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "от 100 000 ₽/мес",
+    "source_url": "https://r2b.company/rent",
+    "source_sha256": "22833723026d72194b45aba75f00e3b808bcc497686aeaa1164963a17150a837",
+    "source_fetched_at_utc": "2026-09-24T18:21:16.542752+00:00",
+    "source_file_private": "raw\\r2b_mark2se_rent-22833723026d72194b45aba75f00e3b808bcc497686aeaa1164963a17150a837.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 21,
+        "external_id": "446c5207-a099-45e0-b615-afd60de08589",
+        "name": "MARK 2 SE",
+        "company": "ООО \"Р2Б\""
+      }
+    ]
+  },
+  {
+    "id": "cognitive_pulkovo_reported_capacity",
+    "source_id": "cognitive_pulkovo_2026_report",
+    "catalog_rows": [
+      188
+    ],
+    "object": "airport",
+    "attribute": "case_reported_payload_kg",
+    "value": 3000,
+    "unit": "kg",
+    "scope": "March 2026 Pulkovo equipment in manufacturer-hosted news article; exact catalog configuration and rated towing mass not independently matched",
+    "status": "vendor_case_reported",
+    "use": "case_context",
+    "evidence": "грузоподъёмность – до трех тонн",
+    "source_url": "https://cognitivepilot.com/cognitive-news/news/roboty-gotovyatsya-vyyti-na-rabochuyu-smenu/",
+    "source_sha256": "18f84ad8f0db61ed246a285856ab89375adc7a99d87ad620043abf0d02a934b4",
+    "source_fetched_at_utc": "2026-09-24T19:20:44.218776+00:00",
+    "source_file_private": "raw\\cognitive_pulkovo_2026_report-18f84ad8f0db61ed246a285856ab89375adc7a99d87ad620043abf0d02a934b4.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 188,
+        "external_id": "28a5afa8-0473-4f80-99a9-b2922b76810f",
+        "name": "Беспилотный тягач (Когнитив Пилот)",
+        "company": "АО \"Когнитив Пилот\""
+      }
+    ]
+  },
+  {
+    "id": "cognitive_pulkovo_planned_fleet",
+    "source_id": "cognitive_pulkovo_2026_report",
+    "catalog_rows": [
+      188
+    ],
+    "object": "airport",
+    "attribute": "case_planned_fleet_count",
+    "value": 45,
+    "unit": "tractors",
+    "scope": "future fleet statement in March 2026 article; not installed or active fleet count",
+    "status": "vendor_case_reported",
+    "use": "case_context",
+    "evidence": "Уже в ближайший год пассажиров Пулково будут обслуживать 45",
+    "source_url": "https://cognitivepilot.com/cognitive-news/news/roboty-gotovyatsya-vyyti-na-rabochuyu-smenu/",
+    "source_sha256": "18f84ad8f0db61ed246a285856ab89375adc7a99d87ad620043abf0d02a934b4",
+    "source_fetched_at_utc": "2026-09-24T19:20:44.218776+00:00",
+    "source_file_private": "raw\\cognitive_pulkovo_2026_report-18f84ad8f0db61ed246a285856ab89375adc7a99d87ad620043abf0d02a934b4.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 188,
+        "external_id": "28a5afa8-0473-4f80-99a9-b2922b76810f",
+        "name": "Беспилотный тягач (Когнитив Пилот)",
+        "company": "АО \"Когнитив Пилот\""
+      }
+    ]
+  },
+  {
+    "id": "pulkovo_catalog_active_fleet_conflict",
+    "source_id": "pulkovo_airside_2026_status",
+    "catalog_rows": [
+      188
+    ],
+    "object": "airport",
+    "attribute": "case_active_fleet_count",
+    "value": null,
+    "unit": "tractors",
+    "scope": "v4 source row reports more than 20 already in operation, while airport July 2026 source announced airside regime application and trials planned for September 2026; cannot treat either as verified active fleet",
+    "status": "source_conflict",
+    "use": "blocked",
+    "evidence": "Тестирования беспилотных багажных тягачей на перроне",
+    "source_url": "https://pulkovoairport.ru/about/press_center/news/65544/",
+    "source_sha256": "32225e35f1757126190a510b0cbe47aa9cf9202553a30783b84d60bd8a67a6b0",
+    "source_fetched_at_utc": "2026-09-24T19:20:45.231812+00:00",
+    "source_file_private": "raw\\pulkovo_airside_2026_status-32225e35f1757126190a510b0cbe47aa9cf9202553a30783b84d60bd8a67a6b0.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 188,
+        "external_id": "28a5afa8-0473-4f80-99a9-b2922b76810f",
+        "name": "Беспилотный тягач (Когнитив Пилот)",
+        "company": "АО \"Когнитив Пилот\""
+      }
+    ]
+  },
+  {
+    "id": "ronavi_h1500_purchase_floor_100",
+    "source_id": "ronavi_h1500_product",
+    "catalog_rows": [
+      1,
+      66
+    ],
+    "object": "warehouse",
+    "attribute": "purchase_price_floor",
+    "value": 2160000,
+    "unit": "RUB/unit",
+    "scope": "Цена за штуку действует при покупке от 100 роботов. Комплектация и итоговая стоимость согласуются с производителем.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "Цена за единицу при покупке от 100 шт. Ronavi H1500: от 2 160 000 ₽",
+    "source_url": "https://ronavi-robotics.ru/catalogue/h1500",
+    "source_sha256": "9f3e65204ca92d769974a2c5cec1f9f3a8b3d461e0938ac1252f4989eb20503d",
+    "source_fetched_at_utc": "2026-09-25T02:59:14.679759+00:00",
+    "source_file_private": "raw\\ronavi_h1500_product-9f3e65204ca92d769974a2c5cec1f9f3a8b3d461e0938ac1252f4989eb20503d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 1,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      },
+      {
+        "record_index": 66,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_600_purchase_price",
+    "source_id": "waybot_purchase_rental",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "purchase_price",
+    "value": 2300000,
+    "unit": "RUB/unit",
+    "scope": "Новый робот; пусконаладка оплачивается отдельно.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "Клинботикс 600 2 300 000 ₽",
+    "source_url": "https://waybotrobotics.com/buy-rent",
+    "source_sha256": "b366e449d3ba3e9e8299ef30c544190a5e9bfd384d343f3394c750d7f4354d3d",
+    "source_fetched_at_utc": "2026-09-24T19:26:26.996944+00:00",
+    "source_file_private": "raw\\waybot_purchase_rental-b366e449d3ba3e9e8299ef30c544190a5e9bfd384d343f3394c750d7f4354d3d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 24,
+        "external_id": "5a5b3599-bd64-4330-9bbb-4f8ce7d780b9",
+        "name": "Клинботикс 600",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_600_commissioning_floor",
+    "source_id": "waybot_purchase_rental",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "commissioning_price_floor",
+    "value": 150000,
+    "unit": "RUB",
+    "scope": "Пусконаладка оплачивается отдельно от покупки робота.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "от 150 000 ₽ для Cleanbotics 600",
+    "source_url": "https://waybotrobotics.com/buy-rent",
+    "source_sha256": "b366e449d3ba3e9e8299ef30c544190a5e9bfd384d343f3394c750d7f4354d3d",
+    "source_fetched_at_utc": "2026-09-24T19:26:26.996944+00:00",
+    "source_file_private": "raw\\waybot_purchase_rental-b366e449d3ba3e9e8299ef30c544190a5e9bfd384d343f3394c750d7f4354d3d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 24,
+        "external_id": "5a5b3599-bd64-4330-9bbb-4f8ce7d780b9",
+        "name": "Клинботикс 600",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_600_rental_first_month",
+    "source_id": "waybot_purchase_rental",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "rental_first_month",
+    "value": 400000,
+    "unit": "RUB/month",
+    "scope": "Первый месяц аренды; стоимость в регионах может отличаться.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "400 000 ₽* в первый месяц",
+    "source_url": "https://waybotrobotics.com/buy-rent",
+    "source_sha256": "b366e449d3ba3e9e8299ef30c544190a5e9bfd384d343f3394c750d7f4354d3d",
+    "source_fetched_at_utc": "2026-09-24T19:26:26.996944+00:00",
+    "source_file_private": "raw\\waybot_purchase_rental-b366e449d3ba3e9e8299ef30c544190a5e9bfd384d343f3394c750d7f4354d3d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 24,
+        "external_id": "5a5b3599-bd64-4330-9bbb-4f8ce7d780b9",
+        "name": "Клинботикс 600",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_600_rental_following_month",
+    "source_id": "waybot_purchase_rental",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "rental_following_month",
+    "value": 120000,
+    "unit": "RUB/month",
+    "scope": "Каждый последующий месяц аренды; стоимость в регионах может отличаться.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "120 000 ₽ в последующие",
+    "source_url": "https://waybotrobotics.com/buy-rent",
+    "source_sha256": "b366e449d3ba3e9e8299ef30c544190a5e9bfd384d343f3394c750d7f4354d3d",
+    "source_fetched_at_utc": "2026-09-24T19:26:26.996944+00:00",
+    "source_file_private": "raw\\waybot_purchase_rental-b366e449d3ba3e9e8299ef30c544190a5e9bfd384d343f3394c750d7f4354d3d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 24,
+        "external_id": "5a5b3599-bd64-4330-9bbb-4f8ce7d780b9",
+        "name": "Клинботикс 600",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "agromash_manufacturer_home",
+    "source_id": "agromash_official_home",
+    "catalog_rows": [
+      88
+    ],
+    "object": "catalog",
+    "attribute": "manufacturer_homepage",
+    "value": "https://agromh.com/",
+    "unit": "url",
+    "scope": "Официальный сайт производителя; отдельная страница автономной версии 85ТК не указана.",
+    "status": "manufacturer_website",
+    "use": "manufacturer_link",
+    "evidence": "Общество с ограниченной ответственностью «Завод «АГРОМАШ»",
+    "source_url": "https://agromh.com/",
+    "source_sha256": "7a8598a56f87cdb296cffcdd0e955e1899bce340b52fbcb308872612e6e4955a",
+    "source_fetched_at_utc": "2026-09-24T19:40:53.973018+00:00",
+    "source_file_private": "raw\\agromash_official_home-7a8598a56f87cdb296cffcdd0e955e1899bce340b52fbcb308872612e6e4955a.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 88,
+        "external_id": "c8331668-727b-4b5f-a39f-bff2248beb5e",
+        "name": "85ТК",
+        "company": "ООО \"Завод Агромаш\""
+      }
+    ]
+  },
+  {
+    "id": "ronavi_h2000_payload",
+    "source_id": "ronavi_h2000_product",
+    "catalog_rows": [
+      3,
+      67
+    ],
+    "object": "warehouse",
+    "attribute": "payload_kg",
+    "value": 2000,
+    "unit": "kg",
+    "scope": "Грузоподъёмность модели H2000 по характеристикам производителя.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Грузоподъемность 2000 кг",
+    "source_url": "https://ronavi-robotics.ru/catalogue/h2000",
+    "source_sha256": "bbedcef4336d1e024323f2de190499e2915a867f7471d0a8d4c2e9604348dd4d",
+    "source_fetched_at_utc": "2026-09-25T02:59:17.713424+00:00",
+    "source_file_private": "raw\\ronavi_h2000_product-bbedcef4336d1e024323f2de190499e2915a867f7471d0a8d4c2e9604348dd4d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 3,
+        "external_id": "6f3da854-41da-4363-8496-5487f37c845a",
+        "name": "Ronavi H2000 (грузоподъемность до 2 000 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      },
+      {
+        "record_index": 67,
+        "external_id": "6f3da854-41da-4363-8496-5487f37c845a",
+        "name": "Ronavi H2000 (грузоподъемность до 2 000 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "ronavi_h2000_passage",
+    "source_id": "ronavi_h2000_product",
+    "catalog_rows": [
+      3,
+      67
+    ],
+    "object": "warehouse",
+    "attribute": "minimum_passage_mm",
+    "value": 1190,
+    "unit": "mm",
+    "scope": "Минимальная ширина проезда H2000.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Минимальная ширина проезда 1190 мм",
+    "source_url": "https://ronavi-robotics.ru/catalogue/h2000",
+    "source_sha256": "bbedcef4336d1e024323f2de190499e2915a867f7471d0a8d4c2e9604348dd4d",
+    "source_fetched_at_utc": "2026-09-25T02:59:17.713424+00:00",
+    "source_file_private": "raw\\ronavi_h2000_product-bbedcef4336d1e024323f2de190499e2915a867f7471d0a8d4c2e9604348dd4d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 3,
+        "external_id": "6f3da854-41da-4363-8496-5487f37c845a",
+        "name": "Ronavi H2000 (грузоподъемность до 2 000 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      },
+      {
+        "record_index": 67,
+        "external_id": "6f3da854-41da-4363-8496-5487f37c845a",
+        "name": "Ronavi H2000 (грузоподъемность до 2 000 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "ronavi_h2000_dimensions",
+    "source_id": "ronavi_h2000_product",
+    "catalog_rows": [
+      3,
+      67
+    ],
+    "object": "warehouse",
+    "attribute": "dimensions_lwh_mm",
+    "value": [
+      1540,
+      990,
+      250
+    ],
+    "unit": "mm",
+    "scope": "Габариты платформы H2000 без грузового модуля.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Габариты 1540х990х250 мм",
+    "source_url": "https://ronavi-robotics.ru/catalogue/h2000",
+    "source_sha256": "bbedcef4336d1e024323f2de190499e2915a867f7471d0a8d4c2e9604348dd4d",
+    "source_fetched_at_utc": "2026-09-25T02:59:17.713424+00:00",
+    "source_file_private": "raw\\ronavi_h2000_product-bbedcef4336d1e024323f2de190499e2915a867f7471d0a8d4c2e9604348dd4d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 3,
+        "external_id": "6f3da854-41da-4363-8496-5487f37c845a",
+        "name": "Ronavi H2000 (грузоподъемность до 2 000 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      },
+      {
+        "record_index": 67,
+        "external_id": "6f3da854-41da-4363-8496-5487f37c845a",
+        "name": "Ronavi H2000 (грузоподъемность до 2 000 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "ronavi_h2000_purchase_floor_100",
+    "source_id": "ronavi_h2000_product",
+    "catalog_rows": [
+      3,
+      67
+    ],
+    "object": "warehouse",
+    "attribute": "purchase_price_floor",
+    "value": 2805000,
+    "unit": "RUB/unit",
+    "scope": "Цена за штуку при партии от 100 роботов; состав комплектации и итоговая стоимость согласуются с производителем.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "Цена за единицу при покупке от 100 шт. Ronavi H2000: от 2 805 000 ₽",
+    "source_url": "https://ronavi-robotics.ru/catalogue/h2000",
+    "source_sha256": "bbedcef4336d1e024323f2de190499e2915a867f7471d0a8d4c2e9604348dd4d",
+    "source_fetched_at_utc": "2026-09-25T02:59:17.713424+00:00",
+    "source_file_private": "raw\\ronavi_h2000_product-bbedcef4336d1e024323f2de190499e2915a867f7471d0a8d4c2e9604348dd4d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 3,
+        "external_id": "6f3da854-41da-4363-8496-5487f37c845a",
+        "name": "Ronavi H2000 (грузоподъемность до 2 000 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      },
+      {
+        "record_index": 67,
+        "external_id": "6f3da854-41da-4363-8496-5487f37c845a",
+        "name": "Ronavi H2000 (грузоподъемность до 2 000 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_400pro_dimensions",
+    "source_id": "waybot_cleanbotics_400pro",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "dimensions_lwh_mm",
+    "value": [
+      676,
+      560,
+      744
+    ],
+    "unit": "mm",
+    "scope": "Габариты Cleanbotics 400 PRO по странице модели.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "676x560x744 мм",
+    "source_url": "https://waybotrobotics.com/models/400pro",
+    "source_sha256": "66d5f090ed82c57d3b4e5068dfe08e5c7d8e7b0a8e1ff85966af411f9ac07f70",
+    "source_fetched_at_utc": "2026-09-25T02:59:18.039919+00:00",
+    "source_file_private": "raw\\waybot_cleanbotics_400pro-66d5f090ed82c57d3b4e5068dfe08e5c7d8e7b0a8e1ff85966af411f9ac07f70.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 23,
+        "external_id": "f31223c1-44c8-4410-8381-6356e2158b61",
+        "name": "Клинботикс 400 PRO",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_400pro_runtime",
+    "source_id": "waybot_cleanbotics_400pro",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "runtime_h",
+    "value": 3,
+    "unit": "h",
+    "scope": "Время работы Cleanbotics 400 PRO без подзарядки по странице модели.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "3 часа Время работы без подзарядки",
+    "source_url": "https://waybotrobotics.com/models/400pro",
+    "source_sha256": "66d5f090ed82c57d3b4e5068dfe08e5c7d8e7b0a8e1ff85966af411f9ac07f70",
+    "source_fetched_at_utc": "2026-09-25T02:59:18.039919+00:00",
+    "source_file_private": "raw\\waybot_cleanbotics_400pro-66d5f090ed82c57d3b4e5068dfe08e5c7d8e7b0a8e1ff85966af411f9ac07f70.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 23,
+        "external_id": "f31223c1-44c8-4410-8381-6356e2158b61",
+        "name": "Клинботикс 400 PRO",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_400pro_cleaning_rate",
+    "source_id": "waybot_cleanbotics_400pro",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "cleaning_rate_range_m2_h",
+    "value": [
+      700,
+      1200
+    ],
+    "unit": "m2/h",
+    "scope": "Расчётный диапазон производителя; фактическая производительность зависит от объекта и режима.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "700–1200 м²/час",
+    "source_url": "https://waybotrobotics.com/models/400pro",
+    "source_sha256": "66d5f090ed82c57d3b4e5068dfe08e5c7d8e7b0a8e1ff85966af411f9ac07f70",
+    "source_fetched_at_utc": "2026-09-25T02:59:18.039919+00:00",
+    "source_file_private": "raw\\waybot_cleanbotics_400pro-66d5f090ed82c57d3b4e5068dfe08e5c7d8e7b0a8e1ff85966af411f9ac07f70.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 23,
+        "external_id": "f31223c1-44c8-4410-8381-6356e2158b61",
+        "name": "Клинботикс 400 PRO",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_400pro_passage_conflict",
+    "source_id": "waybot_cleanbotics_400pro",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "minimum_passage_mm",
+    "value": null,
+    "unit": "mm",
+    "scope": "На странице одной модели указаны 75 см для пылесоса, 40 см для влажной уборки и 700 мм в таблице сравнения; единое ограничение прохода не подтверждено.",
+    "status": "source_conflict",
+    "use": "blocked",
+    "evidence": "Ширина проходов 75 см в режиме пылесоса и 40 см в режиме влажной уборки; Минимальная ширина прохода 700 мм",
+    "source_url": "https://waybotrobotics.com/models/400pro",
+    "source_sha256": "66d5f090ed82c57d3b4e5068dfe08e5c7d8e7b0a8e1ff85966af411f9ac07f70",
+    "source_fetched_at_utc": "2026-09-25T02:59:18.039919+00:00",
+    "source_file_private": "raw\\waybot_cleanbotics_400pro-66d5f090ed82c57d3b4e5068dfe08e5c7d8e7b0a8e1ff85966af411f9ac07f70.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 23,
+        "external_id": "f31223c1-44c8-4410-8381-6356e2158b61",
+        "name": "Клинботикс 400 PRO",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_400pro_purchase_price",
+    "source_id": "waybot_purchase_rental",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "purchase_price",
+    "value": 1500000,
+    "unit": "RUB/unit",
+    "scope": "Новый робот; пусконаладка оплачивается отдельно.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "Клинботикс 400 ПРО 1 500 000 ₽",
+    "source_url": "https://waybotrobotics.com/buy-rent",
+    "source_sha256": "b366e449d3ba3e9e8299ef30c544190a5e9bfd384d343f3394c750d7f4354d3d",
+    "source_fetched_at_utc": "2026-09-24T19:26:26.996944+00:00",
+    "source_file_private": "raw\\waybot_purchase_rental-b366e449d3ba3e9e8299ef30c544190a5e9bfd384d343f3394c750d7f4354d3d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 23,
+        "external_id": "f31223c1-44c8-4410-8381-6356e2158b61",
+        "name": "Клинботикс 400 PRO",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_400pro_commissioning_floor",
+    "source_id": "waybot_purchase_rental",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "commissioning_price_floor",
+    "value": 100000,
+    "unit": "RUB",
+    "scope": "Пусконаладка оплачивается отдельно от покупки робота.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "от 100 000 ₽ для Cleanbotics 400 PRO",
+    "source_url": "https://waybotrobotics.com/buy-rent",
+    "source_sha256": "b366e449d3ba3e9e8299ef30c544190a5e9bfd384d343f3394c750d7f4354d3d",
+    "source_fetched_at_utc": "2026-09-24T19:26:26.996944+00:00",
+    "source_file_private": "raw\\waybot_purchase_rental-b366e449d3ba3e9e8299ef30c544190a5e9bfd384d343f3394c750d7f4354d3d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 23,
+        "external_id": "f31223c1-44c8-4410-8381-6356e2158b61",
+        "name": "Клинботикс 400 PRO",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_400pro_rental_first_month",
+    "source_id": "waybot_purchase_rental",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "rental_first_month",
+    "value": 260000,
+    "unit": "RUB/month",
+    "scope": "Первый месяц аренды; стоимость в регионах может отличаться.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "Клинботикс 400 ПРО 260 000 ₽* в первый месяц",
+    "source_url": "https://waybotrobotics.com/buy-rent",
+    "source_sha256": "b366e449d3ba3e9e8299ef30c544190a5e9bfd384d343f3394c750d7f4354d3d",
+    "source_fetched_at_utc": "2026-09-24T19:26:26.996944+00:00",
+    "source_file_private": "raw\\waybot_purchase_rental-b366e449d3ba3e9e8299ef30c544190a5e9bfd384d343f3394c750d7f4354d3d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 23,
+        "external_id": "f31223c1-44c8-4410-8381-6356e2158b61",
+        "name": "Клинботикс 400 PRO",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_400pro_rental_following_month",
+    "source_id": "waybot_purchase_rental",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "rental_following_month",
+    "value": 100000,
+    "unit": "RUB/month",
+    "scope": "Каждый последующий месяц аренды; стоимость в регионах может отличаться.",
+    "status": "vendor_offer_reported",
+    "use": "offer_specific",
+    "evidence": "Клинботикс 400 ПРО 260 000 ₽* в первый месяц, 100 000 ₽ в последующие",
+    "source_url": "https://waybotrobotics.com/buy-rent",
+    "source_sha256": "b366e449d3ba3e9e8299ef30c544190a5e9bfd384d343f3394c750d7f4354d3d",
+    "source_fetched_at_utc": "2026-09-24T19:26:26.996944+00:00",
+    "source_file_private": "raw\\waybot_purchase_rental-b366e449d3ba3e9e8299ef30c544190a5e9bfd384d343f3394c750d7f4354d3d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 23,
+        "external_id": "f31223c1-44c8-4410-8381-6356e2158b61",
+        "name": "Клинботикс 400 PRO",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "ronavi_h1500_summary",
+    "source_id": "ronavi_h1500_product",
+    "catalog_rows": [
+      1,
+      66
+    ],
+    "object": "warehouse",
+    "attribute": "product_summary",
+    "value": "Автономный мобильный робот для перевозки паллет, стеллажей, тележек и конвейерных модулей.",
+    "unit": "text",
+    "scope": "Краткое описание для карточки конкретной модели по первичной странице производителя.",
+    "status": "manufacturer_description",
+    "use": "product_copy",
+    "evidence": "Перевозит паллеты, стеллажи, тележки и конвейерные модули.",
+    "source_url": "https://ronavi-robotics.ru/catalogue/h1500",
+    "source_sha256": "9f3e65204ca92d769974a2c5cec1f9f3a8b3d461e0938ac1252f4989eb20503d",
+    "source_fetched_at_utc": "2026-09-25T02:59:14.679759+00:00",
+    "source_file_private": "raw\\ronavi_h1500_product-9f3e65204ca92d769974a2c5cec1f9f3a8b3d461e0938ac1252f4989eb20503d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 1,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      },
+      {
+        "record_index": 66,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "ronavi_h2000_summary",
+    "source_id": "ronavi_h2000_product",
+    "catalog_rows": [
+      3,
+      67
+    ],
+    "object": "warehouse",
+    "attribute": "product_summary",
+    "value": "Автономный мобильный робот для перемещения тяжёлых грузов и производственных столов.",
+    "unit": "text",
+    "scope": "Краткое описание для карточки конкретной модели по первичной странице производителя.",
+    "status": "manufacturer_description",
+    "use": "product_copy",
+    "evidence": "Ronavi H2000 — это российский автономный мобильный робот (AMR) для перемещения тяжелых грузов до 2000 кг.",
+    "source_url": "https://ronavi-robotics.ru/catalogue/h2000",
+    "source_sha256": "bbedcef4336d1e024323f2de190499e2915a867f7471d0a8d4c2e9604348dd4d",
+    "source_fetched_at_utc": "2026-09-25T02:59:17.713424+00:00",
+    "source_file_private": "raw\\ronavi_h2000_product-bbedcef4336d1e024323f2de190499e2915a867f7471d0a8d4c2e9604348dd4d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 3,
+        "external_id": "6f3da854-41da-4363-8496-5487f37c845a",
+        "name": "Ronavi H2000 (грузоподъемность до 2 000 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      },
+      {
+        "record_index": 67,
+        "external_id": "6f3da854-41da-4363-8496-5487f37c845a",
+        "name": "Ronavi H2000 (грузоподъемность до 2 000 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "r2b_mark2se_summary",
+    "source_id": "r2b_mark2se_product",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "product_summary",
+    "value": "Автономный робот для влажной уборки твёрдых полов с базой зарядки и автоматической смены воды.",
+    "unit": "text",
+    "scope": "Краткое описание для карточки конкретной модели по первичной странице производителя.",
+    "status": "manufacturer_description",
+    "use": "product_copy",
+    "evidence": "Mark 2 SE работает полностью автономно: сам строит маршрут, объезжает людей и препятствия, возвращается на базу для зарядки и смены воды.",
+    "source_url": "https://r2b.company/mark2se",
+    "source_sha256": "2e011a2ff3bfa09e01dec421d5f1e1db5896144b6c657a30997d0d14c18bcc41",
+    "source_fetched_at_utc": "2026-09-25T02:59:16.763767+00:00",
+    "source_file_private": "raw\\r2b_mark2se_product-2e011a2ff3bfa09e01dec421d5f1e1db5896144b6c657a30997d0d14c18bcc41.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 21,
+        "external_id": "446c5207-a099-45e0-b615-afd60de08589",
+        "name": "MARK 2 SE",
+        "company": "ООО \"Р2Б\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_400pro_summary",
+    "source_id": "waybot_cleanbotics_400pro",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "product_summary",
+    "value": "Робот для влажной и сухой уборки коммерческих и общественных помещений.",
+    "unit": "text",
+    "scope": "Краткое описание для карточки конкретной модели по первичной странице производителя.",
+    "status": "manufacturer_description",
+    "use": "product_copy",
+    "evidence": "Клинботикс 400 ПРО создан для профессиональной уборки коммерческих и общественных пространств площадью до 2000 м².",
+    "source_url": "https://waybotrobotics.com/models/400pro",
+    "source_sha256": "66d5f090ed82c57d3b4e5068dfe08e5c7d8e7b0a8e1ff85966af411f9ac07f70",
+    "source_fetched_at_utc": "2026-09-25T02:59:18.039919+00:00",
+    "source_file_private": "raw\\waybot_cleanbotics_400pro-66d5f090ed82c57d3b4e5068dfe08e5c7d8e7b0a8e1ff85966af411f9ac07f70.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 23,
+        "external_id": "f31223c1-44c8-4410-8381-6356e2158b61",
+        "name": "Клинботикс 400 PRO",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_600_summary",
+    "source_id": "waybot_cleanbotics_600",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "product_summary",
+    "value": "Робот для уборки больших помещений с режимами подметания и влажной уборки.",
+    "unit": "text",
+    "scope": "Краткое описание для карточки конкретной модели по первичной странице производителя.",
+    "status": "manufacturer_description",
+    "use": "product_copy",
+    "evidence": "Клинботикс 600 разработан для эффективной уборки больших помещений.; Подметание и влажная уборка щетками",
+    "source_url": "https://waybotrobotics.com/models/600",
+    "source_sha256": "4ed657e5ff17ba30b86d713bae2437abc406c5236d1e9c3d2c0648cddb1a900f",
+    "source_fetched_at_utc": "2026-09-24T17:49:13.784134+00:00",
+    "source_file_private": "raw\\waybot_cleanbotics_600-4ed657e5ff17ba30b86d713bae2437abc406c5236d1e9c3d2c0648cddb1a900f.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 24,
+        "external_id": "5a5b3599-bd64-4330-9bbb-4f8ce7d780b9",
+        "name": "Клинботикс 600",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "ronavi_h1500_pallet_application",
+    "source_id": "ronavi_h1500_product",
+    "catalog_rows": [
+      1
+    ],
+    "object": "warehouse",
+    "attribute": "process_application",
+    "value": "warehouse_pallet_transfer",
+    "unit": "process_code",
+    "scope": "Перевозка паллет указана на странице точной модели; интерфейс загрузки проверяется отдельно.",
+    "status": "manufacturer_application",
+    "use": "candidate_application",
+    "evidence": "Перевозит паллеты, стеллажи, тележки и конвейерные модули.",
+    "source_url": "https://ronavi-robotics.ru/catalogue/h1500",
+    "source_sha256": "9f3e65204ca92d769974a2c5cec1f9f3a8b3d461e0938ac1252f4989eb20503d",
+    "source_fetched_at_utc": "2026-09-25T02:59:14.679759+00:00",
+    "source_file_private": "raw\\ronavi_h1500_product-9f3e65204ca92d769974a2c5cec1f9f3a8b3d461e0938ac1252f4989eb20503d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 1,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "ronavi_h2000_pallet_application",
+    "source_id": "ronavi_h2000_product",
+    "catalog_rows": [
+      3
+    ],
+    "object": "warehouse",
+    "attribute": "process_application",
+    "value": "warehouse_pallet_transfer",
+    "unit": "process_code",
+    "scope": "Совместимость со стандартными паллетами заявлена производителем; способ захвата/загрузки проверяется отдельно.",
+    "status": "manufacturer_application",
+    "use": "candidate_application",
+    "evidence": "стандартными паллетами.",
+    "source_url": "https://ronavi-robotics.ru/catalogue/h2000",
+    "source_sha256": "bbedcef4336d1e024323f2de190499e2915a867f7471d0a8d4c2e9604348dd4d",
+    "source_fetched_at_utc": "2026-09-25T02:59:17.713424+00:00",
+    "source_file_private": "raw\\ronavi_h2000_product-bbedcef4336d1e024323f2de190499e2915a867f7471d0a8d4c2e9604348dd4d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 3,
+        "external_id": "6f3da854-41da-4363-8496-5487f37c845a",
+        "name": "Ronavi H2000 (грузоподъемность до 2 000 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "cognitive_pulkovo_baggage_application",
+    "source_id": "cognitive_pulkovo_2026_report",
+    "catalog_rows": [
+      188
+    ],
+    "object": "airport",
+    "attribute": "process_application",
+    "value": "airport_baggage_transport",
+    "unit": "process_code",
+    "scope": "Сообщение производителя об аэропортовом применении; не подтверждает технический допуск, тяговое усилие или эксплуатационный статус.",
+    "status": "vendor_case_reported",
+    "use": "candidate_application",
+    "evidence": "Машина с искусственным интеллектом будет возить багаж пассажиров.",
+    "source_url": "https://cognitivepilot.com/cognitive-news/news/roboty-gotovyatsya-vyyti-na-rabochuyu-smenu/",
+    "source_sha256": "18f84ad8f0db61ed246a285856ab89375adc7a99d87ad620043abf0d02a934b4",
+    "source_fetched_at_utc": "2026-09-24T19:20:44.218776+00:00",
+    "source_file_private": "raw\\cognitive_pulkovo_2026_report-18f84ad8f0db61ed246a285856ab89375adc7a99d87ad620043abf0d02a934b4.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 188,
+        "external_id": "28a5afa8-0473-4f80-99a9-b2922b76810f",
+        "name": "Беспилотный тягач (Когнитив Пилот)",
+        "company": "АО \"Когнитив Пилот\""
+      }
+    ]
+  },
+  {
+    "id": "r2b_mark2se_airport_cleaning_application",
+    "source_id": "r2b_krasnoyarsk_airport",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "process_application",
+    "value": "airport_terminal_cleaning",
+    "unit": "process_code",
+    "scope": "Опубликованное применение модели в пассажирском терминале; ограничения конкретного маршрута проверяются отдельно.",
+    "status": "vendor_case_reported",
+    "use": "candidate_application",
+    "evidence": "клиент принял решение о покупке робота Mark 2 SE. Теперь эта модель ежедневно работает в пассажирском зале",
+    "source_url": "https://r2b.company/cases/airport",
+    "source_sha256": "ab95e219bca41f6ab3f4212ba35b9ac327be65b09da7bb68ab79797bfa38b5c9",
+    "source_fetched_at_utc": "2026-09-24T17:49:19.211042+00:00",
+    "source_file_private": "raw\\r2b_krasnoyarsk_airport-ab95e219bca41f6ab3f4212ba35b9ac327be65b09da7bb68ab79797bfa38b5c9.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 21,
+        "external_id": "446c5207-a099-45e0-b615-afd60de08589",
+        "name": "MARK 2 SE",
+        "company": "ООО \"Р2Б\""
+      }
+    ]
+  },
+  {
+    "id": "r2b_mark2se_hospital_cleaning_application",
+    "source_id": "r2b_mark2se_product",
+    "catalog_rows": [
+      21
+    ],
+    "object": "hospital",
+    "attribute": "process_application",
+    "value": "hospital_floor_cleaning",
+    "unit": "process_code",
+    "scope": "Производитель называет больницу среди типов объектов; санитарный режим конкретной больницы проверяется отдельно.",
+    "status": "manufacturer_application",
+    "use": "candidate_application",
+    "evidence": "склад, ТЦ, цех, логцентр, больница, школа, вокзал",
+    "source_url": "https://r2b.company/mark2se",
+    "source_sha256": "2e011a2ff3bfa09e01dec421d5f1e1db5896144b6c657a30997d0d14c18bcc41",
+    "source_fetched_at_utc": "2026-09-25T02:59:16.763767+00:00",
+    "source_file_private": "raw\\r2b_mark2se_product-2e011a2ff3bfa09e01dec421d5f1e1db5896144b6c657a30997d0d14c18bcc41.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 21,
+        "external_id": "446c5207-a099-45e0-b615-afd60de08589",
+        "name": "MARK 2 SE",
+        "company": "ООО \"Р2Б\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_600_hospital_cleaning_application",
+    "source_id": "waybot_hospital_pilot",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "process_application",
+    "value": "hospital_floor_cleaning",
+    "unit": "process_code",
+    "scope": "Опубликованный больничный пилот модели; требования к обеззараживанию и конкретным зонам проверяются отдельно.",
+    "status": "vendor_case_reported",
+    "use": "candidate_application",
+    "evidence": "четырех роботов Cleanbotics 600 от Waybot во флагманских центрах ГКБ им. В. В. Вересаева и НИИ скорой помощи им. Н. В. Склифосовского.",
+    "source_url": "https://waybotrobotics.com/blog/waybot-robotics-na-cleaning-focus-club",
+    "source_sha256": "c85132bbc6e46da95636a6e302a2dc9015c1cfd185f9319242a7dddcb6d96e66",
+    "source_fetched_at_utc": "2026-09-24T17:49:15.752394+00:00",
+    "source_file_private": "raw\\waybot_hospital_pilot-c85132bbc6e46da95636a6e302a2dc9015c1cfd185f9319242a7dddcb6d96e66.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 24,
+        "external_id": "5a5b3599-bd64-4330-9bbb-4f8ce7d780b9",
+        "name": "Клинботикс 600",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "source_id": "ronavi_sostra_fmcg",
+    "catalog_rows": [
+      1
+    ],
+    "object": "warehouse",
+    "status": "vendor_case_reported",
+    "id": "ronavi_sostra_route_length",
+    "attribute": "case_route_length_m",
+    "value": 150,
+    "unit": "m",
+    "use": "topology_context",
+    "scope": "Длина маршрута от зоны разгрузки к цеху в опубликованном кейсе Sostra; не является расстоянием объекта пользователя.",
+    "evidence": "от зоны разгрузки к производственному цеху, 150 м",
+    "source_url": "https://ronavi-robotics.ru/cases/sostra-fmcg",
+    "source_sha256": "60a943af278d8c0bcea217d20bd2b3654887962b344b50ecdbd69f238de4bcdd",
+    "source_fetched_at_utc": "2026-09-24T20:49:50.960518+00:00",
+    "source_file_private": "raw\\ronavi_sostra_fmcg-60a943af278d8c0bcea217d20bd2b3654887962b344b50ecdbd69f238de4bcdd.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 1,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "source_id": "ronavi_sostra_fmcg",
+    "catalog_rows": [
+      1
+    ],
+    "object": "warehouse",
+    "status": "vendor_case_reported",
+    "id": "ronavi_sostra_pallet_mass",
+    "attribute": "case_pallet_mass_max_kg",
+    "value": 800,
+    "unit": "kg",
+    "use": "case_context",
+    "scope": "Верхняя масса паллеты в опубликованном кейсе Sostra; не является пределом грузоподъёмности модели или массой груза другого объекта.",
+    "evidence": "паллеты до 800 кг с пищевой жидкостью",
+    "source_url": "https://ronavi-robotics.ru/cases/sostra-fmcg",
+    "source_sha256": "60a943af278d8c0bcea217d20bd2b3654887962b344b50ecdbd69f238de4bcdd",
+    "source_fetched_at_utc": "2026-09-24T20:49:50.960518+00:00",
+    "source_file_private": "raw\\ronavi_sostra_fmcg-60a943af278d8c0bcea217d20bd2b3654887962b344b50ecdbd69f238de4bcdd.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 1,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "source_id": "ronavi_sostra_fmcg",
+    "catalog_rows": [
+      1
+    ],
+    "object": "warehouse",
+    "status": "vendor_case_reported",
+    "id": "ronavi_sostra_route_origin",
+    "attribute": "case_route_origin",
+    "value": "зона разгрузки",
+    "unit": "text",
+    "use": "topology_context",
+    "scope": "Начальная зона маршрута конкретного объекта Sostra; координаты и план не опубликованы.",
+    "evidence": "от зоны разгрузки к производственному цеху",
+    "source_url": "https://ronavi-robotics.ru/cases/sostra-fmcg",
+    "source_sha256": "60a943af278d8c0bcea217d20bd2b3654887962b344b50ecdbd69f238de4bcdd",
+    "source_fetched_at_utc": "2026-09-24T20:49:50.960518+00:00",
+    "source_file_private": "raw\\ronavi_sostra_fmcg-60a943af278d8c0bcea217d20bd2b3654887962b344b50ecdbd69f238de4bcdd.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 1,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "source_id": "ronavi_sostra_fmcg",
+    "catalog_rows": [
+      1
+    ],
+    "object": "warehouse",
+    "status": "vendor_case_reported",
+    "id": "ronavi_sostra_route_destination",
+    "attribute": "case_route_destination",
+    "value": "производственный цех",
+    "unit": "text",
+    "use": "topology_context",
+    "scope": "Конечная зона маршрута конкретного объекта Sostra; координаты и план не опубликованы.",
+    "evidence": "к производственному цеху, 150 м",
+    "source_url": "https://ronavi-robotics.ru/cases/sostra-fmcg",
+    "source_sha256": "60a943af278d8c0bcea217d20bd2b3654887962b344b50ecdbd69f238de4bcdd",
+    "source_fetched_at_utc": "2026-09-24T20:49:50.960518+00:00",
+    "source_file_private": "raw\\ronavi_sostra_fmcg-60a943af278d8c0bcea217d20bd2b3654887962b344b50ecdbd69f238de4bcdd.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 1,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "source_id": "ronavi_sostra_fmcg",
+    "catalog_rows": [
+      1
+    ],
+    "object": "warehouse",
+    "status": "vendor_case_reported",
+    "id": "ronavi_sostra_transport_table",
+    "attribute": "case_transport_interface",
+    "value": "транспортировочный столик",
+    "unit": "text",
+    "use": "case_context",
+    "scope": "Комплект оборудования кейса Sostra; не доказывает универсальный интерфейс загрузки H1500.",
+    "evidence": "Транспортировочный столик",
+    "source_url": "https://ronavi-robotics.ru/cases/sostra-fmcg",
+    "source_sha256": "60a943af278d8c0bcea217d20bd2b3654887962b344b50ecdbd69f238de4bcdd",
+    "source_fetched_at_utc": "2026-09-24T20:49:50.960518+00:00",
+    "source_file_private": "raw\\ronavi_sostra_fmcg-60a943af278d8c0bcea217d20bd2b3654887962b344b50ecdbd69f238de4bcdd.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 1,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "r2b_airport_public_hall_zone",
+    "source_id": "r2b_krasnoyarsk_airport",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "case_service_zone",
+    "value": "пассажирский зал и прикассовые зоны",
+    "unit": "zone",
+    "scope": "Фактическая зона ежедневной работы Mark 2 SE в кейсе аэропорта Красноярска; не план другого аэропорта.",
+    "status": "vendor_case_reported",
+    "use": "topology_context",
+    "evidence": "в пассажирском зале и прикассовых зонах аэропорта Красноярска",
+    "source_url": "https://r2b.company/cases/airport",
+    "source_sha256": "ab95e219bca41f6ab3f4212ba35b9ac327be65b09da7bb68ab79797bfa38b5c9",
+    "source_fetched_at_utc": "2026-09-24T17:49:19.211042+00:00",
+    "source_file_private": "raw\\r2b_krasnoyarsk_airport-ab95e219bca41f6ab3f4212ba35b9ac327be65b09da7bb68ab79797bfa38b5c9.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 21,
+        "external_id": "446c5207-a099-45e0-b615-afd60de08589",
+        "name": "MARK 2 SE",
+        "company": "ООО \"Р2Б\""
+      }
+    ]
+  },
+  {
+    "id": "r2b_airport_registration_exclusion",
+    "source_id": "r2b_krasnoyarsk_airport",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "case_excluded_zone",
+    "value": "район зоны регистрации",
+    "unit": "zone",
+    "scope": "Район регистрации исключён из уборки при настройке конкретного кейса; геометрия не опубликована.",
+    "status": "vendor_case_reported",
+    "use": "topology_context",
+    "evidence": "Мы ограничили зону уборки робота в районе зоны регистрации.",
+    "source_url": "https://r2b.company/cases/airport",
+    "source_sha256": "ab95e219bca41f6ab3f4212ba35b9ac327be65b09da7bb68ab79797bfa38b5c9",
+    "source_fetched_at_utc": "2026-09-24T17:49:19.211042+00:00",
+    "source_file_private": "raw\\r2b_krasnoyarsk_airport-ab95e219bca41f6ab3f4212ba35b9ac327be65b09da7bb68ab79797bfa38b5c9.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 21,
+        "external_id": "446c5207-a099-45e0-b615-afd60de08589",
+        "name": "MARK 2 SE",
+        "company": "ООО \"Р2Б\""
+      }
+    ]
+  },
+  {
+    "id": "r2b_airport_tactile_exclusion",
+    "source_id": "r2b_krasnoyarsk_airport",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "case_excluded_zone",
+    "value": "зона с тактильными индикаторами",
+    "unit": "zone",
+    "scope": "Зона для маломобильных пассажиров исключена из маршрута в кейсе из-за шума на тактильных индикаторах.",
+    "status": "vendor_case_reported",
+    "use": "topology_context",
+    "evidence": "робот не заезжал в зону для мало мобильных граждан.; тактильными индикаторами",
+    "source_url": "https://r2b.company/cases/airport",
+    "source_sha256": "ab95e219bca41f6ab3f4212ba35b9ac327be65b09da7bb68ab79797bfa38b5c9",
+    "source_fetched_at_utc": "2026-09-24T17:49:19.211042+00:00",
+    "source_file_private": "raw\\r2b_krasnoyarsk_airport-ab95e219bca41f6ab3f4212ba35b9ac327be65b09da7bb68ab79797bfa38b5c9.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 21,
+        "external_id": "446c5207-a099-45e0-b615-afd60de08589",
+        "name": "MARK 2 SE",
+        "company": "ООО \"Р2Б\""
+      }
+    ]
+  },
+  {
+    "id": "r2b_airport_charger_location",
+    "source_id": "r2b_krasnoyarsk_airport",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "case_charger_location",
+    "value": "рядом с мокрой точкой",
+    "unit": "zone",
+    "scope": "Расположение зарядной станции в конкретном аэропортовом кейсе; расстояние не опубликовано.",
+    "status": "vendor_case_reported",
+    "use": "topology_context",
+    "evidence": "зарядную станцию мы расположили рядом с мокрой точкой",
+    "source_url": "https://r2b.company/cases/airport",
+    "source_sha256": "ab95e219bca41f6ab3f4212ba35b9ac327be65b09da7bb68ab79797bfa38b5c9",
+    "source_fetched_at_utc": "2026-09-24T17:49:19.211042+00:00",
+    "source_file_private": "raw\\r2b_krasnoyarsk_airport-ab95e219bca41f6ab3f4212ba35b9ac327be65b09da7bb68ab79797bfa38b5c9.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 21,
+        "external_id": "446c5207-a099-45e0-b615-afd60de08589",
+        "name": "MARK 2 SE",
+        "company": "ООО \"Р2Б\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_hospital_cleaning_zones",
+    "source_id": "waybot_hospital_pilot",
+    "catalog_rows": [
+      24
+    ],
+    "object": "hospital",
+    "attribute": "case_service_zones",
+    "value": [
+      "входная зона",
+      "коридоры",
+      "лифтовые площадки"
+    ],
+    "unit": "zone",
+    "scope": "Указанные зоны уборки в опубликованном больничном пилоте; расстояния, этажи и санитарные протоколы не опубликованы.",
+    "status": "vendor_case_reported",
+    "use": "topology_context",
+    "evidence": "во входной зоне, коридорах и на лифтовых площадках",
+    "source_url": "https://waybotrobotics.com/blog/waybot-robotics-na-cleaning-focus-club",
+    "source_sha256": "c85132bbc6e46da95636a6e302a2dc9015c1cfd185f9319242a7dddcb6d96e66",
+    "source_fetched_at_utc": "2026-09-24T17:49:15.752394+00:00",
+    "source_file_private": "raw\\waybot_hospital_pilot-c85132bbc6e46da95636a6e302a2dc9015c1cfd185f9319242a7dddcb6d96e66.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 24,
+        "external_id": "5a5b3599-bd64-4330-9bbb-4f8ce7d780b9",
+        "name": "Клинботикс 600",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "ronavi_h1500_max_speed",
+    "source_id": "ronavi_h1500_product",
+    "catalog_rows": [
+      1,
+      66
+    ],
+    "object": "warehouse",
+    "attribute": "manufacturer_max_speed_m_s",
+    "value": 1.5,
+    "unit": "m/s",
+    "scope": "Паспортный максимум H1500; не является средней скоростью на конкретном складе.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Максимальная скорость передвижения;1.5 м/с",
+    "source_url": "https://ronavi-robotics.ru/catalogue/h1500",
+    "source_sha256": "9f3e65204ca92d769974a2c5cec1f9f3a8b3d461e0938ac1252f4989eb20503d",
+    "source_fetched_at_utc": "2026-09-25T02:59:14.679759+00:00",
+    "source_file_private": "raw\\ronavi_h1500_product-9f3e65204ca92d769974a2c5cec1f9f3a8b3d461e0938ac1252f4989eb20503d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 1,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      },
+      {
+        "record_index": 66,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "ronavi_h1500_runtime_80_to_20",
+    "source_id": "ronavi_h1500_product",
+    "catalog_rows": [
+      1,
+      66
+    ],
+    "object": "warehouse",
+    "attribute": "runtime_80_to_20_h",
+    "value": 10,
+    "unit": "h",
+    "scope": "До 10 часов в опубликованном производителем интервале заряда 80–20%; не подтверждает рабочий цикл площадки.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Время автономной работы (c 80% до 20%);до 10 часов",
+    "source_url": "https://ronavi-robotics.ru/catalogue/h1500",
+    "source_sha256": "9f3e65204ca92d769974a2c5cec1f9f3a8b3d461e0938ac1252f4989eb20503d",
+    "source_fetched_at_utc": "2026-09-25T02:59:14.679759+00:00",
+    "source_file_private": "raw\\ronavi_h1500_product-9f3e65204ca92d769974a2c5cec1f9f3a8b3d461e0938ac1252f4989eb20503d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 1,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      },
+      {
+        "record_index": 66,
+        "external_id": "5760e938-9a43-45a7-b8e8-f4f2e6383930",
+        "name": "Ronavi H1500 (грузоподъемность до 1 500 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "ronavi_h2000_max_speed",
+    "source_id": "ronavi_h2000_product",
+    "catalog_rows": [
+      3,
+      67
+    ],
+    "object": "warehouse",
+    "attribute": "manufacturer_max_speed_m_s",
+    "value": 1,
+    "unit": "m/s",
+    "scope": "Паспортный максимум H2000; не является средней скоростью на конкретном производстве.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Максимальная скорость передвижения 1 м/с",
+    "source_url": "https://ronavi-robotics.ru/catalogue/h2000",
+    "source_sha256": "bbedcef4336d1e024323f2de190499e2915a867f7471d0a8d4c2e9604348dd4d",
+    "source_fetched_at_utc": "2026-09-25T02:59:17.713424+00:00",
+    "source_file_private": "raw\\ronavi_h2000_product-bbedcef4336d1e024323f2de190499e2915a867f7471d0a8d4c2e9604348dd4d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 3,
+        "external_id": "6f3da854-41da-4363-8496-5487f37c845a",
+        "name": "Ronavi H2000 (грузоподъемность до 2 000 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      },
+      {
+        "record_index": 67,
+        "external_id": "6f3da854-41da-4363-8496-5487f37c845a",
+        "name": "Ronavi H2000 (грузоподъемность до 2 000 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "ronavi_h2000_runtime_80_to_20",
+    "source_id": "ronavi_h2000_product",
+    "catalog_rows": [
+      3,
+      67
+    ],
+    "object": "warehouse",
+    "attribute": "runtime_80_to_20_h",
+    "value": 10,
+    "unit": "h",
+    "scope": "До 10 часов в опубликованном производителем интервале заряда 80–20%; не подтверждает рабочий цикл площадки.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "Время автономной работы (c 80% до 20%) до 10 часов",
+    "source_url": "https://ronavi-robotics.ru/catalogue/h2000",
+    "source_sha256": "bbedcef4336d1e024323f2de190499e2915a867f7471d0a8d4c2e9604348dd4d",
+    "source_fetched_at_utc": "2026-09-25T02:59:17.713424+00:00",
+    "source_file_private": "raw\\ronavi_h2000_product-bbedcef4336d1e024323f2de190499e2915a867f7471d0a8d4c2e9604348dd4d.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 3,
+        "external_id": "6f3da854-41da-4363-8496-5487f37c845a",
+        "name": "Ronavi H2000 (грузоподъемность до 2 000 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      },
+      {
+        "record_index": 67,
+        "external_id": "6f3da854-41da-4363-8496-5487f37c845a",
+        "name": "Ronavi H2000 (грузоподъемность до 2 000 кг)",
+        "company": "ООО \"Ронави Роботикс\""
+      }
+    ]
+  },
+  {
+    "id": "r2b_mark2se_runtime",
+    "source_id": "r2b_mark2se_product",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "runtime_h",
+    "value": 3,
+    "unit": "h",
+    "scope": "Время работы на одном заряде точной модели MARK 2 SE; условия конкретного терминала требуют измерения.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "3 часа Время работы на одном заряде",
+    "source_url": "https://r2b.company/mark2se",
+    "source_sha256": "2e011a2ff3bfa09e01dec421d5f1e1db5896144b6c657a30997d0d14c18bcc41",
+    "source_fetched_at_utc": "2026-09-25T02:59:16.763767+00:00",
+    "source_file_private": "raw\\r2b_mark2se_product-2e011a2ff3bfa09e01dec421d5f1e1db5896144b6c657a30997d0d14c18bcc41.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 21,
+        "external_id": "446c5207-a099-45e0-b615-afd60de08589",
+        "name": "MARK 2 SE",
+        "company": "ООО \"Р2Б\""
+      }
+    ]
+  },
+  {
+    "id": "r2b_mark2se_full_charge",
+    "source_id": "r2b_mark2se_product",
+    "catalog_rows": [
+      21
+    ],
+    "object": "airport",
+    "attribute": "full_charge_h",
+    "value": 2,
+    "unit": "h",
+    "scope": "Время полной зарядки MARK 2 SE по странице производителя; очереди зарядной станции отдельно не подтверждены.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "2 часа Время полной зарядки",
+    "source_url": "https://r2b.company/mark2se",
+    "source_sha256": "2e011a2ff3bfa09e01dec421d5f1e1db5896144b6c657a30997d0d14c18bcc41",
+    "source_fetched_at_utc": "2026-09-25T02:59:16.763767+00:00",
+    "source_file_private": "raw\\r2b_mark2se_product-2e011a2ff3bfa09e01dec421d5f1e1db5896144b6c657a30997d0d14c18bcc41.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 21,
+        "external_id": "446c5207-a099-45e0-b615-afd60de08589",
+        "name": "MARK 2 SE",
+        "company": "ООО \"Р2Б\""
+      }
+    ]
+  },
+  {
+    "id": "waybot_400pro_full_charge",
+    "source_id": "waybot_cleanbotics_400pro",
+    "catalog_rows": [
+      23
+    ],
+    "object": "hospital",
+    "attribute": "full_charge_h",
+    "value": 1,
+    "unit": "h",
+    "scope": "Время полной зарядки точной модели Cleanbotics 400 PRO, не 600.",
+    "status": "manufacturer_spec",
+    "use": "matching_limit",
+    "evidence": "1 час Время полной зарядки",
+    "source_url": "https://waybotrobotics.com/models/400pro",
+    "source_sha256": "66d5f090ed82c57d3b4e5068dfe08e5c7d8e7b0a8e1ff85966af411f9ac07f70",
+    "source_fetched_at_utc": "2026-09-25T02:59:18.039919+00:00",
+    "source_file_private": "raw\\waybot_cleanbotics_400pro-66d5f090ed82c57d3b4e5068dfe08e5c7d8e7b0a8e1ff85966af411f9ac07f70.html",
+    "catalog_sha256": "1521b9c886a706eda3a65cd697ec78018ad41d501713333e834266879dedb5d9",
+    "catalog_refs": [
+      {
+        "record_index": 23,
+        "external_id": "f31223c1-44c8-4410-8381-6356e2158b61",
+        "name": "Клинботикс 400 PRO",
+        "company": "ООО \"Вейбот Автомакон Роботикс\""
+      }
+    ]
+  }
+]
