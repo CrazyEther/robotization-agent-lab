@@ -19,8 +19,8 @@ test('financial shortfall is visible and ROI/NPV projections require explicit co
  await page.getByLabel('Дополнительные затраты на недостающий объём').fill('1200000');
  await expect(page.getByTestId('conditional-roi')).toContainText('%');
  await expect(page.getByTestId('conditional-npv')).toContainText('₽');
- const ceiling=Number((await page.getByTestId('conditional-roi-ceiling').innerText()).replace(/[^\d,.\-]/g,'').replace(',','.'));
- const assumed=Number((await page.getByTestId('conditional-roi').innerText()).replace(/[^\d,.\-]/g,'').replace(',','.'));
+ const ceiling=Number((await page.getByTestId('conditional-roi-ceiling').innerText()).replace(/[^\d,.-]/g,'').replace(',','.'));
+ const assumed=Number((await page.getByTestId('conditional-roi').innerText()).replace(/[^\d,.-]/g,'').replace(',','.'));
  expect(assumed).toBeLessThan(ceiling);
  await expect(summary).toContainText('Симуляция не доказала');
  expect(errors).toEqual([]);

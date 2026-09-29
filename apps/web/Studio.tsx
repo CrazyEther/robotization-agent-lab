@@ -1,5 +1,5 @@
 import {useMemo,useRef,useState} from 'react';
-import {ArrowRight,ArrowUpRight,Box,Check,ChevronRight,Download,Factory,HeartPulse,Info,MapPinned,Plane,Play,RotateCcw,Search,Settings2,ShieldAlert,ShoppingBag,Warehouse} from 'lucide-react';
+import {ArrowRight,ArrowUpRight,Box,Check,ChevronRight,Download,Factory,HeartPulse,Info,Plane,Play,RotateCcw,Search,Settings2,ShieldAlert,ShoppingBag,Warehouse} from 'lucide-react';
 import registry from '../../data/catalog.json';
 import catalogV4 from '../../data/catalog-v4.json';
 import {createScenario,evaluateExperimentInvestment,experimentResultSchema,gridRoute,sectorTemplates,simulationSchema,type ExperimentResult,type FinanceInput,type MetricSummary,type Sector,type SimulationInput,type SimulationResult} from '../../packages/ris/contracts';

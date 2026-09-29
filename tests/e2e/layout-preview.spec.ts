@@ -16,7 +16,7 @@ test('editable industrial cell drives same agent simulation and scenario-based R
  await expect(page.getByTestId('agent-robot')).toHaveCount(4);
  await expect(page.locator('.ras-charge-note')).toContainText('зарядок');
  const map=page.getByTestId('agent-floor');const box=await map.boundingBox();expect(box).not.toBeNull();
- const first=page.getByTestId('agent-machine').first();const before=await first.getAttribute('transform');
+ const first=page.getByTestId('agent-machine').first();
  await first.scrollIntoViewIfNeeded();
  const bounds=await first.boundingBox();expect(bounds).not.toBeNull();
  if(bounds){

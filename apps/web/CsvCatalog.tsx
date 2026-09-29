@@ -6,7 +6,6 @@ import SupplementCatalog from './SupplementCatalog';
 import './csv-catalog.css';
 
 type RecordRow=(typeof catalog.rows)[number];
-type Family={id:string;rows:RecordRow[];first:RecordRow};
 const unique=(values:string[])=>[...new Set(values.filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ru'));
 const amount=(v:number)=>new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(v);
 const getReferencePrice=(rows:RecordRow[])=>rows.find(r=>r.priceValue!==null&&r.priceValue>0)?.priceValue??null;
@@ -101,5 +100,3 @@ export default function CsvCatalog(){
    </section></div>}
  </section>;
 }
-
-\n

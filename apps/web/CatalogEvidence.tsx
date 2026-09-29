@@ -81,5 +81,3 @@ export default function CatalogEvidence({ordinals}:{ordinals:number[]}){
   })}
  </div>;
 }
-
-\n
