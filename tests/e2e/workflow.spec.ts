@@ -25,7 +25,7 @@ test('object → robot → layout → live simulation without external SimPy',as
  expect(errors).toEqual([]);
 });
 
-test('CSV catalog lists 187 models and shows original claims without fake verification',async({page})=>{
+test('CSV catalog shows source links and scoped evidence for 187 models',async({page})=>{
  await page.goto('/');
  await page.getByRole('button',{name:'Маркетплейс'}).first().click();
  await page.getByRole('button',{name:/Каталог CSV/}).click();
@@ -35,7 +35,8 @@ test('CSV catalog lists 187 models and shows original claims without fake verifi
  await page.getByRole('button',{name:'Все характеристики и кейсы'}).click();
  await expect(page.getByRole('dialog')).toContainText('Восток-Сервис');
  await expect(page.getByRole('dialog')).toContainText('валюта не указана');
- await expect(page.getByRole('dialog')).toContainText('не являются независимо проверенными');
+ await expect(page.getByRole('dialog')).toContainText('Атрибутировано');
+ await expect(page.getByRole('dialog').getByRole('link',{name:'Открыть первоисточник ↗'}).first()).toHaveAttribute('href',/https:\/\//);
  await page.getByRole('button',{name:'Закрыть карточку'}).click();
  await expect(page.getByRole('dialog')).toHaveCount(0);
 });test('simulation API remains explicit about unavailable legacy Python service',async({request})=>{
